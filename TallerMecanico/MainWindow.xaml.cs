@@ -77,6 +77,8 @@ namespace TallerMecanico
 
         private List<int> permisosUsuarioLogeado = new List<int>();            
         private List<pieza> listadoPiezasInicio = new List<pieza>();
+
+        private int test;
         
         
 
@@ -121,7 +123,9 @@ namespace TallerMecanico
             paginaInicio();
             gestionUsuario();
             gestionaNotificaciones();
+            test = 5;
         }  
+
                 
 
         /// <summary>
