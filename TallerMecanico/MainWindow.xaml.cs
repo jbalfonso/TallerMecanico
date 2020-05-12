@@ -78,7 +78,7 @@ namespace TallerMecanico
         private List<int> permisosUsuarioLogeado = new List<int>();            
         private List<pieza> listadoPiezasInicio = new List<pieza>();
 
-        
+        //TEST
         
         
 
