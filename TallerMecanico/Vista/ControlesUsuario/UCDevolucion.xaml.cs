@@ -101,8 +101,9 @@ namespace TallerMecanico.Vista.ControlesUsuario
                     rd.SetParameterValue("metodoDevolucion", "Paypal");
                     rd.SetParameterValue("campoDevolucion", "Correo cargo: " + mvfactura.paypalSeleccionado.correo);
                 }
-
+                
                 devolucionReport.ViewerCore.ReportSource = rd;
+                
             }
             catch (Exception ex)
             {

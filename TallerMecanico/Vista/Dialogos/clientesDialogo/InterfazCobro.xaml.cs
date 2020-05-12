@@ -292,7 +292,15 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             clienteSeleccionado = true;
             
             validacionAveria.Visibility = Visibility.Collapsed;
-           
+            List<averia> averiasCliente = new List<averia>();
+            foreach  (averia av in mvfactura.clienteSeleccionado.averia)
+            {
+                if (av.Estado == "Finalizado")
+                {
+                    averiasCliente.Add(av);
+                }
+            }
+            averiaCombo.ItemsSource = averiasCliente;
             averiaCombo.Items.Refresh();
             
             if (controladorCliente)
@@ -324,6 +332,7 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         /// <param name="e"></param>
         private async void AveriaCombo_Closed(object sender, RoutedEventArgs e)
         {
+            try {                 
             averiaSeleccionada = true;
             double precio = 0.0;
             List<pieza> piezasTotales = new List<pieza>();
@@ -331,10 +340,17 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
 
             foreach (averia av in mvfactura.averiaSeleccionadas)
             {
-               precio += (double)av.Precio;
-              
-                piezasPorAveria.Add(av.pieza.ToList());
-            }
+                    if (av.Precio != null)
+                    {
+                        precio += (double)av.Precio;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error","La averia debe de tener un precio para poder ser cobrada, modifique la averia o añada la resolucion");
+                        averiaSeleccionada = false;
+                    }
+                    piezasPorAveria.Add(av.pieza.ToList());
+                }
             preciotxt.Text = precio + "€";
 
             foreach (List<pieza> lista in piezasPorAveria)
@@ -364,8 +380,15 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             }
             else
             {
+                
                 validacionPrecio.Visibility = Visibility.Visible;
                 averiaSeleccionada = false;
+            }
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Error","Ha habido un error al seleccionar una averia");
+                logger.Error("Ha habido un error al seleccionar una averia en la interfaz de cobro, comprobar que el precio de la averia no sea null",ex);
             }
             gestorPago();
         }

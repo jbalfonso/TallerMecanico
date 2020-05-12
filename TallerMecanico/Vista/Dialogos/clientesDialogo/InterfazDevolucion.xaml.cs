@@ -226,41 +226,41 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         {
             DateTime fechaFactura = (DateTime)fechaDevolucion.SelectedDate;
             DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-
-            if (mvfactura.abonaAveria())
-            {
-                if (fechaFactura >= fechaActual)
+            
+                if (mvfactura.abonaAveria())
                 {
-                    if (mvfactura.metodoPago == tarjeta)
+                    if (fechaFactura >= fechaActual)
                     {
-                        manipularTarjeta();
+                        if (mvfactura.metodoPago == tarjeta)
+                        {
+                            manipularTarjeta();
 
-                    }
-                    else if (mvfactura.metodoPago == efectivo)
-                    {
-                        this.DialogResult = true;
+                        }
+                        else if (mvfactura.metodoPago == efectivo)
+                        {
+                            this.DialogResult = true;
 
-                    }
-                    else if (mvfactura.metodoPago == paypal)
-                    {
-                        manipularPaypal();
+                        }
+                        else if (mvfactura.metodoPago == paypal)
+                        {
+                            manipularPaypal();
+                        }
+                        else
+                        {
+                            await this.ShowMessageAsync("Informacion", "Debe seleccionar un metodo de pago");
+                        }
                     }
                     else
                     {
-                        await this.ShowMessageAsync("Informacion", "Debe seleccionar un metodo de pago");
+
+                        await this.ShowMessageAsync("Informacion", "La fecha de facturacion no puede ser menor que la fecha actual");
                     }
                 }
                 else
                 {
-
-                    await this.ShowMessageAsync("Informacion", "La fecha de facturacion no puede ser menor que la fecha actual");
+                    await this.ShowMessageAsync("Error", "Ha habido un problema al cambiar el estado de la averia en la base de datos");
                 }
-            }
-            else
-            {
-                await this.ShowMessageAsync("Error","Ha habido un problema al cambiar el estado de la averia en la base de datos");
-            }
-            
+           
 
         }
 

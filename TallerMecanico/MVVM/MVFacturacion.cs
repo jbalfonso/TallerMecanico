@@ -250,6 +250,24 @@ namespace TallerMecanico.MVVM
                     return null;
                 } }
         }
-        
+
+        /// <summary>
+        /// Devuelve un listado de averias que hay en la base de datos,/ 
+        /// las cuales el estado este finalizado
+        /// </summary>
+        public List<averia> listaAveriasFinalizadas
+        {
+            get
+            {
+                try { return avServ.getAveriasPorEstado("Finalizado"); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha habido un error inesperado al obtener las averias por el estado ''Finalizado''", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    logger.Error("Ha habido un error inesperado al obtener las averias con estado ''Finalizado'' de la base de datos", ex);
+                    return null;
+                }
+            }
+        }
+
     }
 }

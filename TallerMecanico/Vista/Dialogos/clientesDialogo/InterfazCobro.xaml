@@ -53,7 +53,7 @@
                       ItemsSource="{Binding listaClientes}" DisplayMemberPath="Nombre"  SelectionChanged="ClienteCombo_SelectionChanged"
                      SelectedItem="{Binding clienteSeleccionado, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <ex:CheckComboBox x:Name="averiaCombo"  Panel.ZIndex="2" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding clienteSeleccionado.averia}" 
+            <ex:CheckComboBox x:Name="averiaCombo"  Panel.ZIndex="2" Grid.Row="0" Grid.Column="1"
                               SelectedMemberPath="Descripcion" material:HintAssist.Hint="Averias" Margin="80,30,20,0"  Closed="AveriaCombo_Closed"
                               Opened="AveriaCombo_Opened"
                               DisplayMemberPath="Descripcion" SelectedItemsOverride="{Binding averiaSeleccionadas}" MaxWidth="300"/>
