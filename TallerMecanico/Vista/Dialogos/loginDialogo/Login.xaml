@@ -1,0 +1,101 @@
+﻿<Window x:Class="TallerMecanico.Vista.Dialogos.loginDialogo.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TallerMecanico.Vista.Dialogos"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FocusManager.FocusedElement="{Binding ElementName=txbUsuario}"
+        mc:Ignorable="d"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
+        WindowStartupLocation="CenterScreen" Icon="/Recursos/Iconos/icono_Aplicacion.ico">
+    <Grid>
+        <Border BorderThickness="1" CornerRadius="50,50,50,50" BorderBrush="White" Background="White"/>
+        <Button Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Foreground="White"  
+                Width="70" Height="60" VerticalAlignment="Top" HorizontalAlignment="Right" Panel.ZIndex="2" Margin="0,0,0,0" 
+                BorderBrush="Transparent" Click="Cerrar_Click">
+            <Button.Content>
+                <material:PackIcon Kind="Power" Width="58" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button.Content>
+        </Button>
+        <Button Background="Transparent" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                Foreground="White" Width="80" Height="60" Margin="0,0,60,0" VerticalAlignment="Top" HorizontalAlignment="Right" Panel.ZIndex="2" 
+                BorderBrush="Transparent" Click="Minimizar_Click">
+            <Button.Content>
+                <material:PackIcon Kind="WindowMinimize" Width="65" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button.Content>
+        </Button>
+
+
+        <Image Source="/Recursos/Iconos/LoginTaller.jpg" Margin="370,0,0,0" Stretch="UniformToFill"/>
+
+        <Rectangle Width="430" Height="Auto" HorizontalAlignment="Right" >
+            
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#CC935E12" Offset="1"/>
+                    <GradientStop Color="#CCEA4646"/>
+                    <GradientStop Color="#CCB89128" Offset="0.566"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            
+        </Rectangle>
+        
+        <StackPanel Margin="20,30,290,10">
+                <Label x:Name="labelLogin" Content="Login" FontFamily="Segoe UI Black" FontSize="24" Margin="0,5,0,50" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBlock FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" 
+                           Foreground="#707070">Formulario de inicio de sesion en la aplicacion de taller:</TextBlock>
+                <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070">Todos los campos son requeridos,</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0,7,0,20">
+
+                   
+                </StackPanel>
+
+                <Border Visibility="Collapsed" x:Name="existeInforme" Margin="50,0,0,0" HorizontalAlignment="Left" CornerRadius="07" 
+                        BorderBrush="#a1e0ff" BorderThickness="2" Width="220" Background="#a1e0ff" Height="40">
+
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Visibility="Visible"  Text="El Usuario no existe" 
+                               TextDecorations="Underline" Foreground="red" FontWeight="Bold" Background="Transparent" FontStyle="Italic"/>
+                </Border>
+
+
+
+                <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                    <material:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070" Height="20" Width="20"/>
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="txbUsuario" material:HintAssist.Hint="Usuario" 
+                         Width="270" Margin="5" FontSize="15"  material:TextFieldAssist.HasClearButton="True"/>
+                </StackPanel>
+                <TextBlock x:Name="requeUsu" FontSize="13" Visibility="Collapsed" Text="* Este campo es requerido" Foreground="Red" FontStyle="Italic"/>
+                <StackPanel Orientation="Horizontal">
+                    <material:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070" Height="20" Width="20"/>
+                <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="txbPassword" material:HintAssist.Hint="Contraseña"
+                             Width="270" Margin="5" FontSize="15"  material:TextFieldAssist.HasClearButton="True"/>
+                </StackPanel>
+                <TextBlock x:Name="requeContra" FontSize="13" Visibility="Collapsed" Text="* Este campo es requerido" Foreground="Red" FontStyle="Italic"/>
+                <Button Click="IniciarSesion_Click" IsDefault="True" HorizontalAlignment="Left" Content="Iniciar Sesion" FontWeight="Bold" FontSize="18" 
+                        Width="250" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="30,20,91,0"/>
+                <StackPanel Orientation="Horizontal" Margin="80,35">
+                    
+                    <Button HorizontalAlignment="Center" FontFamily="Impact" FontSize="18" Background="#FF3D56AC" BorderBrush="#FF3D56AC" Click="FacebookBtn_Click">
+                        <material:PackIcon Kind="Facebook" VerticalAlignment="Center" Foreground="White"/>
+                    </Button>
+                    <Button HorizontalAlignment="Center" FontFamily="Impact" FontSize="18" Margin="15,0" Background="#FF01BAFF" BorderBrush="#FF01BAFF" 
+                            Click="TwitterBtn_Click">
+                        <material:PackIcon Kind="Twitter" VerticalAlignment="Center" Foreground="White"/>
+                    </Button>
+                    <Button HorizontalAlignment="Center" FontFamily="Impact" FontSize="18" Background="#FFE05959" BorderBrush="#FFE05959" Click="GooglePlusBtn_Click">
+                        <material:PackIcon Kind="GooglePlus" VerticalAlignment="Center" Foreground="White"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        <StackPanel Margin="370,80,0,50">
+            <TextBlock Text="Taller Vehiculos" Foreground="White" HorizontalAlignment="Center" FontSize="48" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" />
+            <TextBlock Text="Todo lo que usted necesita a su propia disposicion" Foreground="White" HorizontalAlignment="Center" Width="280" FontSize="24" 
+                       FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Center" Margin="0,50,0,0"/>
+            <TextBlock Text="Servicio 24Hrs" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" 
+                       TextAlignment="Right" Margin="20"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

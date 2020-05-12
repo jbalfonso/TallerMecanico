@@ -1,0 +1,170 @@
+\hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol}{}\doxysection{Referencia de la Clase Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol}
+\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol}\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+
+
+Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+VM}} la cual gestiona lo relativo a los roles  
+
+
+Diagrama de herencias de Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a384cf83f901ea3defa2bd68995f092d0}{M\+V\+Rol}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}} t\+Ent)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase de \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol}{M\+V\+Rol}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479a9d87a927ef560975b69a}{permisosrol\+Drop}} ()
+\begin{DoxyCompactList}\small\item\em Gestiona los permisos que tiene el rol seleccionado \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a043f3941111ca4e16cc4ee03fa04a823}{borra}} ()
+\begin{DoxyCompactList}\small\item\em Borra el rol seleccionado \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}{guarda}} ()
+\begin{DoxyCompactList}\small\item\em Guarda el rol en la base de datos, cuando editar esta en true en lugar de guardar, edita el rol \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_abb45dee332628f42dc27ed3798cee1fb}{editar}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em booleano el cual cuando esta en true, en vez de guardar, edita el rol \end{DoxyCompactList}\item 
+I\+Collection$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae5888196290818ebc860f72e578e0660}{permisos\+Drop}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gestiona la colleccoin de permisos que tiene el rol \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}} \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4737fc207aa1f4d2e271fc8914e11375}{permiso\+Seleccionado}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gestiona el permiso seleccionado \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}} \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a1210ee5df4e63dcb82ee9417b200826d}{rol\+Nuevo}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gestiona el rol seleccionado \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae1e7a3a533455f2562869275ef4c2c8d}{lista\+Roles}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Devuelve un listado de roles que hay en la base de datos \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4e07336f93925a40f4c698be215d951e}{lista\+Permisos}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Devuelve un listado ed permisos que hay en la base de datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+VM}} la cual gestiona lo relativo a los roles 
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a384cf83f901ea3defa2bd68995f092d0}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a384cf83f901ea3defa2bd68995f092d0}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!MVRol@{MVRol}}
+\index{MVRol@{MVRol}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{MVRol()}{MVRol()}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+M\+V\+Rol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{t\+Ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase de \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol}{M\+V\+Rol}} 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t\+Ent} & entidad de la base de dato taller mecanico\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a043f3941111ca4e16cc4ee03fa04a823}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a043f3941111ca4e16cc4ee03fa04a823}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!borra@{borra}}
+\index{borra@{borra}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{borra()}{borra()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Borra el rol seleccionado 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si no hay ninguna excepcion, si hay alguna excepcion devuelve false
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!guarda@{guarda}}
+\index{guarda@{guarda}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{guarda()}{guarda()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Guarda el rol en la base de datos, cuando editar esta en true en lugar de guardar, edita el rol 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si no hay ninguna excepcion al guardar el rol, si hay alguna excepcion devuelve false
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479a9d87a927ef560975b69a}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479a9d87a927ef560975b69a}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!permisosrolDrop@{permisosrolDrop}}
+\index{permisosrolDrop@{permisosrolDrop}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{permisosrolDrop()}{permisosrolDrop()}}
+{\footnotesize\ttfamily void Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+permisosrol\+Drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gestiona los permisos que tiene el rol seleccionado 
+
+
+
+\doxysubsection{Documentación de propiedades}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_abb45dee332628f42dc27ed3798cee1fb}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_abb45dee332628f42dc27ed3798cee1fb}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!editar@{editar}}
+\index{editar@{editar}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{editar}{editar}}
+{\footnotesize\ttfamily bool Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+editar\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+booleano el cual cuando esta en true, en vez de guardar, edita el rol 
+
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4e07336f93925a40f4c698be215d951e}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4e07336f93925a40f4c698be215d951e}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!listaPermisos@{listaPermisos}}
+\index{listaPermisos@{listaPermisos}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{listaPermisos}{listaPermisos}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}}$>$ Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+lista\+Permisos\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Devuelve un listado ed permisos que hay en la base de datos 
+
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae1e7a3a533455f2562869275ef4c2c8d}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae1e7a3a533455f2562869275ef4c2c8d}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!listaRoles@{listaRoles}}
+\index{listaRoles@{listaRoles}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{listaRoles}{listaRoles}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}}$>$ Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+lista\+Roles\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Devuelve un listado de roles que hay en la base de datos 
+
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae5888196290818ebc860f72e578e0660}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_ae5888196290818ebc860f72e578e0660}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!permisosDrop@{permisosDrop}}
+\index{permisosDrop@{permisosDrop}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{permisosDrop}{permisosDrop}}
+{\footnotesize\ttfamily I\+Collection$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}}$>$ Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+permisos\+Drop\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gestiona la colleccoin de permisos que tiene el rol 
+
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4737fc207aa1f4d2e271fc8914e11375}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a4737fc207aa1f4d2e271fc8914e11375}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!permisoSeleccionado@{permisoSeleccionado}}
+\index{permisoSeleccionado@{permisoSeleccionado}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{permisoSeleccionado}{permisoSeleccionado}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1permiso}{permiso}} Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+permiso\+Seleccionado\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gestiona el permiso seleccionado 
+
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a1210ee5df4e63dcb82ee9417b200826d}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a1210ee5df4e63dcb82ee9417b200826d}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!rolNuevo@{rolNuevo}}
+\index{rolNuevo@{rolNuevo}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{rolNuevo}{rolNuevo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}} Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+rol\+Nuevo\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gestiona el rol seleccionado 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+M\+V\+V\+M/M\+V\+Rol.\+cs\end{DoxyCompactItemize}

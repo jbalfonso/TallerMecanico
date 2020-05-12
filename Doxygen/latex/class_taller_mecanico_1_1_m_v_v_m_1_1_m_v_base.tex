@@ -1,0 +1,133 @@
+\hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base}{}\doxysection{Referencia de la Clase Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base}
+\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base}\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+
+
+Contenido de la clase generica \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base}{M\+V\+Base}}  
+
+
+Diagrama de herencias de Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.945355cm]{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a1ae6f966de490bff7a871425e909ae4c}{Is\+Valid}} (Dependency\+Object obj)
+\begin{DoxyCompactList}\small\item\em Método que nos permite saber si hay errores en algún formulario En caso de que haya errores devolverá el valor de falso y en caso de que no haya devolverá verdadero \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a54ce6b78b4392b013d2ceea341a7c975}{On\+Error\+Event}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Deshabilita el botón de guardar si hay errores en el formulario Si no hay errores habilitará el botón \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_afbff5dfd7d2371b1978f18cc8c9311ed}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_afbff5dfd7d2371b1978f18cc8c9311ed}} 
+bool {\bfseries Set$<$ T $>$} (ref T field, T value, \mbox{[}Caller\+Member\+Name\mbox{]}string property\+Name=\char`\"{}\char`\"{})
+\item 
+void \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a485d4fbca21e494358cf84aa6ca309d0}{On\+Property\+Changed}} (string property\+Name)
+\begin{DoxyCompactList}\small\item\em Gestiona el Onproperty changed de la propiedad \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+Button \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a8126f0e492bb691b3c274796b9d95287}{btn\+Guardar}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el boton de guardar de los formularios \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a5e5e143ec3d28aa3fb3197ab2947b822}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a5e5e143ec3d28aa3fb3197ab2947b822}} 
+string \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a5e5e143ec3d28aa3fb3197ab2947b822}{Error}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em check for general model error \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_added1d4c90f93fccab83311133e7baa7}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_added1d4c90f93fccab83311133e7baa7}} 
+string \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_added1d4c90f93fccab83311133e7baa7}{this\mbox{[}string column\+Name\mbox{]}}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em check for property errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Eventos}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a2a4b5a7756b606266fc1f8b90899d105}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Gestiona el Property\+Changed\+Event\+Handler \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Contenido de la clase generica \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base}{M\+V\+Base}} 
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a1ae6f966de490bff7a871425e909ae4c}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a1ae6f966de490bff7a871425e909ae4c}} 
+\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily bool Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base.\+Is\+Valid (\begin{DoxyParamCaption}\item[{Dependency\+Object}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método que nos permite saber si hay errores en algún formulario En caso de que haya errores devolverá el valor de falso y en caso de que no haya devolverá verdadero 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si es valido
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a54ce6b78b4392b013d2ceea341a7c975}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a54ce6b78b4392b013d2ceea341a7c975}} 
+\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}!OnErrorEvent@{OnErrorEvent}}
+\index{OnErrorEvent@{OnErrorEvent}!TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+\doxysubsubsection{\texorpdfstring{OnErrorEvent()}{OnErrorEvent()}}
+{\footnotesize\ttfamily void Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base.\+On\+Error\+Event (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deshabilita el botón de guardar si hay errores en el formulario Si no hay errores habilitará el botón 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a485d4fbca21e494358cf84aa6ca309d0}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a485d4fbca21e494358cf84aa6ca309d0}} 
+\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}!OnPropertyChanged@{OnPropertyChanged}}
+\index{OnPropertyChanged@{OnPropertyChanged}!TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+\doxysubsubsection{\texorpdfstring{OnPropertyChanged()}{OnPropertyChanged()}}
+{\footnotesize\ttfamily void Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base.\+On\+Property\+Changed (\begin{DoxyParamCaption}\item[{string}]{property\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Gestiona el Onproperty changed de la propiedad 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em property\+Name} & nombre de la propiedad\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de propiedades}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a8126f0e492bb691b3c274796b9d95287}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a8126f0e492bb691b3c274796b9d95287}} 
+\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}!btnGuardar@{btnGuardar}}
+\index{btnGuardar@{btnGuardar}!TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+\doxysubsubsection{\texorpdfstring{btnGuardar}{btnGuardar}}
+{\footnotesize\ttfamily Button Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base.\+btn\+Guardar\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece el boton de guardar de los formularios 
+
+
+
+\doxysubsection{Documentación de los eventos}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a2a4b5a7756b606266fc1f8b90899d105}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base_a2a4b5a7756b606266fc1f8b90899d105}} 
+\index{TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!TallerMecanico.MVVM.MVBase@{TallerMecanico.MVVM.MVBase}}
+\doxysubsubsection{\texorpdfstring{PropertyChanged}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Base.\+Property\+Changed}
+
+
+
+Gestiona el Property\+Changed\+Event\+Handler 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+M\+V\+V\+M/M\+V\+Base.\+cs\end{DoxyCompactItemize}

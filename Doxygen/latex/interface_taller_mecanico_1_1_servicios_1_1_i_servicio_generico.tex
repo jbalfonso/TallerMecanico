@@ -1,0 +1,171 @@
+\hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{}\doxysection{Referencia de la plantilla de la Interfaz Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico$<$ T $>$}
+\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+Diagrama de herencias de Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico$<$ T $>$\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+I\+Enumerable$<$ T $>$ \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a54fe355f2e26aabf4329730d39b4c1db}{get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene todos los objetos de una determinada entidad \end{DoxyCompactList}\item 
+I\+Enumerable$<$ T $>$ \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a6955cf166d778b07476e495f53e109b3}{find\+By}} (Expression$<$ Func$<$ T, bool $>$$>$ predicate)
+\begin{DoxyCompactList}\small\item\em Busca elementos según la expresión o predicado pasado como parámetro \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_ab133ac97ff656e789286979000fa6263}{find\+By\+ID}} (int id)
+\begin{DoxyCompactList}\small\item\em Busca un objeto por su identificador \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_aa634fa8439db536c0bb02416f1de88cb}{add}} (T entity)
+\begin{DoxyCompactList}\small\item\em Inserta un objeto nuevo en la base de datos Luego se debe de realizar un commit para que se hagan persistentes los cambios \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5bddd540922529a802d1ddc427ba59bf}{delete}} (T entity)
+\begin{DoxyCompactList}\small\item\em Borra un objeto de la base de datos en función de su id Luego se debe de realizar un commit para que se hagan persistentes los cambios \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5aac7e045ee6f833fd03351d7b51eb75}{edit}} (T entity)
+\begin{DoxyCompactList}\small\item\em Edita un objeto de la base de datos Luego se debe de realizar un commit para que se hagan persistentes los cambios \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a00d716f070d96691b13a5733f10d4aba}{save}} ()
+\begin{DoxyCompactList}\small\item\em Realiza un commit para que los cambios se hagan persistentes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_aa634fa8439db536c0bb02416f1de88cb}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_aa634fa8439db536c0bb02416f1de88cb}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!add@{add}}
+\index{add@{add}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.add (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Inserta un objeto nuevo en la base de datos Luego se debe de realizar un commit para que se hagan persistentes los cambios 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_ada301828d05b704ccfa9fb6463d10399}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5bddd540922529a802d1ddc427ba59bf}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5bddd540922529a802d1ddc427ba59bf}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!delete@{delete}}
+\index{delete@{delete}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.delete (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Borra un objeto de la base de datos en función de su id Luego se debe de realizar un commit para que se hagan persistentes los cambios 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a3f407d28221739275ce3000c3be87646}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5aac7e045ee6f833fd03351d7b51eb75}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a5aac7e045ee6f833fd03351d7b51eb75}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!edit@{edit}}
+\index{edit@{edit}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.edit (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Edita un objeto de la base de datos Luego se debe de realizar un commit para que se hagan persistentes los cambios 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a8bf6c9947bcb0e53dd30f9bb3458a664}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a6955cf166d778b07476e495f53e109b3}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a6955cf166d778b07476e495f53e109b3}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!findBy@{findBy}}
+\index{findBy@{findBy}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findBy()}{findBy()}}
+{\footnotesize\ttfamily I\+Enumerable$<$T$>$ \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.find\+By (\begin{DoxyParamCaption}\item[{Expression$<$ Func$<$ T, bool $>$$>$}]{predicate }\end{DoxyParamCaption})}
+
+
+
+Busca elementos según la expresión o predicado pasado como parámetro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em predicate} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a4a29538ebd882116b1c4bf3b43cd142a}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_ab133ac97ff656e789286979000fa6263}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_ab133ac97ff656e789286979000fa6263}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!findByID@{findByID}}
+\index{findByID@{findByID}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findByID()}{findByID()}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.find\+By\+ID (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Busca un objeto por su identificador 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a7717177bc83ec78a3c6e0dcd24bff7d8}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a54fe355f2e26aabf4329730d39b4c1db}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a54fe355f2e26aabf4329730d39b4c1db}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!getAll@{getAll}}
+\index{getAll@{getAll}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily I\+Enumerable$<$T$>$ \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene todos los objetos de una determinada entidad 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a0cbf70be5a242000d7c380e441db5f96}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+\mbox{\Hypertarget{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a00d716f070d96691b13a5733f10d4aba}\label{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico_a00d716f070d96691b13a5733f10d4aba}} 
+\index{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}!save@{save}}
+\index{save@{save}!TallerMecanico.Servicios.IServicioGenerico$<$ T $>$@{TallerMecanico.Servicios.IServicioGenerico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico}{Taller\+Mecanico.\+Servicios.\+I\+Servicio\+Generico}}$<$ T $>$.save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza un commit para que los cambios se hagan persistentes 
+
+
+
+Implementado en \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_servicio_generico_a393336f85bd0e24499a92ad55e299c51}{Taller\+Mecanico.\+Servicios.\+Servicio\+Generico$<$ T $>$}}.
+
+
+
+La documentación para este interfaz fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+Servicios/I\+Servicio\+Generico.\+cs\end{DoxyCompactItemize}

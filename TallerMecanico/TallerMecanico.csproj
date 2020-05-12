@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70076A95-B454-475D-AD67-28DE578E47E4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TallerMecanico</RootNamespace>
+    <AssemblyName>TallerMecanico</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\JavaDoc.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="CreditCardValidator, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CreditCardValidator.2.0.0\lib\net46\CreditCardValidator.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BoxIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.BoxIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Entypo, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Entypo.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.EvaIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.EvaIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.FeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.FontAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Ionicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Ionicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.JamIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.JamIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialDesign, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Microns, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Microns.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Octicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Octicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PicolIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.PicolIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RPGAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.RPGAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.SimpleIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.SimpleIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Typicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Typicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Unicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Unicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.WeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.WeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.7.0\lib\net46\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.2.920, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.0.1.920, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.0.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.10\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.10\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ToastNotifications, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.Messages.2.5.1\lib\net40\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="informes\DatasetAveria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatasetAveria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="informes\InformeAveria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformeAveria.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="informes\InformeDevolucion.cs">
+      <DependentUpon>InformeDevolucion.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="informes\InformeFactura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformeFactura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="informes\InformePieza.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InformePieza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modelo\averia.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cliente.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\empleado.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloTaller.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloTaller.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloTaller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloTaller.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloTaller.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\permiso.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\pieza.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\rol.cs">
+      <DependentUpon>ModeloTaller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\MVAveria.cs" />
+    <Compile Include="MVVM\MVBase.cs" />
+    <Compile Include="MVVM\MVCliente.cs" />
+    <Compile Include="MVVM\MVEmpleado.cs" />
+    <Compile Include="MVVM\MVFacturacion.cs" />
+    <Compile Include="MVVM\MVPieza.cs" />
+    <Compile Include="MVVM\MVRol.cs" />
+    <Compile Include="MVVM\Paypal.cs" />
+    <Compile Include="MVVM\Tarjeta.cs" />
+    <Compile Include="Servicios\ServicioSQL.cs" />
+    <Compile Include="Servicios\ClienteServicio.cs" />
+    <Compile Include="Servicios\AveriaServicio.cs" />
+    <Compile Include="Servicios\EmpleadoServicio.cs" />
+    <Compile Include="Servicios\IServicioGenerico.cs" />
+    <Compile Include="Servicios\PermisoServicio.cs" />
+    <Compile Include="Servicios\PiezaServicio.cs" />
+    <Compile Include="Servicios\RolServicio.cs" />
+    <Compile Include="Servicios\ServicioGenerico.cs" />
+    <Compile Include="Vista\Charts\UCChart.xaml.cs">
+      <DependentUpon>UCChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCBusquedaAverias.xaml.cs">
+      <DependentUpon>UCBusquedaAverias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCBusquedaPiezas.xaml.cs">
+      <DependentUpon>UCBusquedaPiezas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCDevolucion.xaml.cs">
+      <DependentUpon>UCDevolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCFactura.xaml.cs">
+      <DependentUpon>UCFactura.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCInformeAverias.xaml.cs">
+      <DependentUpon>UCInformeAverias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCInformePieza.xaml.cs">
+      <DependentUpon>UCInformePieza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\averiaDialogo\AddAveria.xaml.cs">
+      <DependentUpon>AddAveria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\averiaDialogo\InterfazResolucion.xaml.cs">
+      <DependentUpon>InterfazResolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\clientesDialogo\AddClientes.xaml.cs">
+      <DependentUpon>AddClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\clientesDialogo\BorrarCliente.xaml.cs">
+      <DependentUpon>BorrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\clientesDialogo\InterfazCobro.xaml.cs">
+      <DependentUpon>InterfazCobro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\clientesDialogo\InterfazDevolucion.xaml.cs">
+      <DependentUpon>InterfazDevolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\clientesDialogo\ModificarCliente.xaml.cs">
+      <DependentUpon>ModificarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\empleadoDialogo\BorrarEmpleado.xaml.cs">
+      <DependentUpon>BorrarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\facebook\AddPublicacion.xaml.cs">
+      <DependentUpon>AddPublicacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\piezaDialogo\AddPieza.xaml.cs">
+      <DependentUpon>AddPieza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\averiaDialogo\AnularAveria.xaml.cs">
+      <DependentUpon>AnularAveria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\loginDialogo\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ControlesUsuario\UCInicio.xaml.cs">
+      <DependentUpon>UCInicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\empleadoDialogo\AddEmpleado.xaml.cs">
+      <DependentUpon>AddEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\averiaDialogo\ModificarAveria.xaml.cs">
+      <DependentUpon>ModificarAveria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\empleadoDialogo\ModificarEmpleado.xaml.cs">
+      <DependentUpon>ModificarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\piezaDialogo\BorraPieza.xaml.cs">
+      <DependentUpon>BorraPieza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\piezaDialogo\ModificarPieza.xaml.cs">
+      <DependentUpon>ModificarPieza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\rolDialogo\AddRol.xaml.cs">
+      <DependentUpon>AddRol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\rolDialogo\BorraRol.xaml.cs">
+      <DependentUpon>BorraRol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Dialogos\rolDialogo\ModificarRol.xaml.cs">
+      <DependentUpon>ModificarRol.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Recursos\Estilos\Estilos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vista\Charts\UCChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCBusquedaAverias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCBusquedaPiezas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCDevolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCFactura.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCInformeAverias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCInformePieza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\averiaDialogo\AddAveria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\averiaDialogo\InterfazResolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\clientesDialogo\AddClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\clientesDialogo\BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\clientesDialogo\InterfazCobro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\clientesDialogo\InterfazDevolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\clientesDialogo\ModificarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\empleadoDialogo\BorrarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\facebook\AddPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\piezaDialogo\AddPieza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\averiaDialogo\AnularAveria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\loginDialogo\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ControlesUsuario\UCInicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\empleadoDialogo\AddEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\averiaDialogo\ModificarAveria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\empleadoDialogo\ModificarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\piezaDialogo\BorraPieza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\piezaDialogo\ModificarPieza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\rolDialogo\AddRol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\rolDialogo\BorraRol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Dialogos\rolDialogo\ModificarRol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="Recursos\Iconos\limpiarContenido.png" />
+    <Resource Include="Recursos\Iconos\resolucion-icono.png" />
+    <Resource Include="Recursos\Iconos\informe-icono.png" />
+    <Resource Include="Recursos\Iconos\chart.png" />
+    <Resource Include="Recursos\Iconos\cancelar_contenido.png" />
+    <Resource Include="Recursos\Iconos\PayPal-Logo.png" />
+    <Resource Include="Recursos\Iconos\efectivo-imagen.png" />
+    <Resource Include="Recursos\Iconos\Tarjeta-credito.png" />
+    <Resource Include="Recursos\Iconos\efectivo.png" />
+    <Resource Include="Recursos\Iconos\paypal.png" />
+    <Resource Include="Recursos\Iconos\tarjeta.png" />
+    <Resource Include="Recursos\Iconos\cobro-cliente.png" />
+    <Resource Include="Recursos\Iconos\devolucion-cliente.png" />
+    <Resource Include="Recursos\Iconos\informe.png" />
+    <Resource Include="Recursos\Iconos\borrar-empleado.png" />
+    <Resource Include="Recursos\Iconos\add-cliente.png" />
+    <Resource Include="Recursos\Iconos\borrar-cliente.png" />
+    <Resource Include="Recursos\Iconos\edit-cliente.png" />
+    <Resource Include="Recursos\Iconos\Icono-Clientes.png" />
+    <Resource Include="Recursos\Iconos\remove-pieza.png" />
+    <Resource Include="Recursos\Iconos\anadir-pieza.png" />
+    <Resource Include="Recursos\Iconos\busqueda-averias.png" />
+    <Resource Include="Recursos\Iconos\filtrar.png" />
+    <Resource Include="Recursos\Iconos\quitarFiltros.png" />
+    <Resource Include="Recursos\Iconos\add-listas.png" />
+    <Resource Include="Recursos\Iconos\editar_listas.png" />
+    <Resource Include="Recursos\Iconos\eliminar_listas.png" />
+    <Resource Include="Recursos\Iconos\add_stock.png" />
+    <Resource Include="Recursos\Iconos\edit_stock.png" />
+    <Resource Include="Recursos\Iconos\remove_stock.png" />
+    <Resource Include="Recursos\Iconos\add-averia.png" />
+    <Resource Include="Recursos\Iconos\edit_averia.png" />
+    <Resource Include="Recursos\Iconos\remove_averia.png" />
+    <Resource Include="Recursos\Iconos\add_role.png" />
+    <Resource Include="Recursos\Iconos\delete_role.png" />
+    <Resource Include="Recursos\Iconos\edit_role.png" />
+    <Resource Include="Recursos\Iconos\añadir_permisos.png" />
+    <Resource Include="Recursos\Iconos\editar_permisos.png" />
+    <Resource Include="Recursos\Iconos\eliminar_permisos.png" />
+    <Resource Include="Recursos\Iconos\Alerta-Boceto.png" />
+    <Resource Include="Recursos\Iconos\Planificacion.png" />
+    <Resource Include="Recursos\Iconos\add-empleado.png" />
+    <Resource Include="Recursos\Iconos\modificar-empleado.png" />
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Resource Include="Resources\Entypo.ttf" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Recursos\Iconos\inform.png" />
+    <Resource Include="Recursos\Iconos\reparar.png" />
+    <Resource Include="Recursos\Iconos\oil.png" />
+    <Resource Include="Recursos\Iconos\repair.png" />
+    <Resource Include="Recursos\Iconos\facebook.png" />
+    <Resource Include="Recursos\Iconos\cerrarSesion.png" />
+    <Resource Include="Recursos\Iconos\changePassword.png" />
+    <Resource Include="Recursos\Iconos\ModificarPerfil.png" />
+    <Resource Include="Recursos\Iconos\Logo_aplicacion.png" />
+    <Resource Include="Recursos\Iconos\icono_usuario.png" />
+    <Resource Include="Recursos\Iconos\Icono_Aplicacion.ico" />
+    <Resource Include="Recursos\Iconos\restore_window.png" />
+    <Resource Include="Recursos\Iconos\restore_window_blue.png" />
+    <Resource Include="Recursos\Iconos\maximize_window.png" />
+    <Resource Include="Recursos\Iconos\maximize_window_blue.png" />
+    <Resource Include="Recursos\Iconos\maximize_window_green.png" />
+    <Resource Include="Recursos\Iconos\minimize_window_MouseOver.png" />
+    <Resource Include="Recursos\Iconos\minimize_window.png" />
+    <Resource Include="Recursos\Fuentes\LICENSE.txt" />
+    <Resource Include="Recursos\Fuentes\Roboto-Light.ttf" />
+    <Resource Include="Recursos\Iconos\closeBtn_default.png" />
+    <Resource Include="Recursos\Iconos\closeBtn_MouseOver.png" />
+    <Resource Include="Recursos\Iconos\img_contact.png" />
+    <Resource Include="Recursos\Iconos\img_home.png" />
+    <Resource Include="Recursos\Iconos\img_map.png" />
+    <Resource Include="Recursos\Iconos\img_message.png" />
+    <Resource Include="Recursos\Iconos\img_setting.png" />
+    <Resource Include="Recursos\Iconos\img_signout.png" />
+    <Resource Include="Recursos\Iconos\tgBtn_default.png" />
+    <Resource Include="Recursos\Iconos\tgBtn_MouseOver.png" />
+    <Resource Include="Recursos\Iconos\LoginTaller.jpg" />
+    <EmbeddedResource Include="informes\InformeAveria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InformeAveria.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="informes\InformeDevolucion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InformeDevolucion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="informes\InformeFactura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InformeFactura.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="informes\InformePieza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InformePieza.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Modelo\ModeloTaller.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloTaller.edmx</DependentUpon>
+      <LastGenOutput>ModeloTaller.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ModeloTaller.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloTaller.edmx</DependentUpon>
+      <LastGenOutput>ModeloTaller.cs</LastGenOutput>
+    </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Modelo\ModeloTaller.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloTaller.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="informes\DatasetAveria.xsc">
+      <DependentUpon>DatasetAveria.xsd</DependentUpon>
+    </None>
+    <None Include="informes\DatasetAveria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatasetAveria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="informes\DatasetAveria.xss">
+      <DependentUpon>DatasetAveria.xsd</DependentUpon>
+    </None>
+    <None Include="Modelo\ModeloTaller.edmx.diagram">
+      <DependentUpon>ModeloTaller.edmx</DependentUpon>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

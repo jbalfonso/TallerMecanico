@@ -1,0 +1,325 @@
+﻿<mah:MetroWindow x:Class="TallerMecanico.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ex="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:TallerMecanico"
+        mc:Ignorable="d"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        IgnoreTaskbarOnMaximize="False"
+        UseNoneWindowStyle="True"      
+        BorderThickness="0"
+        MouseDoubleClick="MetroWindow_MouseDoubleClick"
+        Title="Taller Vehiculos" Height="600" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="none" WindowState="Maximized" 
+        Icon="/Recursos/Iconos/icono_Aplicacion.ico">
+
+    <Grid>
+    
+    <DockPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+
+            <Grid DockPanel.Dock="Top" Background="#17202e" Height="20">
+                <Border BorderBrush="white" BorderThickness="0,0,0,0.5">
+                        <Grid>
+                        <Image Source="/Recursos/Iconos/Icono_Aplicacion.ico" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+
+                        <Button Margin="0,0,10,0" x:Name="MinimizeBtn" Height="20" Width="20" BorderThickness="0"
+                        Style="{StaticResource Minimize_btn}" Click="MinimizeBtn_Click"  Cursor="Hand">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Recursos/Iconos/minimize_window.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <ToggleButton x:Name="maximizeBtn" Margin="0,0,10,0" Checked="MaximizarBtn_Checked" Unchecked="MaximizarBtn_Unchecked" 
+                                      Width="20" Height="20" BorderThickness="0" Style="{StaticResource maximizar_style}"  Cursor="Hand">
+                            <ToggleButton.Background>
+                                <ImageBrush ImageSource="/Recursos/Iconos/maximize_window.png"/>
+                            </ToggleButton.Background>
+                        </ToggleButton>
+
+                        <Button Margin="0,0,10,0" x:Name="CloseBtn" Height="20" Width="20" BorderThickness="0" Cursor="Hand"
+                        Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Recursos/Iconos/closeBtn_default.png"/>
+                            </Button.Background>
+                        </Button>
+
+                    </StackPanel>
+                        </Grid>
+                    </Border>
+            </Grid>
+
+            <Grid Panel.ZIndex="2" Height="40" Background="#222e40" HorizontalAlignment="Stretch " VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="imagenLogo" Grid.Column="0" Grid.Row="0" Source="/Recursos/Iconos/Logo_aplicacion.png"
+                       Height="40" Width="230" Margin="20,5,0,0" VerticalAlignment="Center"/>
+                <ex:DropDownButton Grid.Column="2" Grid.Row="0" Background="Transparent" Height="40" Width="150" 
+                                   VerticalAlignment="Center" HorizontalAlignment="Right" BorderBrush="Transparent">
+
+                    <ex:DropDownButton.Content>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Image Source="/Recursos/Iconos/icono_usuario.png"/>
+                            <TextBlock x:Name="txblockNombreUsuario" Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ex:DropDownButton.Content>
+
+                    <ex:DropDownButton.DropDownContent >
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Background="#222e40" >
+                                
+                                <MenuItem Header="Cambiar contraseña" Style="{StaticResource Estilo menuItem}" Click="CambiarContrasena_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/Recursos/Iconos/changePassword.png"/>
+                                </MenuItem.Icon>
+
+                            </MenuItem>
+                            <MenuItem Header="Cerrar Sesion" Style="{StaticResource Estilo menuItem}" Click="CerrarSesion_Click" >
+                                <MenuItem.Icon>
+                                    <Image Source="/Recursos/Iconos/cerrarSesion.png"/>
+                                </MenuItem.Icon>
+
+                            </MenuItem>
+                        </StackPanel>
+                    </ex:DropDownButton.DropDownContent>
+                </ex:DropDownButton>
+
+            </Grid>
+                <Ribbon Loaded="Ribbon_Loaded" Background="AliceBlue" >
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu Visibility="Collapsed"/>
+                </Ribbon.ApplicationMenu>
+
+                    <Ribbon.HelpPaneContent>
+                        <RibbonButton x:Name="limpiarContenido" SmallImageSource="/Recursos/Iconos/cancelar_contenido.png" Click="LimpiarContenido_Click" />
+                        
+                    </Ribbon.HelpPaneContent>
+                    
+
+                    <RibbonTab x:Name="tabEmpleados">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/img_contact.png" Height="23"/>
+                                <Label Content="Empleados" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+
+                        <RibbonGroup Width="225" x:Name="EmpleadoGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Gestion de empleados" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="CrearEmpleadoBtn" Label="Crear empleado" LargeImageSource="/Recursos/Iconos/add-empleado.png"
+                                          FontWeight="Bold" Margin="30,0,0,0" Click="crearEmpleadobtn_click"/>
+                            <RibbonButton x:Name="ModificarEmpleadoBtn" Label="Modificar empleado" LargeImageSource="/Recursos/Iconos/modificar-empleado.png"
+                                          FontWeight="Bold" Click="modificarEmpleadobtn_Click"/>
+                            <RibbonButton x:Name="BorrarEmpleadoBtn" Label="Borrar empleado" LargeImageSource="/Recursos/Iconos/borrar-empleado.png" 
+                                          FontWeight="Bold" Click="BorrarEmpleadoBtn_Click"/>
+                        </RibbonGroup>                  
+                        <RibbonGroup x:Name="rolGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Gestion de Roles" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="anadirRol" Label="Añadir Rol" LargeImageSource="/Recursos/Iconos/add_role.png" Click="AnadirRol_Click"/>
+                            <RibbonButton x:Name="editarRol" Label="Editar Rol" LargeImageSource="/Recursos/Iconos/edit_role.png" Click="EditarRol_Click"/>
+                            <RibbonButton x:Name="eliminarRol" Label="Eliminar Rol" LargeImageSource="/Recursos/Iconos/delete_role.png" Click="EliminarRol_Click" />
+                        </RibbonGroup>
+                    </RibbonTab>
+                    <RibbonTab x:Name="ClientesTab">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/icono-clientes.png" Height="23"/>
+                                <Label Content="Clientes" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+                        <RibbonGroup x:Name="clientesGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Gestion de clientes" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="anyadirCliente" Label="Añadir cliente" LargeImageSource="/Recursos/Iconos/add-cliente.png" Click="AnyadirCliente_Click" />
+                            <RibbonButton x:Name="modificarCliente" Label="Modificar cliente" LargeImageSource="/Recursos/Iconos/edit-cliente.png" Click="ModificarCliente_Click" />
+                            <RibbonButton x:Name="borrarCliente" Label="Borrar cliente" LargeImageSource="/Recursos/Iconos/borrar-cliente.png" Click="BorrarCliente_Click" />
+                        </RibbonGroup>
+                        <RibbonGroup x:Name="FacturacionGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Facturacion clientes" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="cobrarCliente" Label="Cobro" LargeImageSource="/Recursos/Iconos/cobro-cliente.png" Click="CobrarCliente_Click" />
+                            <RibbonButton x:Name="devolverCliente" Label="Devolucion" LargeImageSource="/Recursos/Iconos/devolucion-cliente.png" Click="DevolverCliente_Click" />
+                            
+                        </RibbonGroup>
+                        
+                    </RibbonTab>
+                    
+                    <RibbonTab x:Name="tabAverias">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/reparar.png" Height="30"/>
+                                <Label Content="Averias" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+                        <RibbonGroup x:Name="AveriaGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Gestion de averias" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="anadirAveriaBtn" Label="Añadir Averia" LargeImageSource="/Recursos/Iconos/add-averia.png" Click="anyadirAveria_Click" />
+                            <RibbonButton x:Name="editarAveriaBtn" Label="Modificar Averia" LargeImageSource="/Recursos/Iconos/edit_averia.png"  Click="modificarAveria_Click"/>
+                            <RibbonButton x:Name="AnularAveriaBtn" Label="Anular Averia" LargeImageSource="/Recursos/Iconos/remove_averia.png" Click="anularAveria_Click" />
+                            <RibbonButton x:Name="anyadirResolucionBtn" Label="Añadir Resolucion" LargeImageSource="/Recursos/Iconos/resolucion-icono.png" Click="AnyadirResolucionBtn_Click"/>
+
+                        </RibbonGroup>
+                        <RibbonGroup x:Name="ListadoAverias">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Listado averias" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="BusquedaAveriaBtn" Label="Listado de Averias" LargeImageSource="/Recursos/Iconos/busqueda-averias.png" 
+                                          Click="BusquedaAveria_Click" />
+                        </RibbonGroup>
+                        <RibbonGroup>
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Averia Charts" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="chartResolucion" Label="Averias Finalizadas por mes" LargeImageSource="/Recursos/Iconos/chart.png"
+                                          Click="ChartResolucion_Click" />
+                        </RibbonGroup>
+                        
+                    </RibbonTab>
+                    <RibbonTab x:Name="tabPiezas">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/oil.png" Height="30"/>
+                                <Label Content="Stock piezas" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+                        <RibbonGroup x:Name="piezasGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Gestion de piezas" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="anadirPiezaBtn" Label="Añadir Pieza" LargeImageSource="/Recursos/Iconos/add_stock.png" Click="AnadirPiezaBtn_Click"/>
+                            <RibbonButton x:Name="editarPiezaBtn" Label="Modificar Pieza" LargeImageSource="/Recursos/Iconos/edit_stock.png" Click="EditarPiezaBtn_Click"/>
+                            <RibbonButton x:Name="eliminarPiezaBtn" Label="Eliminar Pieza" LargeImageSource="/Recursos/Iconos/remove_stock.png" Click="EliminarPiezaBtn_Click"/>
+                        </RibbonGroup>
+                        <RibbonGroup x:Name="ListadoPiezas">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Listado Piezas" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="BusquedaPiezaBtn" Label="Listado de Piezas" LargeImageSource="/Recursos/Iconos/busqueda-averias.png" Click="BusquedaPiezaBtn_Click"/>
+                            
+                        </RibbonGroup>
+                        <RibbonGroup>
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Informes" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+
+                            <RibbonButton x:Name="InformePieza" Label="Informe Pieza" Click="InformePieza_Click" LargeImageSource="/Recursos/Iconos/informe-icono.png"/>
+
+
+                        </RibbonGroup>
+                    </RibbonTab>
+                    <RibbonTab x:Name="tabPlanificacion">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/Planificacion.png" Height="30"/>
+                                <Label Content="Planificacion" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+                        <RibbonGroup x:Name="informesGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Informes" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="informeAveria" Label="Informe averias" LargeImageSource="/Recursos/Iconos/informe-icono.png" Click="InformeAveria_Click"/>
+                        </RibbonGroup>
+
+                        <RibbonGroup x:Name="listaGroup">
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Listados" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="ListaAveriaBtn" Label="Listado de Averias" LargeImageSource="/Recursos/Iconos/busqueda-averias.png" Click="BusquedaAveria_Click" />
+                        </RibbonGroup>
+                        
+                    </RibbonTab>                    
+                    <RibbonTab x:Name="tabFacebook">
+                        <RibbonTab.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Recursos/Iconos/facebook.png" Height="30"/>
+                                <Label Content="Facebook" Style="{DynamicResource estiloLabelTabRibbon}"/>
+                            </StackPanel>
+                        </RibbonTab.Header>
+                        <RibbonGroup>
+                            <RibbonGroup.Header>
+                                <TextBlock Text="Publicaciones" HorizontalAlignment="Center"/>
+                            </RibbonGroup.Header>
+                            <RibbonButton x:Name="PublicarFacebook" Label="Publicar" LargeImageSource="/Recursos/Iconos/facebook.png" Click="PublicarFacebook_Click" />
+                        </RibbonGroup>
+                    </RibbonTab>
+            </Ribbon>
+        </StackPanel>
+        <Grid x:Name="Contenido" Background="White">
+
+        </Grid>
+
+    </DockPanel>
+
+        <mah:Flyout x:Name="flyout" Position="Right" Opacity="0.94" Background="#0a135c" Width="350" FontWeight="Bold" AnimateOpacity="True" 
+                    AnimateOnPositionChange="True" CloseButtonVisibility="Collapsed" >
+            
+            <mah:Flyout.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="Transparent" 
+                            BorderBrush="Transparent" Click="cerrarCambiarContrasena_Click">
+                        <material:PackIcon Kind="ArrowRightDropCircle" Foreground="White" Height="40" Width="40"/>
+                    </Button>
+                        <material:PackIcon Kind="PasswordReset" Foreground="White" Height="25" Width="25" Margin="27,9,0,0"/>
+                    <TextBlock Text="Cambio contraseña" Foreground="White" FontWeight="Bold" Margin="10,0" VerticalAlignment="Center" FontSize="20"/>
+                </StackPanel>
+            </mah:Flyout.Header>
+            
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    
+                </Grid.RowDefinitions>
+                <material:PackIcon Grid.Column="0" Grid.Row="0" Kind="Key" Height="50" Width="50" Foreground="White" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15"/>
+                
+                <TextBlock x:Name="contrasenaBlanco" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" FontSize="15" 
+                           TextDecorations="underline" Margin="20,10" FontWeight="Bold" Text="La contraseña actual y la contraseña nueva no pueden estar en blanco" 
+                           TextWrapping="Wrap" Foreground="White"/>
+                
+                <TextBlock x:Name="contrasenaIncorrecta" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" FontSize="15" 
+                           TextDecorations="underline" Margin="20,10" FontWeight="Bold" Text="No coincide la contraseña actual con la del usuario, no se realizan cambios" 
+                           TextWrapping="Wrap" Foreground="White"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Content="Introduzca contraseña actual:" Foreground="White" FontSize="15" Margin="20,15,0,0"/>
+                
+                <PasswordBox x:Name="contrasenaActual" Grid.Row="3" Grid.Column="0" Height="40" Foreground="White" Margin="30,0" BorderBrush="White"  
+                             Style="{StaticResource MetroButtonRevealedPasswordBox}" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="Contraseña"/>
+                
+                <Label Grid.Row="4" Grid.Column="0" Content="Introduzca contraseña nueva:" Foreground="White" FontSize="15" Margin="20,30,0,0"/>
+                
+                <PasswordBox x:Name="contrasenaNueva" Grid.Row="5" Grid.Column="0" Height="40" Foreground="White" Margin="30,0" BorderBrush="White" 
+                             Style="{StaticResource MetroButtonRevealedPasswordBox}" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="Contraseña"/>
+                
+                <Button x:Name="guardarCambiarContrasena" Grid.Row="6" Grid.Column="0" Content="Guardar cambios" Height="40" Width="200" Margin="0,40" 
+                        Opacity="1" Click="GuardarCambiarContrasena_Click" />
+            </Grid>
+        </mah:Flyout>
+    </Grid>
+</mah:MetroWindow>

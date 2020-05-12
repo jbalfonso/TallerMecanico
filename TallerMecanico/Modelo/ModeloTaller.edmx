@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tallermecanicoModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="averia">
+          <Key>
+            <PropertyRef Name="CodigoAveria" />
+          </Key>
+          <Property Name="CodigoAveria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Precio" Type="double" />
+          <Property Name="Tipo" Type="varchar" MaxLength="255" />
+          <Property Name="Estado" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EmpleadoAsignado" Type="int" />
+          <Property Name="Resolucion" Type="varchar" MaxLength="45" />
+          <Property Name="FechaRecepcion" Type="date" Nullable="false" />
+          <Property Name="FechaResolucion" Type="date" />
+          <Property Name="Cliente" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="340" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="CodigoEmpleado" />
+          </Key>
+          <Property Name="CodigoEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+          <Property Name="Apellido" Type="varchar" MaxLength="255" />
+          <Property Name="Login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Rol_CodigoRol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="CodigoPermiso" />
+          </Key>
+          <Property Name="CodigoPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permisosrol">
+          <Key>
+            <PropertyRef Name="permiso_CodigoPermiso" />
+            <PropertyRef Name="rol_CodigoRol" />
+          </Key>
+          <Property Name="permiso_CodigoPermiso" Type="int" Nullable="false" />
+          <Property Name="rol_CodigoRol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pieza">
+          <Key>
+            <PropertyRef Name="CodigoPieza" />
+          </Key>
+          <Property Name="CodigoPieza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="CodigoRol" />
+          </Key>
+          <Property Name="CodigoRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRol" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tiene">
+          <Key>
+            <PropertyRef Name="Averias_CodigoAveria" />
+            <PropertyRef Name="Piezas_CodigoPieza" />
+          </Key>
+          <Property Name="Averias_CodigoAveria" Type="int" Nullable="false" />
+          <Property Name="Piezas_CodigoPieza" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Averias_Clientes1">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="averia" Type="Self.averia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="averia">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Averias_Empleados1">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="averia" Type="Self.averia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="averia">
+              <PropertyRef Name="EmpleadoAsignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Averias_has_Piezas_Averias1">
+          <End Role="averia" Type="Self.averia" Multiplicity="1" />
+          <End Role="tiene" Type="Self.tiene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="averia">
+              <PropertyRef Name="CodigoAveria" />
+            </Principal>
+            <Dependent Role="tiene">
+              <PropertyRef Name="Averias_CodigoAveria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Averias_has_Piezas_Piezas1">
+          <End Role="pieza" Type="Self.pieza" Multiplicity="1" />
+          <End Role="tiene" Type="Self.tiene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pieza">
+              <PropertyRef Name="CodigoPieza" />
+            </Principal>
+            <Dependent Role="tiene">
+              <PropertyRef Name="Piezas_CodigoPieza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Empleado_Rol1">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="CodigoRol" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="Rol_CodigoRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_permiso_has_rol_permiso1">
+          <End Role="permiso" Type="Self.permiso" Multiplicity="1" />
+          <End Role="permisosrol" Type="Self.permisosrol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permiso">
+              <PropertyRef Name="CodigoPermiso" />
+            </Principal>
+            <Dependent Role="permisosrol">
+              <PropertyRef Name="permiso_CodigoPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_permiso_has_rol_rol1">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="permisosrol" Type="Self.permisosrol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="CodigoRol" />
+            </Principal>
+            <Dependent Role="permisosrol">
+              <PropertyRef Name="rol_CodigoRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tallermecanicoModelStoreContainer">
+          <EntitySet Name="averia" EntityType="Self.averia" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="permisosrol" EntityType="Self.permisosrol" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="pieza" EntityType="Self.pieza" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="tallermecanico" store:Type="Tables" />
+          <EntitySet Name="tiene" EntityType="Self.tiene" Schema="tallermecanico" store:Type="Tables" />
+          <AssociationSet Name="fk_Averias_Clientes1" Association="Self.fk_Averias_Clientes1">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="averia" EntitySet="averia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Averias_Empleados1" Association="Self.fk_Averias_Empleados1">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="averia" EntitySet="averia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Averias_has_Piezas_Averias1" Association="Self.fk_Averias_has_Piezas_Averias1">
+            <End Role="averia" EntitySet="averia" />
+            <End Role="tiene" EntitySet="tiene" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Averias_has_Piezas_Piezas1" Association="Self.fk_Averias_has_Piezas_Piezas1">
+            <End Role="pieza" EntitySet="pieza" />
+            <End Role="tiene" EntitySet="tiene" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Empleado_Rol1" Association="Self.fk_Empleado_Rol1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_permiso_has_rol_permiso1" Association="Self.fk_permiso_has_rol_permiso1">
+            <End Role="permiso" EntitySet="permiso" />
+            <End Role="permisosrol" EntitySet="permisosrol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_permiso_has_rol_rol1" Association="Self.fk_permiso_has_rol_rol1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="permisosrol" EntitySet="permisosrol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tallermecanicoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="averia">
+          <Key>
+            <PropertyRef Name="CodigoAveria" />
+          </Key>
+          <Property Name="CodigoAveria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpleadoAsignado" Type="Int32" />
+          <Property Name="Resolucion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRecepcion" Type="DateTime" Nullable="false" />
+          <Property Name="FechaResolucion" Type="DateTime" />
+          <Property Name="Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="340" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cliente1" Relationship="Self.fk_Averias_Clientes1" FromRole="averia" ToRole="cliente" />
+          <NavigationProperty Name="empleado" Relationship="Self.fk_Averias_Empleados1" FromRole="averia" ToRole="empleado" />
+          <NavigationProperty Name="pieza" Relationship="Self.tiene" FromRole="averia" ToRole="pieza" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="averia" Relationship="Self.fk_Averias_Clientes1" FromRole="cliente" ToRole="averia" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="CodigoEmpleado" />
+          </Key>
+          <Property Name="CodigoEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol_CodigoRol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="averia" Relationship="Self.fk_Averias_Empleados1" FromRole="empleado" ToRole="averia" />
+          <NavigationProperty Name="rol" Relationship="Self.fk_Empleado_Rol1" FromRole="empleado" ToRole="rol" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="CodigoPermiso" />
+          </Key>
+          <Property Name="CodigoPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="rol" Relationship="Self.permisosrol" FromRole="permiso" ToRole="rol" />
+        </EntityType>
+        <EntityType Name="pieza">
+          <Key>
+            <PropertyRef Name="CodigoPieza" />
+          </Key>
+          <Property Name="CodigoPieza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="averia" Relationship="Self.tiene" FromRole="pieza" ToRole="averia" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="CodigoRol" />
+          </Key>
+          <Property Name="CodigoRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRol" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.fk_Empleado_Rol1" FromRole="rol" ToRole="empleado" />
+          <NavigationProperty Name="permiso" Relationship="Self.permisosrol" FromRole="rol" ToRole="permiso" />
+        </EntityType>
+        <Association Name="fk_Averias_Clientes1">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="averia" Type="Self.averia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="averia">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Averias_Empleados1">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="averia" Type="Self.averia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="averia">
+              <PropertyRef Name="EmpleadoAsignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Empleado_Rol1">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="CodigoRol" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="Rol_CodigoRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="permisosrol">
+          <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+          <End Role="rol" Type="Self.rol" Multiplicity="*" />
+        </Association>
+        <Association Name="tiene">
+          <End Role="averia" Type="Self.averia" Multiplicity="*" />
+          <End Role="pieza" Type="Self.pieza" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="tallermecanicoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="averia" EntityType="Self.averia" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" />
+          <EntitySet Name="pieza" EntityType="Self.pieza" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <AssociationSet Name="fk_Averias_Clientes1" Association="Self.fk_Averias_Clientes1">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="averia" EntitySet="averia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Averias_Empleados1" Association="Self.fk_Averias_Empleados1">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="averia" EntitySet="averia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Empleado_Rol1" Association="Self.fk_Empleado_Rol1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="permisosrol" Association="Self.permisosrol">
+            <End Role="permiso" EntitySet="permiso" />
+            <End Role="rol" EntitySet="rol" />
+          </AssociationSet>
+          <AssociationSet Name="tiene" Association="Self.tiene">
+            <End Role="averia" EntitySet="averia" />
+            <End Role="pieza" EntitySet="pieza" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tallermecanicoModelStoreContainer" CdmEntityContainer="tallermecanicoEntities">
+          <EntitySetMapping Name="averia">
+            <EntityTypeMapping TypeName="tallermecanicoModel.averia">
+              <MappingFragment StoreEntitySet="averia">
+                <ScalarProperty Name="CodigoAveria" ColumnName="CodigoAveria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="EmpleadoAsignado" ColumnName="EmpleadoAsignado" />
+                <ScalarProperty Name="Resolucion" ColumnName="Resolucion" />
+                <ScalarProperty Name="FechaRecepcion" ColumnName="FechaRecepcion" />
+                <ScalarProperty Name="FechaResolucion" ColumnName="FechaResolucion" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="tallermecanicoModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado">
+            <EntityTypeMapping TypeName="tallermecanicoModel.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Rol_CodigoRol" ColumnName="Rol_CodigoRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permiso">
+            <EntityTypeMapping TypeName="tallermecanicoModel.permiso">
+              <MappingFragment StoreEntitySet="permiso">
+                <ScalarProperty Name="CodigoPermiso" ColumnName="CodigoPermiso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pieza">
+            <EntityTypeMapping TypeName="tallermecanicoModel.pieza">
+              <MappingFragment StoreEntitySet="pieza">
+                <ScalarProperty Name="CodigoPieza" ColumnName="CodigoPieza" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="tallermecanicoModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="CodigoRol" ColumnName="CodigoRol" />
+                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="permisosrol" TypeName="tallermecanicoModel.permisosrol" StoreEntitySet="permisosrol">
+            <EndProperty Name="permiso">
+              <ScalarProperty Name="CodigoPermiso" ColumnName="permiso_CodigoPermiso" />
+            </EndProperty>
+            <EndProperty Name="rol">
+              <ScalarProperty Name="CodigoRol" ColumnName="rol_CodigoRol" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="tiene" TypeName="tallermecanicoModel.tiene" StoreEntitySet="tiene">
+            <EndProperty Name="averia">
+              <ScalarProperty Name="CodigoAveria" ColumnName="Averias_CodigoAveria" />
+            </EndProperty>
+            <EndProperty Name="pieza">
+              <ScalarProperty Name="CodigoPieza" ColumnName="Piezas_CodigoPieza" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

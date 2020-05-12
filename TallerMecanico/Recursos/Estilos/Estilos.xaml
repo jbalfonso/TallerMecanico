@@ -1,0 +1,262 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:local="clr-namespace:TallerMecanico.Recursos.Estilos">
+    <!--#region Login-->
+    <Style x:Key="BordeRedondoIniciarSesion" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid">
+                        <Border Background="#23cf93" x:Name="border" CornerRadius="16" BorderBrush="Black" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                            </ContentPresenter>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#177856"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#006305"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="BordeRedondoCancelar" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid">
+                        <Border Background="#23cf93" x:Name="border" CornerRadius="16" BorderBrush="Black" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                            </ContentPresenter>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#177856"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#006305"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    
+    <!--#region MainWindow-->
+    
+    <!--#region barra herramientas aplicacion-->
+    
+    <!--Boton Maximizar-->
+
+    <ImageBrush x:Key="MaximizeBtn_Normal" ImageSource="/Recursos/Iconos/maximize_window.png"/>
+    <ImageBrush x:Key="MaximizeBtn_Maximizar" ImageSource="/Recursos/Iconos/restore_window.png"/>
+    <ImageBrush x:Key="MaximizeBtn_Normal_MouseOver" ImageSource="/Recursos/Iconos/maximize_window_blue.png"/>
+    <ImageBrush x:Key="MaximizeBtn_Maximized_MouseOver" ImageSource="/Recursos/Iconos/restore_window_blue.png"/>
+
+    <!--Boton Minimizar-->
+    <ImageBrush x:Key="MinimizeBtn_MouseOver" ImageSource="/Recursos/Iconos/minimize_window_MouseOver.png"/>
+    
+    <!--Boton Cerrar-->
+    <ImageBrush x:Key="CloseBtn_MouseOver" ImageSource="/Recursos/Iconos/closeBtn_MouseOver.png"/>
+
+
+    <!--Estilo del Boton de cerrar la aplicacion-->
+    <Style x:Key="Close_btn" TargetType="{x:Type Button}">
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="button"
+                                BorderThickness="0"
+                                Background="{TemplateBinding Background}"
+                               >
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                            <Setter Property="Background"
+                                        TargetName="button"
+                                        Value="{StaticResource CloseBtn_MouseOver}"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+    <!--Estilo boton minimizar-->
+
+    <Style x:Key="Minimize_btn" TargetType="{x:Type Button}">
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="button"
+                                BorderThickness="0"
+                                Background="{TemplateBinding Background}"
+                               >
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                            <Setter Property="Background"
+                                        TargetName="button"
+                                        Value="{StaticResource MinimizeBtn_MouseOver}"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+        
+    <!--Boton de maximizar-->
+    <Style x:Key="maximizar_style" TargetType="{x:Type ToggleButton}">
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                    <Border  x:Name="border"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 Background="{TemplateBinding Background}"
+                                >
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+
+                            <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource MaximizeBtn_Normal_MouseOver}"/>
+
+                            <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource MaximizeBtn_Normal_MouseOver}"/>
+
+                        </Trigger>
+
+                        <Trigger Property="IsChecked" Value="true">
+
+                            <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource MaximizeBtn_Maximizar}"/>
+
+                            <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource MaximizeBtn_Maximizar}"/>
+                            
+
+
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource MaximizeBtn_Maximized_MouseOver}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource MaximizeBtn_Maximized_MouseOver}"/>
+
+                        </MultiTrigger>
+                        
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+<!--#endregion-->
+    
+    <!--Estilo boton usuario de barra superior-->
+    <Style TargetType="MenuItem" x:Key="Estilo menuItem">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        
+       
+    </Style>
+    
+    <!--Estilo labels de texto de los tabs del ribbon-->
+    <Style TargetType="Label" x:Key="estiloLabelTabRibbon">
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+
+    <!--#endregion-->
+
+
+</ResourceDictionary>

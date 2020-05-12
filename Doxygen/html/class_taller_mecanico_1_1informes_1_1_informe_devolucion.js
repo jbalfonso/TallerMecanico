@@ -1,0 +1,26 @@
+var class_taller_mecanico_1_1informes_1_1_informe_devolucion =
+[
+    [ "InformeDevolucion", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a49ca3900f768c2bd5e1354017eb17cdc", null ],
+    [ "FullResourceName", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a7e900db7c1c4f1473e7d0a0ff466ff61", null ],
+    [ "NewGenerator", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a9d285e0935d30e23e8932e67e1b3714a", null ],
+    [ "Parameter_apellidoCliente", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#ad8500ad83e08bab6897e7c048b8b627c", null ],
+    [ "Parameter_campoDevolucion", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a37cf88470ba814ecf69ac8ebae5f5ab2", null ],
+    [ "Parameter_cantidadPiezas", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a2291a056612fa25405203457ccaad19d", null ],
+    [ "Parameter_codigoFactura", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a8409024b5262dcb9a7c96afe0ca393bb", null ],
+    [ "Parameter_correoCliente", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a36e5793c5c74e7391795efddb1bb88dd", null ],
+    [ "Parameter_descripcionAveria", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#ab1f3dd940592d66ecc6888f467ff45b6", null ],
+    [ "Parameter_direccionCliente", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#ac8bb7ea634aa53fe7c59f8a268090ba7", null ],
+    [ "Parameter_fechaDevolucion", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a7cac223d6b0044c4e84923b928572f91", null ],
+    [ "Parameter_metodoDevolucion", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#afdefa947b9fd314b738ec339deb9e3c6", null ],
+    [ "Parameter_nombreCliente", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a2b8f46a1463fe0d154d63f42722a2f5a", null ],
+    [ "Parameter_NombreEmpleado", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a10b3bde68691de4097415555f34f9b43", null ],
+    [ "Parameter_precioAveria", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#acc83b85bd2c05ec57625f47158e4c021", null ],
+    [ "Parameter_resolucionAveria", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#acf6938f209aed9f65a0635cd3390cbc2", null ],
+    [ "Parameter_totalAveria", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#ab93186edf0abd4269e6c065288d9a184", null ],
+    [ "ResourceName", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#aa2f96f9c4413a31d5f2961833b079678", null ],
+    [ "Section1", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a0a18aa805708703806c2208dfb964d97", null ],
+    [ "Section2", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#aa0b0e3213811c72db6e731572565b9d2", null ],
+    [ "Section3", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a70aa5e69eef243a227aa4830d410084b", null ],
+    [ "Section4", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#a5bf695775ddd72564293641eafdb86a8", null ],
+    [ "Section5", "class_taller_mecanico_1_1informes_1_1_informe_devolucion.html#aef33a1b6e8c646f2e10a0f60e5b3d210", null ]
+];

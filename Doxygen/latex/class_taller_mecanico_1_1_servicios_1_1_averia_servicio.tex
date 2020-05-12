@@ -1,0 +1,114 @@
+\hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio}{}\doxysection{Referencia de la Clase Taller\+Mecanico.\+Servicios.\+Averia\+Servicio}
+\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio}\index{TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}}
+
+
+Clase servicio para trabajar con la base de datos, gestiona los datos que tienen que ver con las averias  
+
+
+Diagrama de herencias de Taller\+Mecanico.\+Servicios.\+Averia\+Servicio\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_taller_mecanico_1_1_servicios_1_1_averia_servicio}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a76487a3f87e0575d716afcf37839c6a4}{Averia\+Servicio}} (Db\+Context context)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase servicio \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1averia}{averia}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a815317db2a26c4e9bd17e760829d2594}{get\+Averias\+Por\+Tipo}} (string tipo)
+\begin{DoxyCompactList}\small\item\em Obtiene las averias por el tipo de averia \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1averia}{averia}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a50a06321023d5504fd4a276f7165431e}{get\+Averias\+Por\+Estado}} (string estado)
+\begin{DoxyCompactList}\small\item\em Obtiene las averias por el estado \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a5585f49837464f8ce47d29e1f841515c}{get\+Last\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el ultimo id que esta en la base de datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Propiedades}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_af2d819699686fa24138eab7807ba176d}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_af2d819699686fa24138eab7807ba176d}} 
+Date\+Time {\bfseries fecha\+Maxima}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a03a4b06101cec2addc98cb31a92b3aba}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a03a4b06101cec2addc98cb31a92b3aba}} 
+Date\+Time {\bfseries fecha\+Minima}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+Clase servicio para trabajar con la base de datos, gestiona los datos que tienen que ver con las averias 
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a76487a3f87e0575d716afcf37839c6a4}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a76487a3f87e0575d716afcf37839c6a4}} 
+\index{TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}!AveriaServicio@{AveriaServicio}}
+\index{AveriaServicio@{AveriaServicio}!TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}}
+\doxysubsubsection{\texorpdfstring{AveriaServicio()}{AveriaServicio()}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+Servicios.\+Averia\+Servicio.\+Averia\+Servicio (\begin{DoxyParamCaption}\item[{Db\+Context}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase servicio 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em context} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a50a06321023d5504fd4a276f7165431e}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a50a06321023d5504fd4a276f7165431e}} 
+\index{TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}!getAveriasPorEstado@{getAveriasPorEstado}}
+\index{getAveriasPorEstado@{getAveriasPorEstado}!TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}}
+\doxysubsubsection{\texorpdfstring{getAveriasPorEstado()}{getAveriasPorEstado()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1averia}{averia}}$>$ Taller\+Mecanico.\+Servicios.\+Averia\+Servicio.\+get\+Averias\+Por\+Estado (\begin{DoxyParamCaption}\item[{string}]{estado }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene las averias por el estado 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em estado} & Estado de averia\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve una lista de averias segun el estado de la averia pasado
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a815317db2a26c4e9bd17e760829d2594}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a815317db2a26c4e9bd17e760829d2594}} 
+\index{TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}!getAveriasPorTipo@{getAveriasPorTipo}}
+\index{getAveriasPorTipo@{getAveriasPorTipo}!TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}}
+\doxysubsubsection{\texorpdfstring{getAveriasPorTipo()}{getAveriasPorTipo()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1averia}{averia}}$>$ Taller\+Mecanico.\+Servicios.\+Averia\+Servicio.\+get\+Averias\+Por\+Tipo (\begin{DoxyParamCaption}\item[{string}]{tipo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene las averias por el tipo de averia 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tipo} & tipo de la averia\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve una lista de averias segun el tipo de averia pasado
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a5585f49837464f8ce47d29e1f841515c}\label{class_taller_mecanico_1_1_servicios_1_1_averia_servicio_a5585f49837464f8ce47d29e1f841515c}} 
+\index{TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}!getLastId@{getLastId}}
+\index{getLastId@{getLastId}!TallerMecanico.Servicios.AveriaServicio@{TallerMecanico.Servicios.AveriaServicio}}
+\doxysubsubsection{\texorpdfstring{getLastId()}{getLastId()}}
+{\footnotesize\ttfamily int Taller\+Mecanico.\+Servicios.\+Averia\+Servicio.\+get\+Last\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el ultimo id que esta en la base de datos 
+
+\begin{DoxyReturn}{Devuelve}
+devuelve el id de la ultima averia que esta en la base de datos
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+Servicios/Averia\+Servicio.\+cs\end{DoxyCompactItemize}

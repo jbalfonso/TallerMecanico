@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="TallerMecanico.Vista.Dialogos.UCInicio"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TallerMecanico.Vista.Dialogos"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1580" Loaded="Load" >
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+       
+        <Label Grid.Row="0" Grid.Column="0" Content="Taller de Reparacion de Vehiculos" FontSize="80" 
+               FontWeight="Bold" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="150,200,0,0" />
+        
+        <Label Grid.Row="3" Grid.Column="1" x:Name="fecha" Content="FECHA" FontWeight="Bold" FontSize="60" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150,40,0,0"  />
+        
+        <Label Grid.Row="2" Grid.Column="1" x:Name="hora" Content="HORA" FontWeight="Bold" FontSize="90" 
+               HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,150,0"/>
+
+    </Grid>
+</UserControl>
