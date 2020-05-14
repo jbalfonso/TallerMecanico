@@ -24,6 +24,11 @@ namespace TallerMecanico.MVVM
         private EmpleadoServicio empServ;
         private permiso permSel;
         private rol rol;
+
+        /// <summary>
+        /// Lista de empleados que tienen el rol seleccionado, 
+        /// se añaden los empleados en el metodo compruebaRolEmpleado
+        /// </summary>
         public List<empleado> empConRol = new List<empleado>();
 
         /// <summary>
