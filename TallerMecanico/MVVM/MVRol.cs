@@ -21,8 +21,10 @@ namespace TallerMecanico.MVVM
         private tallermecanicoEntities tEnt;
         private RolServicio rolServ;
         private PermisoServicio permServ;
+        private EmpleadoServicio empServ;
         private permiso permSel;
         private rol rol;
+        public List<empleado> empConRol = new List<empleado>();
 
         /// <summary>
         /// booleano el cual cuando esta en true,
@@ -55,6 +57,7 @@ namespace TallerMecanico.MVVM
             permSel = new permiso();
             rolServ = new RolServicio(tEnt);
             permServ = new PermisoServicio(tEnt);
+            empServ = new EmpleadoServicio(tEnt);
             permisosDrop = new ObservableCollection<permiso>();
         }
 
@@ -146,6 +149,42 @@ namespace TallerMecanico.MVVM
             }
             return correcto;
         }
+
+        /// <summary>
+        /// Se encarga de gestionar la eliminacion del rol,
+        /// si algun empleado contiene este rol devuelve false,
+        /// si no lo contiene ningun empleado devuelve true
+        /// </summary>
+        /// <returns>Devuelve true si el rol no lo tiene ningun empleado, 
+        /// devuelve false si algun empleado tiene ese rol</returns>
+        public bool compruebaRolEmpleado()
+        {
+            bool correcto = true;
+            try
+            {
+                empConRol.Clear();
+                foreach (empleado emp in empServ.getAll().ToList())
+                {
+                    if (rolNuevo == emp.rol)
+                    {
+                        correcto = false;
+                        empConRol.Add(emp);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al comprobar el rol seleccionado con los roles de los empleados",ex);
+            }
+            return correcto;
+        }
+
+       /* public List<empleado> empleadosConRol
+        {
+            get { return empConRol;}
+            set { empConRol = value; OnPropertyChanged("empleadosConRol"); }
+        }*/
 
         /// <summary>
         /// Devuelve un listado de roles que hay en la base de datos

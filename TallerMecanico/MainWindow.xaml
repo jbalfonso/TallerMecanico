@@ -64,7 +64,7 @@
                 </Grid.RowDefinitions>
                 <Image x:Name="imagenLogo" Grid.Column="0" Grid.Row="0" Source="/Recursos/Iconos/Logo_aplicacion.png"
                        Height="40" Width="230" Margin="20,5,0,0" VerticalAlignment="Center"/>
-                <ex:DropDownButton Grid.Column="2" Grid.Row="0" Background="Transparent" Height="40" Width="150" 
+                <ex:DropDownButton Grid.Column="2" Grid.Row="0" Background="Transparent" Height="40" Width="Auto" MaxWidth="350" 
                                    VerticalAlignment="Center" HorizontalAlignment="Right" BorderBrush="Transparent">
 
                     <ex:DropDownButton.Content>
@@ -77,7 +77,7 @@
                     <ex:DropDownButton.DropDownContent >
                             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Background="#222e40" >
                                 
-                                <MenuItem Header="Cambiar contraseña" Style="{StaticResource Estilo menuItem}" Click="CambiarContrasena_Click">
+                                <MenuItem x:Name="CambiarContrasenaBtn" Header="Cambiar contraseña" Style="{StaticResource Estilo menuItem}" Click="CambiarContrasena_Click">
                                 <MenuItem.Icon>
                                     <Image Source="/Recursos/Iconos/changePassword.png"/>
                                 </MenuItem.Icon>
@@ -244,23 +244,9 @@
                             </RibbonGroup.Header>
                             <RibbonButton x:Name="ListaAveriaBtn" Label="Listado de Averias" LargeImageSource="/Recursos/Iconos/busqueda-averias.png" Click="BusquedaAveria_Click" />
                         </RibbonGroup>
-                        
-                    </RibbonTab>                    
-                    <RibbonTab x:Name="tabFacebook">
-                        <RibbonTab.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Recursos/Iconos/facebook.png" Height="30"/>
-                                <Label Content="Facebook" Style="{DynamicResource estiloLabelTabRibbon}"/>
-                            </StackPanel>
-                        </RibbonTab.Header>
-                        <RibbonGroup>
-                            <RibbonGroup.Header>
-                                <TextBlock Text="Publicaciones" HorizontalAlignment="Center"/>
-                            </RibbonGroup.Header>
-                            <RibbonButton x:Name="PublicarFacebook" Label="Publicar" LargeImageSource="/Recursos/Iconos/facebook.png" Click="PublicarFacebook_Click" />
-                        </RibbonGroup>
+
                     </RibbonTab>
-            </Ribbon>
+                </Ribbon>
         </StackPanel>
         <Grid x:Name="Contenido" Background="White">
 

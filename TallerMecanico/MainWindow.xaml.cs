@@ -26,7 +26,6 @@ using TallerMecanico.Vista.ControlesUsuario;
 using TallerMecanico.Vista.Dialogos.rolDialogo;
 using TallerMecanico.Vista.Dialogos.clientesDialogo;
 using TallerMecanico.Vista.Charts;
-using TallerMecanico.Vista.Dialogos.facebook;
 using TallerMecanico.Servicios;
 using CrystalDecisions.CrystalReports.Engine;
 using ToastNotifications;
@@ -74,6 +73,7 @@ namespace TallerMecanico
         private MVFacturacion mvfactura;
         private ServicioSQL sqlServ;
         private ReportDocument rd;
+        
 
         private List<int> permisosUsuarioLogeado = new List<int>();            
         private List<pieza> listadoPiezasInicio = new List<pieza>();
@@ -105,6 +105,8 @@ namespace TallerMecanico
         private const int perm_cambioContrasenya = 11;
         private const int perm_cambioContrasenyaPropia = 12;
         private const int perm_editarRoles = 13;
+        private const int perm_anyadirCliente = 14;
+        private const int perm_modificarEliminarCliente = 15;
 
         #endregion
 
@@ -147,6 +149,8 @@ namespace TallerMecanico
             
         }
 
+       
+
         #region usuario
         /// <summary>
         /// Gestiona los permisos del usuario logeado,
@@ -154,7 +158,7 @@ namespace TallerMecanico
         /// </summary>
         private void gestionUsuario()
         {
-
+            permisosUsuarioLogeado.Clear();
             ICollection<permiso> permisosUsuario = empleadoLogin.rol.permiso;
 
             foreach (permiso perm in permisosUsuario)
@@ -177,70 +181,181 @@ namespace TallerMecanico
             {
                 anadirAveriaBtn.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                anadirAveriaBtn.Visibility = Visibility.Visible;
+            }
 
             if (!permisosUsuarioLogeado.Contains(perm_resolverAveria))
             {
                 editarAveriaBtn.Visibility = Visibility.Collapsed;
                 anyadirResolucionBtn.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                anyadirResolucionBtn.Visibility = Visibility.Visible;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_anularAveria))
             {
                 AnularAveriaBtn.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                AnularAveriaBtn.Visibility = Visibility.Visible;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_cobroCliente))
             {
-                cobrarCliente.Visibility = Visibility.Collapsed;
-                FacturacionGroup.Visibility = Visibility.Collapsed;
+                cobrarCliente.Visibility = Visibility.Collapsed;                
+            }
+            else
+            {
+                cobrarCliente.Visibility = Visibility.Visible;                
             }
             if (!permisosUsuarioLogeado.Contains(perm_devolucionCliente))
             {
                 devolverCliente.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                devolverCliente.Visibility = Visibility.Visible;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_anyadirPieza))
             {
                 anadirPiezaBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                anadirPiezaBtn.Visibility = Visibility.Visible;
             }
             if (!permisosUsuarioLogeado.Contains(perm_modificarEliminarPieza))
             {
                 editarPiezaBtn.Visibility = Visibility.Collapsed;
                 eliminarPiezaBtn.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                editarPiezaBtn.Visibility = Visibility.Visible;
+                eliminarPiezaBtn.Visibility = Visibility.Visible;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_planificarTrabajo))
             {
                 tabPlanificacion.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                tabPlanificacion.Visibility = Visibility.Visible;
             }
             if (!permisosUsuarioLogeado.Contains(perm_gestionarUsuario))
             {
                 EmpleadoGroup.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                EmpleadoGroup.Visibility = Visibility.Visible;
+            }
 
             if (!permisosUsuarioLogeado.Contains(perm_cambioContrasenya))
+            {                
+                ModificarEmpleadoBtn.Visibility = Visibility.Collapsed;
+            }
+            else
             {
-                EmpleadoGroup.Visibility = Visibility.Collapsed;
+                ModificarEmpleadoBtn.Visibility = Visibility.Visible;
             }
             if (!permisosUsuarioLogeado.Contains(perm_cambioContrasenyaPropia))
             {
-                flyout.Visibility = Visibility.Collapsed;
+                
+                CambiarContrasenaBtn.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                CambiarContrasenaBtn.Visibility = Visibility.Visible;
+            }
+           
             if (!permisosUsuarioLogeado.Contains(perm_editarRoles))
             {
                 rolGroup.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                rolGroup.Visibility = Visibility.Visible;
             }
             if (permisosUsuarioLogeado.Contains(perm_anyadirAveria) && permisosUsuarioLogeado.Contains(perm_anularAveria))
             {
                 editarAveriaBtn.Visibility = Visibility.Visible;
             }
+            else
+            {
+                editarAveriaBtn.Visibility = Visibility.Collapsed;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_editarRoles) && !permisosUsuarioLogeado.Contains(perm_cambioContrasenya) && !permisosUsuarioLogeado.Contains(perm_gestionarUsuario))
             {
                 tabEmpleados.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                tabEmpleados.Visibility = Visibility.Visible;
             }
             if (!permisosUsuarioLogeado.Contains(perm_anyadirAveria) && !permisosUsuarioLogeado.Contains(perm_resolverAveria) && !permisosUsuarioLogeado.Contains(perm_anularAveria))
             {
                 tabAverias.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                tabAverias.Visibility = Visibility.Visible;
+            }
             if (!permisosUsuarioLogeado.Contains(perm_anyadirPieza) && !permisosUsuarioLogeado.Contains(perm_modificarEliminarPieza))
             {
                 tabPiezas.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                tabPiezas.Visibility = Visibility.Visible;
+            }
+            if(!permisosUsuarioLogeado.Contains(perm_cobroCliente) && !permisosUsuarioLogeado.Contains(perm_devolucionCliente))
+            {
+                FacturacionGroup.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                FacturacionGroup.Visibility = Visibility.Visible;
+            }
+            if (!permisosUsuarioLogeado.Contains(perm_anyadirCliente))
+            {
+                anyadirCliente.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                anyadirCliente.Visibility = Visibility.Visible;
+            }
+            if (!permisosUsuarioLogeado.Contains(perm_modificarEliminarCliente))
+            {
+                modificarCliente.Visibility = Visibility.Collapsed;
+                borrarCliente.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                modificarCliente.Visibility = Visibility.Visible;
+                borrarCliente.Visibility = Visibility.Visible;
+            }
+            if(!permisosUsuarioLogeado.Contains(perm_anyadirCliente) && !permisosUsuarioLogeado.Contains(perm_modificarEliminarCliente))
+            {
+                clientesGroup.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                clientesGroup.Visibility = Visibility.Visible;
+            }
+            if(!permisosUsuarioLogeado.Contains(perm_cobroCliente) && 
+                !permisosUsuarioLogeado.Contains(perm_devolucionCliente) && 
+                !permisosUsuarioLogeado.Contains(perm_anyadirCliente) && 
+                !permisosUsuarioLogeado.Contains(perm_modificarEliminarCliente))
+            {
+                ClientesTab.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ClientesTab.Visibility = Visibility.Visible;
             }
         }
         #endregion
@@ -422,6 +537,8 @@ namespace TallerMecanico
             contrasenaBlanco.Visibility = Visibility.Collapsed;
             contrasenaActual.BorderBrush = Brushes.White;
             contrasenaNueva.BorderBrush = Brushes.White;
+            contrasenaActual.Password = "";
+            contrasenaNueva.Password = "";
         }
 
         /// <summary>
@@ -519,7 +636,11 @@ namespace TallerMecanico
             if (dialogo.DialogResult == true)
             {
                 await this.ShowMessageAsync("Informacion", "Empleado modificado correctamente");
-
+                if (mvempleado.empleadoNuevo == empleadoLogin)
+                {                   
+                        empleadoLogin = mvempleado.empleadoNuevo;
+                        gestionUsuario();                    
+                }
                 mvempleado = new MVEmpleado(tEnt);
             }
             else
@@ -536,7 +657,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void BorrarEmpleadoBtn_Click(object sender, RoutedEventArgs e)
         {
-            BorrarEmpleado dialogo = new BorrarEmpleado(mvempleado);
+            BorrarEmpleado dialogo = new BorrarEmpleado(mvempleado,empleadoLogin);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
@@ -738,7 +859,7 @@ namespace TallerMecanico
 
         #endregion
 
-        #region pieza
+        #region rol
 
         /// <summary>
         /// Gestiona el boton de añadir rol, 
@@ -773,7 +894,12 @@ namespace TallerMecanico
             if (dialogo.DialogResult == true)
             {
                 await this.ShowMessageAsync("Informacion", "Rol modificado corectamente");
-                mvrol = new MVRol(tEnt);
+                if (mvrol.rolNuevo == empleadoLogin.rol)
+                {
+                    empleadoLogin.rol = mvrol.rolNuevo;
+                    gestionUsuario();
+                }
+                mvrol = new MVRol(tEnt);                
             }
             else
             {
@@ -789,16 +915,18 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void EliminarRol_Click(object sender, RoutedEventArgs e)
         {
-           BorraRol dialogo = new BorraRol(mvrol);
+           BorraRol dialogo = new BorraRol(mvrol,mvempleado,permisosUsuarioLogeado);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
                 await this.ShowMessageAsync("Informacion", "Rol borrado corectamente");
                 mvrol = new MVRol(tEnt);
+                mvempleado = new MVEmpleado(tEnt);
             }
             else
             {
                 mvrol = new MVRol(tEnt);
+                mvempleado = new MVEmpleado(tEnt);
             }
         }
 
@@ -963,22 +1091,6 @@ namespace TallerMecanico
             UCInformeAverias control = new UCInformeAverias(sqlServ, rd);
             if (Contenido.Children != null) Contenido.Children.Clear();
             Contenido.Children.Add(control);
-        }
-
-        #endregion
-                
-        #region facebook
-
-        /// <summary>
-        /// Gestiona que se muestre el dialogo, 
-        /// para realizar una publicacion en facebook
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PublicarFacebook_Click(object sender, RoutedEventArgs e)
-        {
-            AddPublicacion dialogo = new AddPublicacion();
-            dialogo.ShowDialog();
         }
 
         #endregion

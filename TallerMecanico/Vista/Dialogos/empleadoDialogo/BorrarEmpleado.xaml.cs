@@ -27,16 +27,18 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         private MVEmpleado mvempleado;
         private Logger logger;
         private bool seleccionado = false;
+        private empleado empleadoLogeado;
         private string login;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvempleado">Clase que gestiona a los empleados</param>
-        public BorrarEmpleado(MVEmpleado mvempleado)
+        public BorrarEmpleado(MVEmpleado mvempleado,empleado empleadoLogeado)
         {
             InitializeComponent();            
             this.mvempleado = mvempleado;
+            this.empleadoLogeado = empleadoLogeado;
             logger = LogManager.GetCurrentClassLogger();
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvempleado.OnErrorEvent));
             DataContext = mvempleado;
@@ -66,49 +68,57 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         /// <param name="e"></param>
         private async void Borrar_Click(object sender, RoutedEventArgs e)
         {
-            MetroDialogSettings settings = new MetroDialogSettings()
+            if (mvempleado.empleadoNuevo == empleadoLogeado)
             {
-                NegativeButtonText = "No",
-                AffirmativeButtonText = "Continuar",
-                FirstAuxiliaryButtonText = "Cancelar"
-            };
-
-            MessageDialogResult result = await this.ShowMessageAsync("Confirmacion de seguridad", "Ha hecho clic en borrar empleado, esta seguro de que desea borrar el empleado?, si es asi haga clic en ''Continuar'' en caso contrario haga clic en ''No'', si desea cerrar todos los dialogos haga clic en ''Cancelar'' ", MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary, settings);
-            if (result == MessageDialogResult.Affirmative)
+                await this.ShowMessageAsync("Error","No se puede borrar el propio empleado que ha iniciado sesion");
+            }
+            else
             {
 
-                if (seleccionado)
+                MetroDialogSettings settings = new MetroDialogSettings()
                 {
-                    mvempleado.editar = true;
-                    if (compruebaLoginUnico())
+                    NegativeButtonText = "No",
+                    AffirmativeButtonText = "Continuar",
+                    FirstAuxiliaryButtonText = "Cancelar"
+                };
+
+                MessageDialogResult result = await this.ShowMessageAsync("Confirmacion de seguridad", "Ha hecho clic en borrar empleado, esta seguro de que desea borrar el empleado?, si es asi haga clic en ''Continuar'' en caso contrario haga clic en ''No'', si desea cerrar todos los dialogos haga clic en ''Cancelar'' ", MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary, settings);
+                if (result == MessageDialogResult.Affirmative)
+                {
+
+                    if (seleccionado)
                     {
-                        if (mvempleado.comprobarLoginUnico())
+                        mvempleado.editar = true;
+                        if (compruebaLoginUnico())
                         {
-                            borrarEmpleado();
+                            if (mvempleado.comprobarLoginUnico())
+                            {
+                                borrarEmpleado();
+                            }
+                            else
+                            {
+                                await this.ShowMessageAsync("Informacion", "El login especificado ya existe en la base de datos");
+                                mvempleado.empleadoNuevo.Login = login;
+                            }
                         }
                         else
                         {
-                            await this.ShowMessageAsync("Informacion", "El login especificado ya existe en la base de datos");
-                            mvempleado.empleadoNuevo.Login = login;
+                            borrarEmpleado();
                         }
                     }
                     else
                     {
-                        borrarEmpleado();
+                        MessageDialogResult result2 = await this.ShowMessageAsync("Informacion", "Tiene que elegir el login de un empleado, si no desea modificar un empleado haga clic en 'Cancel'", MessageDialogStyle.AffirmativeAndNegative);
+                        if (result2 == MessageDialogResult.Negative)
+                        {
+                            this.Close();
+                        }
                     }
                 }
-                else
+                else if (result == MessageDialogResult.FirstAuxiliary)
                 {
-                    MessageDialogResult result2 = await this.ShowMessageAsync("Informacion", "Tiene que elegir el login de un empleado, si no desea modificar un empleado haga clic en 'Cancel'", MessageDialogStyle.AffirmativeAndNegative);
-                    if (result2 == MessageDialogResult.Negative)
-                    {
-                        this.Close();
-                    }
+                    this.Close();
                 }
-            }
-            else if (result == MessageDialogResult.FirstAuxiliary)
-            {
-                this.Close();
             }
         }
 

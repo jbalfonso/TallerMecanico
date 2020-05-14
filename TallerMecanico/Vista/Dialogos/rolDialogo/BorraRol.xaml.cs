@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TallerMecanico.Modelo;
 using TallerMecanico.MVVM;
+using TallerMecanico.Vista.Dialogos.empleadoDialogo;
 
 namespace TallerMecanico.Vista.Dialogos.rolDialogo
 {
@@ -26,21 +27,34 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
     {
 
         private MVRol mvrol;
+        private MVEmpleado mvempleado;
         private Logger logger;
         private bool selecciona = true;
+        private List<int> permisosUsuarioLogeado;
+
+        private int perm_GestionarUsuario = 9;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvrol">Clase que gestiona los roles</param>
-        public BorraRol(MVRol mvrol)
+        /// <param name="mvempleado">Clase que se encarga de gestionar los empleados</param>
+        /// <param name="permisosUsuarioLogeado">Listado de los permisos que tiene el usuario que ha iniciado sesion</param>
+        public BorraRol(MVRol mvrol,MVEmpleado mvempleado,List<int> permisosUsuarioLogeado)
         {
             InitializeComponent();
             this.mvrol = mvrol;
+            this.mvempleado = mvempleado;
+            this.permisosUsuarioLogeado = permisosUsuarioLogeado;
             logger = LogManager.GetCurrentClassLogger();
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvrol.OnErrorEvent));
             DataContext = mvrol;
             mvrol.btnGuardar = guardar;
+
+            if (!permisosUsuarioLogeado.Contains(perm_GestionarUsuario))
+            {
+                clickDerecho.Visibility = Visibility.Collapsed;
+            }
         }
 
         /// <summary>
@@ -68,17 +82,27 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
                         mvrol.editar = true;
                         mvrol.permisosDrop = (ICollection<permiso>)checkCombo.SelectedItemsOverride;
                         mvrol.rolNuevo.permiso = mvrol.permisosDrop;
-                        if (mvrol.borra())
+                        if (mvrol.compruebaRolEmpleado())
                         {
-                            logger.Info("Rol borrado con codigo: " + mvrol.rolNuevo.CodigoRol);
-                            this.DialogResult = true;
+                            if (mvrol.borra())
+                            {
+                                logger.Info("Rol borrado con codigo: " + mvrol.rolNuevo.CodigoRol);
+                                this.DialogResult = true;
+                            }
+                            else
+                            {
+                                logger.Error("Ha habido un error en la base de datos al borrar un rol");
+                                await this.ShowMessageAsync("Error", "Ha habido un error al borrar el rol de la base de datos");
+                                this.DialogResult = false;
+                            }
                         }
                         else
-                        {
-                            logger.Error("Ha habido un error en la base de datos al borrar un rol");
-                          await this.ShowMessageAsync("Error","Ha habido un error al borrar el rol de la base de datos");
-                            this.DialogResult = false;
-                        }
+                        {    
+                            await this.ShowMessageAsync("Informacion","El rol seleccionado a eliminar, no puede ser eliminado,"+Environment.NewLine+"hay 1 o mas empleados que tienen este rol asignado,"+Environment.NewLine+ "modifique el rol de cada empleado, para poder eliminar este rol");
+                            dgEmpleados.Visibility = Visibility.Visible;
+                            dgEmpleados.ItemsSource = mvrol.empConRol;
+                            dgEmpleados.Items.Refresh();
+                        }                        
                     }
                     else
                     {
@@ -125,6 +149,33 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
 
             checkCombo.SelectedItemsOverride = mvrol.permisosDrop.ToList();
             checkCombo.Items.Refresh();
+        }
+
+        /// <summary>
+        /// Gestiona el boton de editar, los empleados,
+        /// abre el dialogo y edita el empleado, 
+        /// si se modifica un empleado, se actualiza en la tabla de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void Editar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEmpleados.SelectedItem != null)
+            {                
+                mvempleado.empleadoNuevo = (empleado)dgEmpleados.SelectedItem;
+                ModificarEmpleado dialogo = new ModificarEmpleado(mvempleado);
+                dialogo.ShowDialog();
+                if (dialogo.DialogResult == true)
+                {
+                    if (mvempleado.empleadoNuevo.rol!=mvrol.rolNuevo)
+                    {                        
+                        mvrol.empConRol.Remove((empleado)dgEmpleados.SelectedItem);
+                        dgEmpleados.Items.Refresh();
+                        await this.ShowMessageAsync("Informacion", "Editado correctamente");
+                    }
+                }
+            }
+            
         }
     }
 }

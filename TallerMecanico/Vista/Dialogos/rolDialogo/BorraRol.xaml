@@ -9,9 +9,9 @@
         xmlns:local="clr-namespace:TallerMecanico.Vista.Dialogos.rolDialogo"
         mc:Ignorable="d"
         ShowIconOnTitleBar="True"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         Icon="/Recursos/Iconos/delete_role.png"
-        Title="Borra Rol" Height="350" Width="700" SizeToContent="WidthAndHeight">
+        Title="Borra Rol" Height="350" Width="700" MaxHeight="1080" SizeToContent="WidthAndHeight">
     <DockPanel>
 
         <!--Parte Superior de la aplicacion-->
@@ -40,6 +40,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="300" 
@@ -62,9 +63,30 @@
                               material:HintAssist.Hint="Permisos" Margin="0,20,0,0" DisplayMemberPath="Descripcion" 
                               SelectedItemsOverride="{Binding permisosDrop}" MaxWidth="300" IsEditable="False"/>
 
-            <Button x:Name="guardar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
+            
+            <DataGrid Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="3" x:Name="dgEmpleados" MaxHeight="400" Visibility="Collapsed" 
+                      AlternatingRowBackground="AliceBlue" GridLinesVisibility="Horizontal" Margin="0,20" ColumnWidth="Auto"
+                      CanUserAddRows="False" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                        <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                        <DataGridTextColumn Header="Login" Binding="{Binding Login}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu x:Name="clickDerecho">
+                            <MenuItem Header="Editar" x:Name="editar" Click="Editar_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/Recursos/Iconos/editar_listas.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+            </DataGrid>
+            
+
+            <Button x:Name="guardar" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
                     Content="Borrar" Background="#eda21f" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Guardar_Click" />
-            <Button x:Name="cancelar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
+            <Button x:Name="cancelar" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
                     Content="Cancelar" Background="#d13636" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Cancelar_Click" />
         </Grid>
     </DockPanel>

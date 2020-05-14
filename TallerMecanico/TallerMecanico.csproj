@@ -54,9 +54,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
-      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -337,9 +334,6 @@
     <Compile Include="Vista\Dialogos\empleadoDialogo\BorrarEmpleado.xaml.cs">
       <DependentUpon>BorrarEmpleado.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Dialogos\facebook\AddPublicacion.xaml.cs">
-      <DependentUpon>AddPublicacion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Dialogos\piezaDialogo\AddPieza.xaml.cs">
       <DependentUpon>AddPieza.xaml</DependentUpon>
     </Compile>
@@ -457,10 +451,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\Dialogos\empleadoDialogo\BorrarEmpleado.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vista\Dialogos\facebook\AddPublicacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
