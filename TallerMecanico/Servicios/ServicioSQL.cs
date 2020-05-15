@@ -10,6 +10,7 @@ using System.Data.Entity.Core.EntityClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TallerMecanico.Modelo;
 
 namespace TallerMecanico.Servicios
@@ -82,13 +83,20 @@ namespace TallerMecanico.Servicios
         /// <param name="query">Sentencia sql a ejecutar</param>
         /// <returns>Obtiene un DataTable, con los datos obtenidos</returns>
         public DataTable getDatos(string query)
-        {             // Creamos un DataSet             
-            DataSet ds = new DataSet();
+        {             // Creamos un DataSet
+            DataSet ds = null;
+            try { 
+           ds = new DataSet();
             // Obtenemos los datos en función de la conexión y de la sentencia SELECT             
             MySqlDataAdapter adapt = new MySqlDataAdapter(query, connection);
             // Guardamos los datos en el DataAdapter (Equivalente a ResulSet)             
             adapt.Fill(ds);
-            // Devolvemos el DataAdapter            
+                // Devolvemos el DataAdapter      
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CASCA SERVICIOSQL");
+            }
             return ds.Tables[0];
         }
         }

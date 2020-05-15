@@ -58,8 +58,8 @@ namespace TallerMecanico.Vista.ControlesUsuario
             int codigoaveria = mvfactura.averiaSeleccionada.CodigoAveria;
             try
             {
-                
-                rd.Load("../../informes/InformeDevolucion.rpt");
+                string path = System.AppDomain.CurrentDomain.BaseDirectory + "\\InformeDevolucion.rpt";
+                rd.Load(path);
                 rd.SetParameterValue("fechaDevolucion", mvfactura.fechaSeleccionada);
                 rd.SetParameterValue("NombreEmpleado", mvfactura.empleadoSeleccionado.Nombre + " " + mvfactura.empleadoSeleccionado.Apellido);
                 

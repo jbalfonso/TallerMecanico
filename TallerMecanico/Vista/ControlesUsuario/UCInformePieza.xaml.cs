@@ -52,8 +52,9 @@ namespace TallerMecanico.Vista.ControlesUsuario
         private void cargaInforme()
         {
             try
-            {                
-                rd.Load("../../informes/InformePieza.rpt");                
+            {
+                string path = System.AppDomain.CurrentDomain.BaseDirectory + "\\InformePieza.rpt";
+                rd.Load(path);                
                 rd.SetDataSource(sqlServ.getDatos("select * from tallermecanico.pieza group by Tipo"));
                 informeuc.ViewerCore.ReportSource = rd;
 

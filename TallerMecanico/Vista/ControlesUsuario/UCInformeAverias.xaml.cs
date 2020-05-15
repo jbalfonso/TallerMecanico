@@ -53,8 +53,9 @@ namespace TallerMecanico.Vista.ControlesUsuario
         {
             try
             {
-
-                rd.Load("../../informes/InformeAveria.rpt");
+                string path = System.AppDomain.CurrentDomain.BaseDirectory + "\\InformeAveria.rpt";
+                
+                rd.Load(path);
                 rd.SetDataSource(sqlServ.getDatos("select averia.CodigoAveria,averia.Descripcion,averia.Precio,averia.Estado,empleado.Nombre,averia.Resolucion," +
                     "averia.FechaRecepcion,averia.FechaResolucion,cliente.Nombre,averia.Observaciones,pieza.Descripcion from averia " +
                     "join cliente on cliente.CodigoCliente = averia.Cliente join empleado on empleado.CodigoEmpleado = averia.EmpleadoAsignado " +
@@ -66,6 +67,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
             catch (Exception ex)
             {
                 logger.Error("Ha habido un problema al cargar y mostrar el informe de las averias", ex);
+                MessageBox.Show(ex+"");
             }
         }
     }

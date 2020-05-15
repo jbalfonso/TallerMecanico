@@ -48,17 +48,27 @@ namespace TallerMecanico
         /// </summary>
         Notifier notifier = new Notifier(cfg =>
         {
-            cfg.PositionProvider = new WindowPositionProvider(
-                parentWindow: Application.Current.MainWindow,
-                corner: Corner.TopRight,
-                offsetX: 10,
-                offsetY: 180);
+            try
+            {
+               
+                cfg.PositionProvider = new PrimaryScreenPositionProvider(
+                    //parentWindow: Application.Current.MainWindow,
+                    corner: Corner.TopRight,
+                    offsetX: 10,
+                    offsetY: 180);
 
-            cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
-                notificationLifetime: TimeSpan.FromDays(999),
-                maximumNotificationCount: MaximumNotificationCount.FromCount(12));
+                cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                    notificationLifetime: TimeSpan.FromDays(999),
+                    maximumNotificationCount: MaximumNotificationCount.FromCount(12));
 
-            cfg.Dispatcher = Application.Current.Dispatcher;
+                cfg.DisplayOptions.TopMost = true;               
+
+                cfg.Dispatcher = Application.Current.Dispatcher;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex+"");
+            }
         });
 
         private Logger logger;
@@ -124,7 +134,15 @@ namespace TallerMecanico
             inicializar();
             paginaInicio();
             gestionUsuario();
-            gestionaNotificaciones();
+            try
+            {
+                gestionaNotificaciones();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex+"");
+            }
+            
             
         }  
 
@@ -369,7 +387,7 @@ namespace TallerMecanico
         /// </summary>       
         private async void gestionaNotificaciones()
         {
-            await Task.Delay(2000);
+            await Task.Delay(5000);
 
             int mesActual = DateTime.Now.Month;
             if (mesActual >= 4 && mesActual <= 6)
@@ -416,8 +434,6 @@ namespace TallerMecanico
                 {
                     notifier.ShowError("Se esta agotando el stock de:  ''" + pza.Descripcion + "'' la cantidad restante es:  " + cantidad);
                 }
-
-
             }
             else if (pza.Cantidad > 5 && pza.Cantidad <= 15)
             {

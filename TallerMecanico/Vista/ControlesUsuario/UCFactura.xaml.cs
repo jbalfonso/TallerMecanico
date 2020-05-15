@@ -68,8 +68,8 @@ namespace TallerMecanico.Vista.ControlesUsuario
 
                 cantidadPiezas = calculaCantidadPiezas();
                 codigoFactura = calculaCodigoAveria(codigoaveria);
-               
-                rd.Load("../../informes/InformeFactura.rpt");         
+                string path = System.AppDomain.CurrentDomain.BaseDirectory + "\\InformeFactura.rpt";
+                rd.Load(path);         
 
                 rd.SetParameterValue("fechaCobro", mvfactura.fechaSeleccionada);
                 rd.SetParameterValue("NombreEmpleado",mvfactura.empleadoSeleccionado.Nombre+" "+mvfactura.empleadoSeleccionado.Apellido);                
