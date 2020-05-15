@@ -89,16 +89,7 @@ namespace TallerMecanico.Vista.Dialogos.loginDialogo
                 {
                     MainWindow ventanaPrincipal = new MainWindow(tEnt, empServ.empleLogin);
                     ventanaPrincipal.Show();
-                    try
-                    {
-                        logger.Info("Ha iniciado sesion el usuario: " + empServ.empleLogin.Nombre + " - " + empServ.empleLogin.Apellido);
-                        System.Console.WriteLine("INICIADO SESION ");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex+"");
-                    }
-                    
+                    logger.Info("Ha iniciado sesion el usuario: " + empServ.empleLogin.Nombre + " - " + empServ.empleLogin.Apellido); 
                     this.Close();                    
                 }
                 else
