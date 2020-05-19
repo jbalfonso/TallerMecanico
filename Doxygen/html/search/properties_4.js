@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['fechafinal_387',['fechaFinal',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a52cc94b5a66e17bc244b20088317ca1b',1,'TallerMecanico::MVVM::MVAveria']]],
-  ['fechainicial_388',['fechaInicial',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a1c86f47b6433388cf8a2464cb726e440',1,'TallerMecanico::MVVM::MVAveria']]],
-  ['fechamaxima_389',['fechaMaxima',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#aa069951210c5df2a517d7b82c15791d4',1,'TallerMecanico::MVVM::MVAveria']]],
-  ['fechaminima_390',['fechaMinima',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a69842d438ae938fee6e0c07a45ea1890',1,'TallerMecanico::MVVM::MVAveria']]],
-  ['fechaseleccionada_391',['fechaSeleccionada',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a3d9967e46dbb5c5abffdf840318c7405',1,'TallerMecanico::MVVM::MVFacturacion']]]
+  ['editar_1074',['editar',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a1a062bff8bfc89c456b19e489429fc09',1,'TallerMecanico.MVVM.MVAveria.editar()'],['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente.html#af13e5b88d97ef1e50cb33541da258aa7',1,'TallerMecanico.MVVM.MVCliente.editar()'],['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado.html#a53499c25dd17f3dc4a51309820e21d24',1,'TallerMecanico.MVVM.MVEmpleado.editar()'],['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#ab0ba11a109d7faeea4635d0ecae7db30',1,'TallerMecanico.MVVM.MVPieza.editar()'],['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol.html#abb45dee332628f42dc27ed3798cee1fb',1,'TallerMecanico.MVVM.MVRol.editar()']]],
+  ['email_1075',['Email',['../class_taller_mecanico_1_1_modelo_1_1cliente.html#ab2852e9e2360eb745fe84e27346588d3',1,'TallerMecanico::Modelo::cliente']]],
+  ['empleado_1076',['empleado',['../class_taller_mecanico_1_1_modelo_1_1averia.html#a0d9cd8ad43ba689fe54ebd3eb9d7b720',1,'TallerMecanico.Modelo.averia.empleado()'],['../class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities.html#ae9f02a35102aef32919a699750b66621',1,'TallerMecanico.Modelo.tallermecanicoEntities.empleado()'],['../class_taller_mecanico_1_1_modelo_1_1rol.html#adb5ed7556f650e641fc8ad175334095f',1,'TallerMecanico.Modelo.rol.empleado()']]],
+  ['empleadoasignado_1077',['EmpleadoAsignado',['../class_taller_mecanico_1_1_modelo_1_1averia.html#abb0e457f0c4d994d43713f4e097b1468',1,'TallerMecanico::Modelo::averia']]],
+  ['empleadonuevo_1078',['empleadoNuevo',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado.html#a89803181a335793555bab201eeda4c75',1,'TallerMecanico::MVVM::MVEmpleado']]],
+  ['empleadoseleccionado_1079',['empleadoSeleccionado',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#ab441ad10ee828adaec3f550e779e2d4f',1,'TallerMecanico::MVVM::MVFacturacion']]],
+  ['emplelogin_1080',['empleLogin',['../class_taller_mecanico_1_1_servicios_1_1_empleado_servicio.html#abd16395c0cb209151f807d8e4472e2a1',1,'TallerMecanico::Servicios::EmpleadoServicio']]],
+  ['error_1081',['Error',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base.html#a5e5e143ec3d28aa3fb3197ab2947b822',1,'TallerMecanico::MVVM::MVBase']]],
+  ['estado_1082',['Estado',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#ad40b02f9897684459032e64dd206c3fa',1,'TallerMecanico.informes.DatasetAveria.DataTable1Row.Estado()'],['../class_taller_mecanico_1_1_modelo_1_1averia.html#a3ef6af58a0659462097191ca8b52f4fb',1,'TallerMecanico.Modelo.averia.Estado()']]],
+  ['estadocolumn_1083',['EstadoColumn',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_data_table.html#adac12b2f23c185dbb964692e0ae23971',1,'TallerMecanico::informes::DatasetAveria::DataTable1DataTable']]]
 ];

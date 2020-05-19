@@ -457,6 +457,31 @@ namespace TallerMecanico.MVVM
         }
 
         /// <summary>
+        /// Devuelve un listado de todas las averias
+        /// que no estan en estado "Devuelto"
+        /// </summary>
+        public List<averia> listaAveriasNoDevueltas
+        {
+            get {
+                try {
+                    List<averia> averias = new List<averia>();
+                     averias.AddRange(avServ.getAveriasPorEstado("En proceso"));
+                    averias.AddRange(avServ.getAveriasPorEstado("En espera"));
+                    averias.AddRange(avServ.getAveriasPorEstado("Finalizado"));
+                    averias.AddRange(avServ.getAveriasPorEstado("Pendiente"));
+                    List<averia> averiasOrdenadas = averias.OrderBy(o => o.CodigoAveria).ToList();
+                    return averiasOrdenadas;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha habido una excepcion al obtener las piezas", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    logger.Error("Ha habido un problema inesperado al obtener las piezas de la base de datos", ex);
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
         /// Devuelve una lista de estados, menos el estado "Devuelto"
         /// </summary>
         public List<string> listaEstados

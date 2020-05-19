@@ -60,6 +60,7 @@ var hierarchy =
       [ "TallerMecanico.Vista.Dialogos.empleadoDialogo.AddEmpleado", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado_dialogo_1_1_add_empleado.html", null ],
       [ "TallerMecanico.Vista.Dialogos.empleadoDialogo.BorrarEmpleado", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado_dialogo_1_1_borrar_empleado.html", null ],
       [ "TallerMecanico.Vista.Dialogos.empleadoDialogo.ModificarEmpleado", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado_dialogo_1_1_modificar_empleado.html", null ],
+      [ "TallerMecanico.Vista.Dialogos.facebook.AddPublicacion", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1facebook_1_1_add_publicacion.html", null ],
       [ "TallerMecanico.Vista.Dialogos.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_login.html", null ],
       [ "TallerMecanico.Vista.Dialogos.login.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_1_1_login.html", null ],
       [ "TallerMecanico.Vista.Dialogos.loginDialogo.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_dialogo_1_1_login.html", null ],
@@ -183,6 +184,7 @@ var hierarchy =
     ] ],
     [ "Window", null, [
       [ "TallerMecanico.Vista.Dialogos.clientesDialogo.Factura", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1clientes_dialogo_1_1_factura.html", null ],
+      [ "TallerMecanico.Vista.Dialogos.facebook.AddPublicacion", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1facebook_1_1_add_publicacion.html", null ],
       [ "TallerMecanico.Vista.Dialogos.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_login.html", null ],
       [ "TallerMecanico.Vista.Dialogos.login.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_1_1_login.html", null ],
       [ "TallerMecanico.Vista.Dialogos.loginDialogo.Login", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_dialogo_1_1_login.html", null ],

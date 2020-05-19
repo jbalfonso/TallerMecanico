@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['predicadofiltro_369',['predicadoFiltro',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a2bfa32f350a0794c99dee5d6e579a0db',1,'TallerMecanico.MVVM.MVAveria.predicadoFiltro()'],['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#aae5924f26c4bfbc65fb8fae2069d690c',1,'TallerMecanico.MVVM.MVPieza.predicadoFiltro()']]]
+  ['basis_956',['BASIS',['../_taller_mecanico_2_recursos_2_fuentes_2_l_i_c_e_n_s_e_8txt.html#a9beee1dcd12cad1170681164a38590c4',1,'LICENSE.txt']]],
+  ['building_957',['building',['../packages_2_extended_8_wpf_8_toolkit_83_88_81_2_l_i_c_e_n_s_e_8txt.html#a9f21740189652e1ec18685f6719424fe',1,'LICENSE.txt']]],
+  ['by_958',['by',['../_taller_mecanico_2_recursos_2_fuentes_2_l_i_c_e_n_s_e_8txt.html#a9852a7b4476d8cbf55726bafdc7899ff',1,'LICENSE.txt']]]
 ];

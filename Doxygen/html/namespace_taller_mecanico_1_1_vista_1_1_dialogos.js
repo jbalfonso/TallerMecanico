@@ -5,6 +5,7 @@ var namespace_taller_mecanico_1_1_vista_1_1_dialogos =
     [ "clientesDialogo", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1clientes_dialogo.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1clientes_dialogo" ],
     [ "empleado", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado" ],
     [ "empleadoDialogo", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado_dialogo.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1empleado_dialogo" ],
+    [ "facebook", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1facebook.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1facebook" ],
     [ "login", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1login.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1login" ],
     [ "loginDialogo", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_dialogo.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1login_dialogo" ],
     [ "pieza", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1pieza.html", "namespace_taller_mecanico_1_1_vista_1_1_dialogos_1_1pieza" ],

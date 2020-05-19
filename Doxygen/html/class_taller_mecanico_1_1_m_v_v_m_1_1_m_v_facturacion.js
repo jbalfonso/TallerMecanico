@@ -8,6 +8,7 @@ var class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion =
     [ "empleadoSeleccionado", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#ab441ad10ee828adaec3f550e779e2d4f", null ],
     [ "fechaSeleccionada", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a3d9967e46dbb5c5abffdf840318c7405", null ],
     [ "listaAverias", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a46d55f0df041a90506a0dd23de22a9d2", null ],
+    [ "listaAveriasFinalizadas", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#ab9d9a56cba6532d7e4570ae8b4ddac68", null ],
     [ "listaClientes", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a5eebc46478e2f5c481132cfe2fb10bd2", null ],
     [ "listaEmpleados", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a1ea9c52fda595b9567674c63350717b3", null ],
     [ "metodoPago", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_facturacion.html#a36164531dc6e9d6e14adb981981a7629", null ],

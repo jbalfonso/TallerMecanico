@@ -4,5 +4,6 @@ var class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio =
     [ "InitializeComponent", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html#a7d35fa873cb9fe7de26ac1a0781386af", null ],
     [ "InitializeComponent", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html#a7d35fa873cb9fe7de26ac1a0781386af", null ],
     [ "InitializeComponent", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html#a7d35fa873cb9fe7de26ac1a0781386af", null ],
+    [ "InitializeComponent", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html#a7d35fa873cb9fe7de26ac1a0781386af", null ],
     [ "InitializeComponent", "class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html#a7d35fa873cb9fe7de26ac1a0781386af", null ]
 ];

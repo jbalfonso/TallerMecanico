@@ -34,11 +34,19 @@ var NAVTREE =
       [ "Jerarquía de la clase", "hierarchy.html", "hierarchy" ],
       [ "Miembros de las clases", "functions.html", [
         [ "Todo", "functions.html", "functions_dup" ],
-        [ "Funciones", "functions_func.html", null ],
+        [ "Funciones", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumeraciones", "functions_enum.html", null ],
-        [ "Propiedades", "functions_prop.html", null ],
+        [ "Propiedades", "functions_prop.html", "functions_prop" ],
         [ "Eventos", "functions_evnt.html", null ]
+      ] ]
+    ] ],
+    [ "Archivos", "files.html", [
+      [ "Lista de archivos", "files.html", "files_dup" ],
+      [ "Miembros de los ficheros", "globals.html", [
+        [ "Todo", "globals.html", null ],
+        [ "Funciones", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ]
       ] ]
     ] ]
   ] ]
@@ -46,9 +54,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_add_empleado.html#aadb20812a901ded0d11f5f34e143c605",
-"class_taller_mecanico_1_1informes_1_1_dataset_averia_table_adapters_1_1_table_adapter_manager.html#a25e573c4c84e69d40a80689eae050a4e"
+"_add_averia_8xaml_8cs.html",
+"class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base.html",
+"class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html",
+"class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a6856ba060bad2e034511922887b826de",
+"namespace_taller_mecanico_1_1_m_v_v_m.html"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

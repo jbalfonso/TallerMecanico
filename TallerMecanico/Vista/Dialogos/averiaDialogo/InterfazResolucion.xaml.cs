@@ -60,6 +60,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             if (averiaSeleccionada)
             {
                 mvaveria.editar = true;
+                mvaveria.averiaNueva.Estado = "Finalizado";
                 if (mvaveria.guarda())
                 {
                     this.DialogResult = true;

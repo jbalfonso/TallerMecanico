@@ -49,10 +49,8 @@ namespace TallerMecanico
         Notifier notifier = new Notifier(cfg =>
         {
             try
-            {
-               
-                cfg.PositionProvider = new PrimaryScreenPositionProvider(
-                    //parentWindow: Application.Current.MainWindow,
+            {               
+                cfg.PositionProvider = new PrimaryScreenPositionProvider(                    
                     corner: Corner.TopRight,
                     offsetX: 10,
                     offsetY: 180);
@@ -133,17 +131,8 @@ namespace TallerMecanico
 
             inicializar();
             paginaInicio();
-            gestionUsuario();
-            try
-            {
-                gestionaNotificaciones();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex+"");
-            }
-            
-            
+            gestionUsuario();           
+            gestionaNotificaciones();     
         }  
 
                 
@@ -387,7 +376,7 @@ namespace TallerMecanico
         /// </summary>       
         private async void gestionaNotificaciones()
         {
-            await Task.Delay(5000);
+            await Task.Delay(2000);
 
             int mesActual = DateTime.Now.Month;
             if (mesActual >= 4 && mesActual <= 6)
@@ -536,7 +525,10 @@ namespace TallerMecanico
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             Login ventana = new Login();
+            notifier.ClearMessages(new ClearAll());
+            notifier.Dispose();
             ventana.Show();
+
             this.Close();
         }
 
@@ -548,6 +540,11 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void cerrarCambiarContrasena_Click(object sender, RoutedEventArgs e)
         {
+            cerrarCambiarContrasena();
+        }
+
+        private void cerrarCambiarContrasena()
+        {
             flyout.IsOpen = false;
             contrasenaIncorrecta.Visibility = Visibility.Collapsed;
             contrasenaBlanco.Visibility = Visibility.Collapsed;
@@ -556,7 +553,6 @@ namespace TallerMecanico
             contrasenaActual.Password = "";
             contrasenaNueva.Password = "";
         }
-
         /// <summary>
         /// Gestor del boton de guardar contraseña propia,
         /// comprueba si los textbox estan vacios,
@@ -581,12 +577,12 @@ namespace TallerMecanico
 
                         if (mvempleado.guarda())
                         {
-                            flyout.IsOpen = false;
+                            cerrarCambiarContrasena();
                             await this.ShowMessageAsync("Exito", "El cambio se realizo correctamente...");
                         }
                         else
                         {
-                            flyout.IsOpen = false;
+                            cerrarCambiarContrasena();
                             await this.ShowMessageAsync("Error", "Ha habido un error al modificar la contraseña en la base de datos");
                         }
                     }

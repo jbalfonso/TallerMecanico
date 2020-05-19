@@ -45,7 +45,7 @@
             </Grid.RowDefinitions>
 
             <ComboBox x:Name="comboAveria" Grid.Row="0" Grid.Column="0" Width="300" Margin="70,30,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                     material:HintAssist.Hint="CodigoAveria" ItemsSource="{Binding listaAverias}" DisplayMemberPath="CodigoAveria"
+                     material:HintAssist.Hint="CodigoAveria" ItemsSource="{Binding listaAveriasNoDevueltas}" DisplayMemberPath="CodigoAveria"
                      SelectionChanged="ComboAveria_SelectionChanged" SelectedItem="{Binding averiaNueva, UpdateSourceTrigger=PropertyChanged}"
                     />
             
@@ -56,7 +56,7 @@
             <ComboBox x:Name="comboEstado" Grid.Row="1" Grid.Column="0" Width="300" Margin="70,20,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                      material:HintAssist.Hint="Estado"
                       ItemsSource="{Binding listaEstadosNoDevuelto}"
-                     SelectedItem="{Binding averiaNueva.Estado, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     SelectedItem="{Binding averiaNueva.Estado, UpdateSourceTrigger=PropertyChanged}"/>
 
 
             <DatePicker x:Name="datePickerRecepcion" Grid.Row="1" Grid.Column="1" Width="300" Margin="70,20,0,0" material:HintAssist.Hint="Fecha Recepcion"                       

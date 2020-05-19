@@ -21,7 +21,14 @@ void \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a043f3941111ca4e16cc4ee03fa04a823}{borra}} ()
 \begin{DoxyCompactList}\small\item\em Borra el rol seleccionado \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}{guarda}} ()
-\begin{DoxyCompactList}\small\item\em Guarda el rol en la base de datos, cuando editar esta en true en lugar de guardar, edita el rol \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Guarda el rol en la base de datos, cuando editar esta en true en lugar de guardar, edita el rol \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a5cf646d7c99871dae2c90bfc4f380cae}{comprueba\+Rol\+Empleado}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de gestionar la eliminacion del rol, si algun empleado contiene este rol devuelve false, si no lo contiene ningun empleado devuelve true \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}} $>$ \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8e64a6025c1747e403101cbc6e9f05ef}{emp\+Con\+Rol}} = new List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}}$>$()
+\begin{DoxyCompactList}\small\item\em Lista de empleados que tienen el rol seleccionado, se añaden los empleados en el metodo comprueba\+Rol\+Empleado \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
@@ -77,6 +84,19 @@ Borra el rol seleccionado
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no hay ninguna excepcion, si hay alguna excepcion devuelve false
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a5cf646d7c99871dae2c90bfc4f380cae}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a5cf646d7c99871dae2c90bfc4f380cae}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!compruebaRolEmpleado@{compruebaRolEmpleado}}
+\index{compruebaRolEmpleado@{compruebaRolEmpleado}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{compruebaRolEmpleado()}{compruebaRolEmpleado()}}
+{\footnotesize\ttfamily bool Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+comprueba\+Rol\+Empleado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se encarga de gestionar la eliminacion del rol, si algun empleado contiene este rol devuelve false, si no lo contiene ningun empleado devuelve true 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si el rol no lo tiene ningun empleado, devuelve false si algun empleado tiene ese rol
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}} 
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!guarda@{guarda}}
 \index{guarda@{guarda}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
@@ -99,6 +119,19 @@ Devuelve true si no hay ninguna excepcion al guardar el rol, si hay alguna excep
 
 
 Gestiona los permisos que tiene el rol seleccionado 
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8e64a6025c1747e403101cbc6e9f05ef}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8e64a6025c1747e403101cbc6e9f05ef}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!empConRol@{empConRol}}
+\index{empConRol@{empConRol}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{empConRol}{empConRol}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}}$>$ Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+emp\+Con\+Rol = new List$<$\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}}$>$()}
+
+
+
+Lista de empleados que tienen el rol seleccionado, se añaden los empleados en el metodo comprueba\+Rol\+Empleado 
 
 
 
@@ -167,4 +200,4 @@ Gestiona el rol seleccionado
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+M\+V\+V\+M/M\+V\+Rol.\+cs\end{DoxyCompactItemize}
+D\+:/\+Users/\+Juan/\+Desktop/\+Proyecto Taller\+Mecanico/\+Taller\+Mecanico/\+Taller\+Mecanico/\+M\+V\+V\+M/\mbox{\hyperlink{_m_v_rol_8cs}{M\+V\+Rol.\+cs}}\end{DoxyCompactItemize}

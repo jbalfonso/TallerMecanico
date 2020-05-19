@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['save_352',['save',['../interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico.html#a00d716f070d96691b13a5733f10d4aba',1,'TallerMecanico.Servicios.IServicioGenerico.save()'],['../class_taller_mecanico_1_1_servicios_1_1_servicio_generico.html#a393336f85bd0e24499a92ad55e299c51',1,'TallerMecanico.Servicios.ServicioGenerico.save()']]],
-  ['serviciogenerico_353',['ServicioGenerico',['../class_taller_mecanico_1_1_servicios_1_1_servicio_generico.html#ab742eea945ce67d11d59e8c151b4eb1e',1,'TallerMecanico::Servicios::ServicioGenerico']]],
-  ['serviciosql_354',['ServicioSQL',['../class_taller_mecanico_1_1_servicios_1_1_servicio_s_q_l.html#a71b5384f6868e5da22b39ad286fd25b1',1,'TallerMecanico::Servicios::ServicioSQL']]]
+  ['readxmlserializable_917',['ReadXmlSerializable',['../class_taller_mecanico_1_1informes_1_1_data_set1.html#ae8c4116fabf834c5724dbe0cb4c97c9b',1,'TallerMecanico.informes.DataSet1.ReadXmlSerializable()'],['../class_taller_mecanico_1_1informes_1_1_dataset_averia.html#a28df3fd0efd2acfe5c25bfd6d53a8366',1,'TallerMecanico.informes.DatasetAveria.ReadXmlSerializable()']]],
+  ['reducestock_918',['reduceStock',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#a9cd4332c39d57506156368ec23084117',1,'TallerMecanico::MVVM::MVAveria']]],
+  ['removedatatable1row_919',['RemoveDataTable1Row',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_data_table.html#a7d1484f0409cb29436ce3bd0aa63cf46',1,'TallerMecanico::informes::DatasetAveria::DataTable1DataTable']]],
+  ['rol_920',['rol',['../class_taller_mecanico_1_1_modelo_1_1rol.html#a794d76ee267374af8b9f4db13d29747e',1,'TallerMecanico::Modelo::rol']]],
+  ['rolservicio_921',['RolServicio',['../class_taller_mecanico_1_1_servicios_1_1_rol_servicio.html#a6800c42b19aa32d0fe7f7e92392a614a',1,'TallerMecanico::Servicios::RolServicio']]]
 ];

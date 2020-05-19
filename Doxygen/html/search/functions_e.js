@@ -1,4 +1,15 @@
 var searchData=
 [
-  ['tarjeta_355',['Tarjeta',['../class_taller_mecanico_1_1_m_v_v_m_1_1_tarjeta.html#a4d287c5c464b2cc86d1178aa279ba0b1',1,'TallerMecanico::MVVM::Tarjeta']]]
+  ['save_922',['save',['../interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico.html#a00d716f070d96691b13a5733f10d4aba',1,'TallerMecanico.Servicios.IServicioGenerico.save()'],['../class_taller_mecanico_1_1_servicios_1_1_servicio_generico.html#a393336f85bd0e24499a92ad55e299c51',1,'TallerMecanico.Servicios.ServicioGenerico.save()']]],
+  ['serviciogenerico_923',['ServicioGenerico',['../class_taller_mecanico_1_1_servicios_1_1_servicio_generico.html#ab742eea945ce67d11d59e8c151b4eb1e',1,'TallerMecanico::Servicios::ServicioGenerico']]],
+  ['serviciosql_924',['ServicioSQL',['../class_taller_mecanico_1_1_servicios_1_1_servicio_s_q_l.html#a71b5384f6868e5da22b39ad286fd25b1',1,'TallerMecanico::Servicios::ServicioSQL']]],
+  ['set_3c_20t_20_3e_925',['Set&lt; T &gt;',['../class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base.html#afbff5dfd7d2371b1978f18cc8c9311ed',1,'TallerMecanico::MVVM::MVBase']]],
+  ['setfecharesolucionnull_926',['SetFechaResolucionNull',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#ae5f8b317986ef3208809513cc5d62309',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
+  ['setnombrenull_927',['SetNombreNull',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#abd23c8a6f2aef036fd5039d699df854c',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
+  ['setobservacionesnull_928',['SetObservacionesNull',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a0f683aa8bab404ae1db07ba7ee54ef10',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
+  ['setprecionull_929',['SetPrecioNull',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a7f3a42619ba49d975c517cf07a7f2f19',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
+  ['setresolucionnull_930',['SetResolucionNull',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#af045ceabfdc6bc363f13deb2dd540c8f',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
+  ['shouldserializerelations_931',['ShouldSerializeRelations',['../class_taller_mecanico_1_1informes_1_1_data_set1.html#afbf8bf23aeb203161d4981badcec59ab',1,'TallerMecanico.informes.DataSet1.ShouldSerializeRelations()'],['../class_taller_mecanico_1_1informes_1_1_dataset_averia.html#a39aee719c1d8f1ae2b053da345af96dd',1,'TallerMecanico.informes.DatasetAveria.ShouldSerializeRelations()']]],
+  ['shouldserializetables_932',['ShouldSerializeTables',['../class_taller_mecanico_1_1informes_1_1_data_set1.html#a104260b2240d5b1bbe20613fea30e3f7',1,'TallerMecanico.informes.DataSet1.ShouldSerializeTables()'],['../class_taller_mecanico_1_1informes_1_1_dataset_averia.html#aadc4840cfaa11a0d74cf27be520d0f4b',1,'TallerMecanico.informes.DatasetAveria.ShouldSerializeTables()']]],
+  ['sortselfreferencerows_933',['SortSelfReferenceRows',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_table_adapters_1_1_table_adapter_manager.html#aae4aaed7867b20e9535c70a049c192d8',1,'TallerMecanico::informes::DatasetAveriaTableAdapters::TableAdapterManager']]]
 ];
