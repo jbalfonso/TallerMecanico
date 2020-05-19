@@ -35,9 +35,8 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="mvpieza">Clase que gestiona las piezas</param>
         public ModificarPieza(MVPieza mvpieza)
         {
-            InitializeComponent();          
-            this.mvpieza = mvpieza;
-
+            InitializeComponent();
+            this.mvpieza = mvpieza;           
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvpieza.OnErrorEvent));
             DataContext = mvpieza;
             mvpieza.btnGuardar = guardar;
