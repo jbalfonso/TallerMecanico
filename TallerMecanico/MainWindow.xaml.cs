@@ -83,12 +83,8 @@ namespace TallerMecanico
         private ReportDocument rd;
         
 
-        private List<int> permisosUsuarioLogeado = new List<int>();            
-        private List<pieza> listadoPiezasInicio = new List<pieza>();
+        private List<int> permisosUsuarioLogeado = new List<int>();
 
-        
-        
-        
 
         #region constantesCobro
         //Constantes de los tipos de metodos que hay
@@ -151,8 +147,7 @@ namespace TallerMecanico
             mvcliente = new MVCliente(tEnt);
             mvfactura = new MVFacturacion(tEnt);
             sqlServ = new ServicioSQL(tEnt);
-            rd = new ReportDocument();
-            listadoPiezasInicio = mvpieza.listaPiezas;
+            rd = new ReportDocument();            
             
         }
 
@@ -843,8 +838,8 @@ namespace TallerMecanico
                 mvpieza = new MVPieza(tEnt);
             }
             else
-            {
-                mvpieza = new MVPieza(tEnt);
+            {               
+                mvpieza = new MVPieza(tEnt);                
             }
         }
 

@@ -27,7 +27,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         private bool seleccionado = false;
        
         private MVPieza mvpieza;
-        private Logger logger;
+        private Logger logger;        
 
         /// <summary>
         /// Constructor del dialogo
@@ -99,8 +99,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Cancelar_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {           
             this.DialogResult = false;
         }
 
@@ -111,7 +110,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="e"></param>
         private void ComboPieza_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            seleccionado = true;
+            seleccionado = true;           
         }
 
         /// <summary>
