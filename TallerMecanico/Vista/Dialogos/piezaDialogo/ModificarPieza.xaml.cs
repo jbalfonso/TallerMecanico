@@ -84,8 +84,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
                 }
             }
             else
-            {
-                guardar.IsEnabled = false;
+            {                
                 MessageDialogResult result2 = await this.ShowMessageAsync("Informacion", "Para continuar tiene que elegir la pieza a modificar, si no desea modificar una pieza haga clic en 'Cancel'", MessageDialogStyle.AffirmativeAndNegative);
                 if (result2 == MessageDialogResult.Negative)
                 {
@@ -102,6 +101,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="e"></param>
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
+           
             this.DialogResult = false;
         }
 
