@@ -25,7 +25,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
     public partial class ModificarPieza : MetroWindow
     {
         private bool seleccionado = false;
-       
+        private pieza pz;
         private MVPieza mvpieza;
         private Logger logger;        
 
@@ -99,7 +99,8 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Cancelar_Click(object sender, RoutedEventArgs e)
-        {           
+        {
+            mvpieza.piezaNueva = pz;
             this.DialogResult = false;
         }
 
@@ -110,7 +111,14 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="e"></param>
         private void ComboPieza_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            seleccionado = true;           
+           pieza piezaGuardar = (pieza)comboPieza.SelectedItem;
+            seleccionado = true;
+            pz = new pieza();
+            pz.Cantidad = piezaGuardar.Cantidad;
+            pz.CodigoPieza = piezaGuardar.CodigoPieza;
+            pz.Descripcion = piezaGuardar.Descripcion;
+            pz.Tipo = piezaGuardar.Tipo;
+            
         }
 
         /// <summary>

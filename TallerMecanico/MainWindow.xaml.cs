@@ -836,10 +836,13 @@ namespace TallerMecanico
                 await this.ShowMessageAsync("Informacion", "Pieza Modificada corectamente");
                 gestionaNotificacionPieza(mvpieza.piezaNueva);
                 mvpieza = new MVPieza(tEnt);
+                
             }
             else
-            {               
-                mvpieza = new MVPieza(tEnt);                
+            {
+                MessageBox.Show(mvpieza.piezaNueva.Tipo);
+                mvpieza = new MVPieza(tEnt);
+                MessageBox.Show(mvpieza.piezaNueva.Tipo);
             }
         }
 

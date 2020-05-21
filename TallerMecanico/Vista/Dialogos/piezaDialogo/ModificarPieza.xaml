@@ -54,7 +54,7 @@
 
             <TextBox x:Name="tipo" Grid.Row="0" Grid.Column="1" Width="300" Margin="30,0,0,0" material:HintAssist.Hint="Tipo" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding piezaNueva.Tipo, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding piezaNueva.Tipo, ValidatesOnDataErrors=True,NotifyOnValidationError=True, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 
             <Button x:Name="guardar" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"

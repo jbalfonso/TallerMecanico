@@ -65,6 +65,7 @@ namespace TallerMecanico.MVVM
             predicadoFiltro = new Predicate<object>(filtroCombinado);
         }
 
+       
         /// <summary>
         /// Gestiona el texto del filtro descripcion
         /// </summary>

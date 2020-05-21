@@ -83,7 +83,7 @@ namespace TallerMecanico.Servicios
          /// Devuelve un objeto identificado por su id
          /// </summary>
          /// <param name="id">identificador</param>
-         /// <returns></returns>
+         /// <returns>Devuelve el objeto que se a buscado por su id</returns>
         public T findByID(int id)
         {
             return _dbset.Find(id);
@@ -93,7 +93,7 @@ namespace TallerMecanico.Servicios
          /// Edita la entidad en la base de datos
          /// Necesita de un comit para hacer la transaccion persistente
          /// </summary>
-         /// <param name="entity">entidad de la base de datos de tipo generico</param>
+         /// <param name="entity">objeto del modelo de la base de datos</param>
         public void edit(T entity)
         {
             _entities.Entry(entity).State = EntityState.Modified;
