@@ -29,6 +29,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         private MVPieza mvpieza;
         private const int perm_anyadirPieza = 6;
         private const int perm_modificarEliminarPieza = 7;
+        private Action<pieza> gestionaNotificacionPieza;
 
         /// <summary>
         /// Constructor del control de usuario 
@@ -36,11 +37,13 @@ namespace TallerMecanico.Vista.ControlesUsuario
         /// <param name="ent">entidad de la base de datos taller mecanico</param>
         /// <param name="mvpieza">Clase de gestion de las piezas</param>
         /// <param name="permisos">Lista de permisos del usuario logeado</param>
-        public UCBusquedaPiezas(tallermecanicoEntities ent, MVPieza mvpieza, List<int> permisos)
+        /// <param name="gestionaNotificacionPieza">Metodo de la clase MainWindow que gestiona el stock de las piezas</param>
+        public UCBusquedaPiezas(tallermecanicoEntities ent, MVPieza mvpieza, List<int> permisos,Action<pieza> gestionaNotificacionPieza)
         {
             InitializeComponent();
             this.tEnt = ent;
             this.mvpieza = mvpieza;
+            this.gestionaNotificacionPieza = gestionaNotificacionPieza;
             this.permisosUsuarioLogeado = permisos;
 
             DataContext = mvpieza;
@@ -124,7 +127,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         {
             if (dgListaPiezas.SelectedItem != null)
             {
-                ModificarPieza diag = new ModificarPieza(mvpieza);
+                ModificarPieza diag = new ModificarPieza(mvpieza,this.gestionaNotificacionPieza);
                 diag.ShowDialog();
 
                 if (diag.DialogResult == true)

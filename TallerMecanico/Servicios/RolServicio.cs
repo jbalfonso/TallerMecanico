@@ -14,8 +14,7 @@ namespace TallerMecanico.Servicios
     /// </summary>
     public class RolServicio : ServicioGenerico<rol>
     {
-        private DbContext contexto;
-        private RolServicio rolServ;
+        private DbContext contexto;        
 
         /// <summary>
         /// Constructor de la clase servicio
@@ -26,6 +25,9 @@ namespace TallerMecanico.Servicios
             this.contexto = context;
            
         }
+
+
+       
 
         /// <summary>
         /// Obtiene el ultimo id del rol de la base de datos

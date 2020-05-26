@@ -36,7 +36,8 @@ namespace TallerMecanico.Servicios
         {
             pieza pieza = contexto.Set<pieza>().OrderByDescending(a => a.CodigoPieza).FirstOrDefault();
             return pieza.CodigoPieza;
-        }
+        }        
+       
 
         /// <summary>
         /// Obtiene todos los codigo de las piezas que estan en la base de datos

@@ -42,23 +42,22 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <ComboBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="300" 
+            <ComboBox x:Name="comboRol" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="300" 
                       ItemsSource="{Binding listaRoles}" DisplayMemberPath="NombreRol" SelectedItem="{Binding rolNuevo, UpdateSourceTrigger=PropertyChanged}"
                       SelectionChanged="ComboBox_SelectionChanged"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
 
             <TextBox x:Name="nombre" Grid.Row="1" Grid.Column="0" Width="300" Margin="0,20,0,0" material:HintAssist.Hint="Nombre" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding rolNuevo.NombreRol, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    />
 
             <TextBox x:Name="descripcion" Grid.Row="1" Grid.Column="1" Width="300" Margin="30,10,0,0" TextWrapping="Wrap" 
                      material:HintAssist.Hint="Descripcion"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding rolNuevo.Descripcion, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    />
 
 
             <ex:CheckComboBox x:Name="checkCombo" Grid.Row="2" Grid.Column="0"  ItemsSource="{Binding listaPermisos}" 
-                              material:HintAssist.Hint="Permisos" Margin="0,20,0,0" DisplayMemberPath="Descripcion" 
-                              SelectedItemsOverride="{Binding permisosDrop}" MaxWidth="300"/>
+                              material:HintAssist.Hint="Permisos" Margin="0,20,0,0" DisplayMemberPath="Descripcion"  MaxWidth="300"/>
 
             <Button x:Name="guardar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
                     Content="Guardar" Background="#30a649" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Guardar_Click" />

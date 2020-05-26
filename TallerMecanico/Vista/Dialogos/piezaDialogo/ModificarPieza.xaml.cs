@@ -25,18 +25,20 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
     public partial class ModificarPieza : MetroWindow
     {
         private bool seleccionado = false;
-        private pieza pz;
+        private pieza piezaModificar;
         private MVPieza mvpieza;
-        private Logger logger;        
+        private Logger logger;
+        private Action<pieza> gestionaNotificacionPieza;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvpieza">Clase que gestiona las piezas</param>
-        public ModificarPieza(MVPieza mvpieza)
+        public ModificarPieza(MVPieza mvpieza,Action<pieza>gestionaNotificacionPieza)
         {
             InitializeComponent();
-            this.mvpieza = mvpieza;           
+            this.mvpieza = mvpieza;
+            this.gestionaNotificacionPieza = gestionaNotificacionPieza;
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvpieza.OnErrorEvent));
             DataContext = mvpieza;
             mvpieza.btnGuardar = guardar;
@@ -49,6 +51,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         private void inicializa()
         {
             logger = LogManager.GetCurrentClassLogger();
+            piezaModificar = new pieza();
         }
 
         /// <summary>
@@ -60,37 +63,41 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="e"></param>
         private async void Guardar_Click(object sender, RoutedEventArgs e)
         {
-            if (seleccionado)
+            try
             {
-                mvpieza.editar = true;
-                if (mvpieza.IsValid(this))
-                {
-                    if (mvpieza.guarda())
-                    {
-                        logger.Info("Pieza modificada con codigo: " + mvpieza.piezaNueva.CodigoPieza);
-                        this.DialogResult = true;
-                    }
-                    else
-                    {
-                        logger.Error("Ha habido un error en la base de datos al modificar una pieza");
-                        await this.ShowMessageAsync("Error","Ha habido un erro al modificar la pieza en la base de datos");
-                        this.DialogResult = false;
-                    }
+                if (seleccionado)
+                {                   
+                        piezaModificar.Tipo = tipo.Text;
+                        piezaModificar.Cantidad = int.Parse(cantidad.Text);
+                        piezaModificar.Descripcion = descripcion.Text;
+                        
+                        if (mvpieza.modificaPieza(piezaModificar))
+                        {
+                            logger.Info("Pieza modificada con codigo: " + piezaModificar.CodigoPieza);
+                            gestionaNotificacionPieza(piezaModificar);
+                            this.DialogResult = true;
+                        }
+                        else
+                        {
+                            logger.Error("Ha habido un error en la base de datos al modificar una pieza");
+                            await this.ShowMessageAsync("Error", "Ha habido un error al modificar la pieza en la base de datos");
+                            this.DialogResult = false;
+                        }                  
                 }
                 else
                 {
-                    await this.ShowMessageAsync("Informacion", "Rellene todos los campos");
+                    MessageDialogResult result2 = await this.ShowMessageAsync("Informacion", "Para continuar tiene que elegir la pieza a modificar, si no desea modificar una pieza haga clic en 'Cancel'", MessageDialogStyle.AffirmativeAndNegative);
+                    if (result2 == MessageDialogResult.Negative)
+                    {
+                        this.Close();
+                    }
                 }
             }
-            else
-            {                
-                MessageDialogResult result2 = await this.ShowMessageAsync("Informacion", "Para continuar tiene que elegir la pieza a modificar, si no desea modificar una pieza haga clic en 'Cancel'", MessageDialogStyle.AffirmativeAndNegative);
-                if (result2 == MessageDialogResult.Negative)
-                {
-                    this.Close();
-                }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Error","Ha habido un error en el dialogo al guardar la pieza");
+                logger.Error("Ha habido un error en el dialogo al guardar la pieza", ex);
             }
-            
         }
 
         /// <summary>
@@ -99,8 +106,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Cancelar_Click(object sender, RoutedEventArgs e)
-        {
-            mvpieza.piezaNueva = pz;
+        {            
             this.DialogResult = false;
         }
 
@@ -111,14 +117,11 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// <param name="e"></param>
         private void ComboPieza_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           pieza piezaGuardar = (pieza)comboPieza.SelectedItem;
-            seleccionado = true;
-            pz = new pieza();
-            pz.Cantidad = piezaGuardar.Cantidad;
-            pz.CodigoPieza = piezaGuardar.CodigoPieza;
-            pz.Descripcion = piezaGuardar.Descripcion;
-            pz.Tipo = piezaGuardar.Tipo;
-            
+           piezaModificar = (pieza)comboPieza.SelectedItem;
+            seleccionado = true;           
+            tipo.Text = piezaModificar.Tipo;
+            cantidad.Text = piezaModificar.Cantidad+"";
+            descripcion.Text = piezaModificar.Descripcion;            
         }
 
         /// <summary>

@@ -117,6 +117,32 @@ namespace TallerMecanico.MVVM
         }
 
         /// <summary>
+        /// Gestiona la modificacion del cliente pasado como parametro
+        /// </summary>
+        /// <param name="clienteModificar">Cliente a modificar</param>
+        /// <returns>Devuelve true si todo es correcto, devuelve false si hay algun problema</returns>
+        public Boolean modificaCliente(cliente clienteModificar)
+        {
+            bool correcto = true;
+            try
+            {                
+                clientServ.edit(clienteModificar);             
+                clientServ.save();
+            }
+            catch (DbUpdateException dbex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al actualizar un Cliente", dbex);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ha habido error inesperado al actualizar el cliente de la base de datos", ex);
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        /// <summary>
         /// Devuelve una lista de clientes que hay en la base de datos
         /// </summary>
         public List<cliente> listaClientes

@@ -42,23 +42,23 @@
 
             </Grid.RowDefinitions>
             <ComboBox x:Name="ComboClientes" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="300" material:HintAssist.Hint="Cliente"
-                      ItemsSource="{Binding listaClientes}" SelectedItem="{Binding clienteNuevo, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Nombre"
+                      ItemsSource="{Binding listaClientes}" DisplayMemberPath="Nombre"
                       SelectionChanged="ComboClientes_SelectionChanged"/>
 
             <TextBox x:Name="nombre" Grid.Row="1" Grid.Column="0" Width="300" Margin="0,20,0,0" material:HintAssist.Hint="Nombre" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding clienteNuevo.Nombre, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     />
             <TextBox x:Name="apellido" Grid.Row="1" Grid.Column="1" Width="300" Margin="40,20,0,0" 
                      material:HintAssist.Hint="Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding clienteNuevo.Apellidos, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     />
 
             <TextBox x:Name="email" Grid.Row="2" Grid.Column="0" Width="300" Margin="0,20,0,0" 
                      material:HintAssist.Hint="Correo electronico" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding clienteNuevo.Email, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     />
 
             <TextBox x:Name="direccion" Grid.Row="2" Grid.Column="1" Width="300" Margin="40,10,0,0"
                      material:HintAssist.Hint="Direccion"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding clienteNuevo.Direccion, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     />
 
 
 

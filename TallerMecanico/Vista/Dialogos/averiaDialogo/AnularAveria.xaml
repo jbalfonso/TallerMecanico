@@ -47,8 +47,8 @@
 
             <ComboBox x:Name="comboCodigo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="300" Margin="70,20,0,0" 
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                     material:HintAssist.Hint="CodigoAveria"
-                      ItemsSource="{Binding listaAverias}" DisplayMemberPath="CodigoAveria"
+                     material:HintAssist.Hint="Averia"
+                      ItemsSource="{Binding listaAverias}" DisplayMemberPath="Descripcion"
                       SelectionChanged="ComboCodigo_SelectionChanged"
                      SelectedItem="{Binding averiaNueva, UpdateSourceTrigger=PropertyChanged}"/>
 

@@ -124,6 +124,7 @@ namespace TallerMecanico
             InitializeComponent();
             this.empleadoLogin = empleLogin;
             this.tEnt = tEnt;
+            
 
             inicializar();
             paginaInicio();
@@ -149,9 +150,8 @@ namespace TallerMecanico
             sqlServ = new ServicioSQL(tEnt);
             rd = new ReportDocument();            
             
-        }
+        }        
 
-       
 
         #region usuario
         /// <summary>
@@ -441,7 +441,20 @@ namespace TallerMecanico
             {
                 await this.ShowMessageAsync("Error", "Ha habido un error al gestionar la notificaciones de las piezas");
             }
-
+        }
+        private async void gestionaStockAveriaModificada(averia averia)
+        {
+            try
+            {
+                foreach (pieza pza in averia.pieza)
+                {
+                    gestionaNotificacionPieza(pza);
+                }
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Error", "Ha habido un error al gestionar la notificaciones de las piezas");
+            }
         }
 
         #endregion
@@ -712,12 +725,11 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void modificarAveria_Click(object sender, RoutedEventArgs e)
         {
-            ModificarAveria dialogo = new ModificarAveria(mvaveria);
+            ModificarAveria dialogo = new ModificarAveria(mvaveria,this.gestionaStockAveriaModificada);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
-                await this.ShowMessageAsync("Informacion","Averia modificada correctamente");
-                gestionaStockAverias();
+                await this.ShowMessageAsync("Informacion","Averia modificada correctamente");                
                 mvaveria = new MVAveria(tEnt);
             }
             else
@@ -779,7 +791,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void BusquedaAveria_Click(object sender,RoutedEventArgs e)
         {
-            UCBusquedaAverias control = new UCBusquedaAverias(tEnt,mvaveria,permisosUsuarioLogeado);
+            UCBusquedaAverias control = new UCBusquedaAverias(tEnt,mvaveria,permisosUsuarioLogeado,this.gestionaStockAveriaModificada);
             if (Contenido.Children != null) Contenido.Children.Clear();
             Contenido.Children.Add(control);
         }
@@ -795,7 +807,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void BusquedaPiezaBtn_Click(object sender, RoutedEventArgs e)
         {
-            UCBusquedaPiezas control = new UCBusquedaPiezas(tEnt,mvpieza, permisosUsuarioLogeado);
+            UCBusquedaPiezas control = new UCBusquedaPiezas(tEnt,mvpieza, permisosUsuarioLogeado,this.gestionaNotificacionPieza);
             if (Contenido.Children != null) Contenido.Children.Clear();
             Contenido.Children.Add(control);
         }
@@ -829,20 +841,17 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void EditarPiezaBtn_Click(object sender, RoutedEventArgs e)
         {
-            ModificarPieza dialogo = new ModificarPieza(mvpieza);
+            ModificarPieza dialogo = new ModificarPieza(mvpieza,this.gestionaNotificacionPieza);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
-                await this.ShowMessageAsync("Informacion", "Pieza Modificada corectamente");
-                gestionaNotificacionPieza(mvpieza.piezaNueva);
+                await this.ShowMessageAsync("Informacion", "Pieza Modificada corectamente");                
                 mvpieza = new MVPieza(tEnt);
                 
             }
             else
-            {
-                MessageBox.Show(mvpieza.piezaNueva.Tipo);
-                mvpieza = new MVPieza(tEnt);
-                MessageBox.Show(mvpieza.piezaNueva.Tipo);
+            {               
+                mvpieza = new MVPieza(tEnt);                
             }
         }
 
@@ -1152,17 +1161,21 @@ namespace TallerMecanico
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MetroWindow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void minimizarDobleClick(object sender, MouseButtonEventArgs e)
         {
-            if (this.WindowState == WindowState.Normal)
+            if (e.ClickCount >= 2)
             {
-                this.WindowState = WindowState.Maximized;
-                maximizeBtn.IsChecked = false;
-            }
-            else if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                maximizeBtn.IsChecked = true;
+                e.Handled = true;
+                if (this.WindowState == WindowState.Normal)
+                {
+                    this.WindowState = WindowState.Maximized;
+                    maximizeBtn.IsChecked = false;
+                }
+                else if (this.WindowState == WindowState.Maximized)
+                {
+                    this.WindowState = WindowState.Normal;
+                    maximizeBtn.IsChecked = true;
+                }
             }
         }
 

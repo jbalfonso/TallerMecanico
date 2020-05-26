@@ -28,6 +28,7 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
         private MVRol mvrol;
         private Logger logger;
         private bool selecciona = false;
+        private rol rolModificar;        
 
         /// <summary>
         /// Constructor del dialogo
@@ -41,6 +42,7 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvrol.OnErrorEvent));
             DataContext = mvrol;
             mvrol.btnGuardar = guardar;
+            rolModificar = new rol();
         }
 
         /// <summary>
@@ -54,14 +56,14 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
         {
             if (selecciona)
             {
-                if (mvrol.IsValid(this))
-                {
-                    mvrol.editar = true;
-                    mvrol.permisosDrop = (ICollection<permiso>)checkCombo.SelectedItemsOverride;
-                    mvrol.rolNuevo.permiso = mvrol.permisosDrop;
-                    if (mvrol.guarda())
+                    mvrol.permisosDrop = (ICollection<permiso>)checkCombo.SelectedItemsOverride; 
+                    rolModificar.Descripcion = descripcion.Text;
+                    rolModificar.NombreRol = nombre.Text;
+                    rolModificar.permiso = mvrol.permisosDrop;
+               
+                if (mvrol.modificaRol(rolModificar))
                     {
-                        logger.Info("Rol modificado con codigo: " + mvrol.rolNuevo.CodigoRol);
+                        logger.Info("Rol modificado con codigo: " + rolModificar.CodigoRol);
                         this.DialogResult = true;
                     }
                     else
@@ -69,12 +71,7 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
                         await this.ShowMessageAsync("Error","Ha habido un error al modificar el rol en la base de datos");
                         logger.Error("Ha habido un error en la base de datos al modificar un rol");
                         this.DialogResult = false;
-                    }
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Informacion", "Rellene todos los campos requeridos");
-                }
+                    }               
             }
             else
             {
@@ -106,9 +103,10 @@ namespace TallerMecanico.Vista.Dialogos.rolDialogo
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selecciona = true;
-            mvrol.permisosDrop = mvrol.rolNuevo.permiso;
-
-            checkCombo.SelectedItemsOverride = mvrol.permisosDrop.ToList();
+            rolModificar = (rol)comboRol.SelectedItem;
+            descripcion.Text = rolModificar.Descripcion;
+            nombre.Text = rolModificar.NombreRol;            
+            checkCombo.SelectedItemsOverride = rolModificar.permiso.ToList();
             checkCombo.Items.Refresh();
         }
     }

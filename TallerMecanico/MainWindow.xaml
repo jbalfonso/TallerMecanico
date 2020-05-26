@@ -11,8 +11,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         IgnoreTaskbarOnMaximize="False"
         UseNoneWindowStyle="True"      
-        BorderThickness="0"
-        MouseDoubleClick="MetroWindow_MouseDoubleClick"
+        BorderThickness="0"        
         Title="Taller Vehiculos" Height="600" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="none" WindowState="Maximized" 
         Icon="/Recursos/Iconos/icono_Aplicacion.ico">
 
@@ -21,7 +20,7 @@
     <DockPanel>
         <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
 
-            <Grid DockPanel.Dock="Top" Background="#17202e" Height="20">
+            <Grid MouseDown="minimizarDobleClick"  DockPanel.Dock="Top" Background="#17202e" Height="20">
                 <Border BorderBrush="white" BorderThickness="0,0,0,0.5">
                         <Grid>
                         <Image Source="/Recursos/Iconos/Icono_Aplicacion.ico" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
@@ -53,8 +52,9 @@
                     </Border>
             </Grid>
 
-            <Grid Panel.ZIndex="2" Height="40" Background="#222e40" HorizontalAlignment="Stretch " VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
+            <Grid MouseDown="minimizarDobleClick" Panel.ZIndex="2" Height="40" Background="#222e40" HorizontalAlignment="Stretch " VerticalAlignment="Top">
+                   
+                    <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>

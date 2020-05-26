@@ -28,11 +28,11 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private MVCliente mvcliente;
         private Logger logger;
         private bool selecciona = false;
+        private cliente clienteModificar;
 
         /// <summary>
         /// Constructor del dialogo
-        /// </summary>
-        /// <param name="tent"></param>
+        /// </summary>        
         /// <param name="mvcliente"></param>
         public ModificarCliente(MVCliente mvcliente)
         {
@@ -52,6 +52,7 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private void inicializa()
         {
             logger = LogManager.GetCurrentClassLogger();
+            clienteModificar = new cliente();
         }
 
         /// <summary>
@@ -64,11 +65,13 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private async void Guardar_Click(object sender, RoutedEventArgs e)
         {
             if (selecciona)
-            {
-                if (mvcliente.IsValid(this))
-                {
-                    mvcliente.editar = true;
-                    if (mvcliente.guarda())
+            {             
+                  
+                clienteModificar.Nombre = nombre.Text;
+                clienteModificar.Apellidos = apellido.Text;
+                clienteModificar.Direccion = direccion.Text;
+                clienteModificar.Email = email.Text;
+                    if (mvcliente.modificaCliente(clienteModificar))
                     {
                         logger.Info("Cliente modificado con codigo: " + mvcliente.clienteNuevo.CodigoCliente);
                         this.DialogResult = true;
@@ -78,12 +81,7 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
                         await this.ShowMessageAsync("Error","Ha habido un error al modificar el cliente en la base de datos");
                         logger.Error("Ha habido un error en la base de datos al modificar un Cliente");
                         this.DialogResult = false;
-                    }
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Informacion", "Rellene todos los campos requeridos");
-                }
+                    }               
             }
             else
             {
@@ -115,6 +113,11 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private void ComboClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selecciona = true;
+            clienteModificar =(cliente)ComboClientes.SelectedItem;
+            nombre.Text = clienteModificar.Nombre;
+            apellido.Text = clienteModificar.Apellidos;
+            direccion.Text = clienteModificar.Direccion;
+            email.Text = clienteModificar.Email;
         }
     }
 }

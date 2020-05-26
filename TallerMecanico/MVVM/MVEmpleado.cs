@@ -124,6 +124,32 @@ namespace TallerMecanico.MVVM
         }
 
         /// <summary>
+        /// Gestiona la modificacion del empleado pasado como parametro
+        /// </summary>
+        /// <param name="empleadoModificar">empleado a modificar</param>
+        /// <returns>devuelve true si todo es correcto, si hay algun problema devuelve false</returns>
+        public Boolean modificaEmpleado(empleado empleadoModificar)
+        {
+            bool correcto = true;
+            try
+            {               
+                empServ.edit(empleadoModificar);               
+                empServ.save();
+            }
+            catch (DbUpdateException dbex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al actualizar un empleado",dbex);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ha habido error inesperado al modificar el empleado de la base de datos", ex);
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        /// <summary>
         /// Comprueba si el login seleccionado del empleado es unico y no existe en la base de datos, 
         /// lo hace llamando al metodo de la clase servicio empleadoUnico
         /// </summary>
@@ -144,10 +170,32 @@ namespace TallerMecanico.MVVM
                 MessageBox.Show("Error al comprobar el login en la base de datos","Error",MessageBoxButton.OK,MessageBoxImage.Error);
                 logger.Error("Error al comprobar el login del usuario en la base de datos",ex);
                 correcto = false;
-            }
-            
+            }            
             return correcto;
+        }
 
+        /// <summary>
+        /// Comprueba si el login del empleado pasado como parametro es unico
+        /// </summary>
+        /// <param name="empleadoVerificar">empleado a comprobar el login</param>
+        /// <returns>devuelve true si todo es correcto, devuelve false si hay algun problema</returns>
+        public Boolean comprobarLoginEmpleado(empleado empleadoVerificar)
+        {
+            bool correcto = true;
+            try
+            {
+                if (!empServ.EmpleadoUnico(empleadoVerificar.Login))
+                {
+                    correcto = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar el login en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                logger.Error("Error al comprobar el login del usuario en la base de datos", ex);
+                correcto = false;
+            }
+            return correcto;
         }
 
         /// <summary>

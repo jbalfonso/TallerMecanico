@@ -3,6 +3,7 @@ using MahApps.Metro.Controls.Dialogs;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private MVAveria mvaveria;
         private Logger logger = LogManager.GetCurrentClassLogger();
         private bool averiaSeleccionada = false;
+        private averia averiaModificar;
 
         /// <summary>
         /// Constructor del dialogo
@@ -47,6 +49,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             DataContext = mvaveria;
             mvaveria.btnGuardar = guardar;
             mvaveria.averiaNueva.FechaResolucion = DateTime.Now;
+            averiaModificar = new averia();
         }
 
         /// <summary>
@@ -59,16 +62,18 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         {
             if (averiaSeleccionada)
             {
-                mvaveria.editar = true;
-                mvaveria.averiaNueva.Estado = "Finalizado";
-                if (mvaveria.guarda())
-                {
-                    this.DialogResult = true;
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Error", "Ha habido un error al insertar la resolucion en la base de datos");
-                    logger.Error("Ha habido un error al guardar la resolucion de la averia");
+                if (recogeDatos())
+                {                    
+                    if (mvaveria.modificaAveria(averiaModificar))
+                    {
+                        logger.Info("Resolucion añadida a la averia con codigo: "+averiaModificar.CodigoAveria);
+                        this.DialogResult = true;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "Ha habido un error al insertar la resolucion en la base de datos");
+                        logger.Error("Ha habido un error al guardar la resolucion de la averia");
+                    }
                 }
             }
             else
@@ -76,6 +81,67 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                 await this.ShowMessageAsync("Informacion", "Debe seleccionar una averia para poder continuar");
             }
         }
+
+        /// <summary>
+        /// Metodo que se encarga de recoger todos los datos del formulario,
+        /// mediante un booleano en caso de error este devuelve false
+        /// </summary>
+        /// <returns>si hay algun error devuelve false, si todo es correcto devuelve true</returns>
+        private bool recogeDatos()
+        {
+            bool correcto = true;
+            try
+            {
+
+            
+            if (DateResolucion.SelectedDate != null)
+            {
+                averiaModificar.FechaResolucion = (DateTime)DateResolucion.SelectedDate;
+            }
+            else
+            {
+                averiaModificar.FechaResolucion = null;
+            }
+
+            averiaModificar.Resolucion = txtResolucion.Text;
+
+            if (!string.IsNullOrEmpty(precioAveria.Text))
+            {
+                   
+                if (precioAveria.Text.Contains(","))
+                {
+                        string precioFormateado = precioAveria.Text;
+                        precioFormateado.Replace(",",".");                        
+                        precioAveria.Text = precioFormateado;
+                        
+                    averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text),2);                        
+                }
+                else
+                {                       
+                    averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text, CultureInfo.InvariantCulture),2);
+                }
+            }
+            else
+            {
+                averiaModificar.Precio = null;
+            }
+            averiaModificar.Estado = "Finalizado";
+
+            }
+            catch (FormatException)
+            {
+                this.ShowMessageAsync("Error","Ha habido un problema al formatear el precio, comprueba que el precio no contenga caracteres en blanco ni espacios");
+                correcto = false;
+            }
+            catch (Exception ex)
+            {
+                this.ShowMessageAsync("Error","Se ha producido un error al obtener los datos del formulario para modificar la averia");
+                logger.Error("Se ha producido un error desconocido al obtener los datos del formulario para modificar la averia",ex);
+                correcto = false;
+            }
+            return correcto;
+        }
+
 
         /// <summary>
         /// Gestor del boton de cancelar, cierra la aplicacion
@@ -97,6 +163,19 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             if (mvaveria.averiaNueva.Estado != "Devuelto")
             {               
                 averiaSeleccionada = true;
+                averiaModificar = (averia)comboAveria.SelectedItem;
+                Descripcion.Text = averiaModificar.Descripcion;
+                comboEstado.SelectedItem = averiaModificar.Estado;
+                datePickerRecepcion.DisplayDate = averiaModificar.FechaRecepcion;
+                datePickerRecepcion.SelectedDate = averiaModificar.FechaRecepcion;
+
+                if (averiaModificar.FechaResolucion!=null)
+                {
+                    DateResolucion.SelectedDate = averiaModificar.FechaResolucion;
+                }
+                DateResolucion.DisplayDate = DateTime.Now;
+                txtResolucion.Text = averiaModificar.Resolucion;
+                precioAveria.Text = averiaModificar.Precio+"";
                 gestorValidacion();
             }
             else
@@ -173,16 +252,18 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         }
 
         /// <summary>
-        /// Gestiona el texto introducido en el textbox, hace que solo se puedan introducir numeros
+        /// Gestiona el texto introducido en el textbox, hace que solo se puedan introducir numeros decimales
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PrecioAveria_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
-                e.Handled = false;
-            else
-                e.Handled = true;
+        /// <param name="e"></param> 
+        private void FiltroTextoPrecio(object sender, KeyEventArgs e)
+        {            
+            // solo permite 0-9 y "."
+            e.Handled = !(((e.Key.GetHashCode() >= 34 && e.Key.GetHashCode() <= 43) || (e.Key.GetHashCode() >= 75 && e.Key.GetHashCode() <= 83)));
+
+            // comprueba si "." existe en el textbox
+            if (e.Key.GetHashCode() == 144 || e.Key.GetHashCode() == 88)
+                e.Handled = (sender as TextBox).Text.Contains(".");
         }
     }
 }

@@ -65,7 +65,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                 NegativeButtonText = "No", AffirmativeButtonText = "Continuar", FirstAuxiliaryButtonText = "Cancelar"
             };
 
-            MessageDialogResult result = await this.ShowMessageAsync("Confirmacion de seguridad", "Ha hecho clic en anular averia, esta seguro de que desea anular la averia?, si es asi haga clic en ''Continuar'' en caso contrario haga clic en ''No'', si desea cerrar todos los dialogos haga clic en ''Cancelar'' ",MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary,settings);
+            MessageDialogResult result = await this.ShowMessageAsync("Confirmacion de seguridad", "Ha hecho clic en anular averia, "+System.Environment.NewLine+" esta seguro de que desea anular la averia? "+System.Environment.NewLine+" si es asi haga clic en ''Continuar'' en caso contrario haga clic en ''No'', "+System.Environment.NewLine+" si desea cerrar todos los dialogos haga clic en ''Cancelar'' ",MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary,settings);
              if (result == MessageDialogResult.Affirmative)
             {
                 if (seleccionado)

@@ -26,7 +26,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
     {
         
         private MVPieza mvpieza;
-        Logger logger;
+        Logger logger;       
 
         /// <summary>
         /// Constructor del dialogo
@@ -35,12 +35,14 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         public AddPieza(MVPieza mvpieza)
         {
             InitializeComponent();            
-            this.mvpieza = mvpieza;
+            this.mvpieza = mvpieza;            
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvpieza.OnErrorEvent));
             DataContext = mvpieza;
             mvpieza.btnGuardar = guardar;
             inicializa();
         }
+
+        
 
         /// <summary>
         /// Inicializa los componentes del dialogo
@@ -62,6 +64,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
                 if (mvpieza.guarda())
                 {
                     logger.Info("Pieza nueva añadida con codigo: " + mvpieza.piezaNueva.CodigoPieza);
+                    
                     this.DialogResult = true;
                 }
                 else

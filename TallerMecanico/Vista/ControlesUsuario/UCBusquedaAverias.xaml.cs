@@ -34,6 +34,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         private const int perm_anyadirAveria = 1;
         private const int perm_resolverAveria = 2;
         private const int perm_anularAveria = 3;
+        private Action<averia> gestionaStockAveriaModificar;
 
         /// <summary>
         /// Constructor del control de usuario
@@ -41,11 +42,13 @@ namespace TallerMecanico.Vista.ControlesUsuario
         /// <param name="tEnt">entidad de la base de datos del taller mecanico</param>
         /// <param name="mvaveria">Clase de gestion MVAveria</param>
         /// <param name="permisosUsuario">Lista de codigos de permisos del usuario logeado</param>
-        public UCBusquedaAverias(tallermecanicoEntities tEnt,MVAveria mvaveria, List<int> permisosUsuario)
+        /// <param name="gestionaStockAveriaModificar">Metodo de la clase MainWindow que gestiona el stock de las piezas</param>
+        public UCBusquedaAverias(tallermecanicoEntities tEnt,MVAveria mvaveria, List<int> permisosUsuario,Action<averia> gestionaStockAveriaModificar)
         {
             InitializeComponent();
             this.tEnt = tEnt;
             this.mvaveria = mvaveria;
+            this.gestionaStockAveriaModificar = gestionaStockAveriaModificar;
             this.permisosUsuarioLogeado = permisosUsuario;
 
             DataContext = mvaveria;
@@ -156,7 +159,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         {
             if (dgListaAverias.SelectedItem != null)
             {
-                ModificarAveria diag = new ModificarAveria(mvaveria);
+                ModificarAveria diag = new ModificarAveria(mvaveria,this.gestionaStockAveriaModificar);
                 diag.ShowDialog();
 
                 if (diag.DialogResult == true)

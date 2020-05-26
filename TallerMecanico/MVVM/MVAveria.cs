@@ -178,7 +178,7 @@ namespace TallerMecanico.MVVM
         /// </summary>
         /// <returns>Devuelve true, si no hay ninguna excepcion y todo es correcto, 
         /// devuelve false si hay algun problema</returns>
-        public bool modificaStock()
+        public bool modificaStock(averia averia)
         {
             bool correcto = true;
             try
@@ -192,7 +192,7 @@ namespace TallerMecanico.MVVM
                         pzaServ.save();
                     }
                 }
-                foreach (pieza pza in averiaNueva.pieza)
+                foreach (pieza pza in averia.pieza)
                 {
                     if (!piezasModificacion.Contains(pza))
                     {
@@ -404,6 +404,33 @@ namespace TallerMecanico.MVVM
             {
                 MessageBox.Show("Ha habido una excepcion al guardar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 logger.Error("Ha habido un problema inesperado al guardar la averia de la base de datos", ex);
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        /// <summary>
+        /// Gestiona la modificacion de la averia pasada, como parametro
+        /// </summary>
+        /// <param name="averia">averia a modificar</param>
+        /// <returns>devuelve true si se ha modificado correctamente, devuelve false si ha habido algun problema</returns>
+        public Boolean modificaAveria(averia averia)
+        {
+            bool correcto = true;
+            try
+            {               
+                avServ.edit(averia);
+                avServ.save();
+            }
+            catch (DbUpdateException dbex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al actualizar una Averia", dbex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha habido una excepcion al actualizar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                logger.Error("Ha habido un problema inesperado al actualizar la averia de la base de datos", ex);
                 correcto = false;
             }
             return correcto;

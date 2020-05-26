@@ -30,6 +30,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         private Logger logger;
         private bool seleccionado = false;
         private string login;
+        private empleado empleadoModificar;
         
         /// <summary>
         /// Constructor del dialogo
@@ -44,6 +45,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
             DataContext = mvempleado;
             mvempleado.btnGuardar = guardar;
             muestraRequisitoContrasena();
+            empleadoModificar = new empleado();
            
         }
 
@@ -68,11 +70,16 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         private async void ButtonGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (seleccionado)
-            { 
-            mvempleado.editar = true;
+            {            
+                empleadoModificar.Nombre = txtNombre.Text;
+                empleadoModificar.Apellido = txtapellido.Text;
+                empleadoModificar.Login = txbLogin.Text;
+                empleadoModificar.rol = (rol)comborol.SelectedItem;
+                rol r = (rol)comborol.SelectedItem;
+                
                 if (compruebaLoginUnico())
                 {
-                    if (mvempleado.comprobarLoginUnico())
+                    if (mvempleado.comprobarLoginEmpleado(empleadoModificar))
                     { 
                         guardarEmpleado();
                     }
@@ -106,9 +113,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         /// y edita el empleado
         /// </summary>
         private async void guardarEmpleado()
-        {
-            if (mvempleado.IsValid(this))
-            {
+        {           
                 if (string.IsNullOrWhiteSpace(passBox.Password))
                 {
                     passBoxRequired.Visibility = Visibility.Visible;
@@ -121,8 +126,9 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
                     passBoxRequired.Visibility = Visibility.Collapsed;
                     passBox.BorderBrush = Brushes.Black;
                     mvempleado.empleadoNuevo.Contraseña = passBox.Password;
+                    empleadoModificar.Contraseña = passBox.Password;
 
-                    if (mvempleado.guarda())
+                    if (mvempleado.modificaEmpleado(empleadoModificar))
                     {
                         logger.Info("Empleado Modificado con id: " + mvempleado.empleadoNuevo.CodigoEmpleado);
                         this.DialogResult = true;
@@ -133,12 +139,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
                         logger.Error("Ha habido un error al modificar el empleado en la base de datos");
                         this.DialogResult = false;
                     }
-                }
-            }
-            else
-            {
-                await this.ShowMessageAsync("Informacion", "Rellene los campos requeridos..");
-            }
+                }           
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         private Boolean compruebaLoginUnico()
         {
             bool correcto = true;           
-            if (login==mvempleado.empleadoNuevo.Login)
+            if (login==empleadoModificar.Login)
             {                
                 correcto = false;
             }            
@@ -201,12 +202,18 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ComboLogin_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {            
-            empleado empleadoGuardado;
-            seleccionado = true;
-            passBox.Password = mvempleado.empleadoNuevo.Contraseña;
-            empleadoGuardado = mvempleado.empleadoNuevo;
-            login = empleadoGuardado.Login;            
+        {
+            empleado empGuardar = (empleado)comboLogin.SelectedItem;
+            empleadoModificar = empGuardar;
+            seleccionado = true;           
+            passBox.Password = empGuardar.Contraseña;
+            login = empGuardar.Login;            
+            txtNombre.Text = empGuardar.Nombre;
+            txtapellido.Text = empGuardar.Apellido;
+            txbLogin.Text = empGuardar.Login;
+            comborol.SelectedItem = empGuardar.rol;
+           
+
         }       
 
     }

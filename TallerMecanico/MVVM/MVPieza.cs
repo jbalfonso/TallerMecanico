@@ -180,6 +180,32 @@ namespace TallerMecanico.MVVM
         }
 
         /// <summary>
+        /// Gestiona la modificacion de la pieza pasada como parametro
+        /// </summary>
+        /// <param name="pieza">pieza pasada como parametro</param>
+        /// <returns>Devuelve true si todo es correcto, devuelve false si hay algun problema</returns>
+        public Boolean modificaPieza(pieza pieza)
+        {
+            bool correcto = true;
+            try
+            {                  
+                pzaServ.edit(pieza);               
+                pzaServ.save();
+            }
+            catch (DbUpdateException dbex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al actualizar una Pieza", dbex);
+            }
+            catch (Exception ex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un error inesperado al guardar la pieza en la base de datos", ex);
+            }
+            return correcto;
+        }
+
+        /// <summary>
         /// Devuelve un listado de piezas que hay en la base de datos
         /// </summary>
         public List<pieza> listaPiezas

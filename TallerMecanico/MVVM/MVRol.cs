@@ -48,8 +48,7 @@ namespace TallerMecanico.MVVM
         /// <param name="tEnt">entidad de la base de dato taller mecanico</param>
         public MVRol(tallermecanicoEntities tEnt)
         {
-            this.tEnt = tEnt;
-           
+            this.tEnt = tEnt;           
             inicializar();
         }
 
@@ -145,12 +144,39 @@ namespace TallerMecanico.MVVM
             }catch (DbUpdateException dbex)
             {
                 correcto = false;
-                logger.Error("Ha habido un problema al actualizar o al agregar una Pieza", dbex);
+                logger.Error("Ha habido un problema al actualizar o al agregar un Rol", dbex);
             }
             catch (Exception ex)
             {
                 correcto = false;
-                logger.Error("Ha habido un problema inesperado al guardar la pieza de la base de datos", ex);
+                logger.Error("Ha habido un problema inesperado al modificar o guardar el rol de la base de datos", ex);
+            }
+            return correcto;
+        }
+
+        /// <summary>
+        /// Gestiona la modificacion del rol pasado como parametro
+        /// </summary>
+        /// <param name="rol">el rol a modificar</param>
+        /// <returns>devuelve true si es todo correcto, devuelve false si hay algun problema</returns>
+        public Boolean modificaRol(rol rol)
+        {
+            bool correcto = true;
+            try
+            {
+                rol.permiso = permisosDrop;
+                rolServ.edit(rol);               
+                rolServ.save();
+            }
+            catch (DbUpdateException dbex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al actualizar un Rol", dbex);
+            }
+            catch (Exception ex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema inesperado al modificar el Rol de la base de datos", ex);
             }
             return correcto;
         }
@@ -184,12 +210,7 @@ namespace TallerMecanico.MVVM
             }
             return correcto;
         }
-
-       /* public List<empleado> empleadosConRol
-        {
-            get { return empConRol;}
-            set { empConRol = value; OnPropertyChanged("empleadosConRol"); }
-        }*/
+      
 
         /// <summary>
         /// Devuelve un listado de roles que hay en la base de datos

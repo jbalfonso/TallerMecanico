@@ -3,8 +3,10 @@ using MahApps.Metro.Controls.Dialogs;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,16 +31,21 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private MVAveria mvaveria;
         private Logger logger;
         private bool seleccionado = false;
+        private averia averiaModificar;
+        private Action<averia> gestionaStockAveriaModificada;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>        
         /// <param name="mvaveria">Clase de gestion de las averias</param>
-        public ModificarAveria(MVAveria mvaveria)
+        /// <param name="gestionaStockAveriaModificada">Metodo de la clase principal MainWindow, gestiona las notificaciones de las piezas</param>
+        public ModificarAveria(MVAveria mvaveria,Action<averia> gestionaStockAveriaModificada)
         {
             InitializeComponent();            
             this.mvaveria = mvaveria;
+            this.gestionaStockAveriaModificada = gestionaStockAveriaModificada;
             inicializar();
+            
         }
 
         /// <summary>
@@ -52,6 +59,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             mvaveria.btnGuardar = guardar;          
             DateResolucion.IsEnabled = false;
             txtResolucion.IsEnabled = false;
+            averiaModificar = new averia();
         }
 
         /// <summary>
@@ -66,14 +74,15 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         {
             if (seleccionado)
             {
-                mvaveria.editar = true;
-                if (mvaveria.IsValid(this))
+                if (recogeDatos())
                 {
-                    if (mvaveria.modificaStock())
+                    if (mvaveria.modificaStock(averiaModificar))
                     {
-                        if (mvaveria.guarda())
+                     
+                        if (mvaveria.modificaAveria(averiaModificar))
                         {
-                            logger.Info("Averia nueva creada con codigo: " + mvaveria.averiaNueva.CodigoAveria);
+                            logger.Info("Averia nueva creada con codigo: " + averiaModificar.CodigoAveria);
+                            gestionaStockAveriaModificada(averiaModificar);
                             this.DialogResult = true;
                         }
                         else
@@ -86,12 +95,8 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                     else
                     {
                         await this.ShowMessageAsync("Error","Ha habido un error al modificar el stock de las piezas que contiene la averia");
-                    }                   
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Informacion", "Rellene los campos requeridos");
-                }
+                    }
+                }                
             }
             else
             {
@@ -101,6 +106,70 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                     this.Close();
                 }
             }                      
+        }
+
+        /// <summary>
+        /// Metodo que recoge todos los datos necesarios del formulario
+        /// en caso de que haya algun problema, mediante un booleano
+        /// este devuelve false
+        /// </summary>
+        /// <returns>Devuelve true si todo es correcto, devuelve false si ha habido algun problema</returns>
+        private bool recogeDatos()
+        {
+            bool correcto = true;
+            try
+            {
+                averiaModificar.Descripcion = Descripcion.Text;
+                averiaModificar.Tipo = Tipo.Text;
+
+                averiaModificar.empleado = (empleado)ComboEmpleado.SelectedItem;
+
+                averiaModificar.FechaRecepcion = (DateTime)datePickerRecepcion.SelectedDate;
+
+                averiaModificar.cliente1 = (cliente)Cliente.SelectedItem;
+                if (DateResolucion.SelectedDate != null)
+                {
+                    averiaModificar.FechaResolucion = (DateTime)DateResolucion.SelectedDate;
+                }
+                else
+                {
+                    averiaModificar.FechaResolucion = null;
+                }
+                averiaModificar.Resolucion = txtResolucion.Text;
+                if (!string.IsNullOrEmpty(precio.Text))
+                {
+                    if (precio.Text.Contains(","))
+                    {
+                        string precioFormateado = precio.Text;
+                        precioFormateado.Replace(",", ".");
+                        precio.Text = precioFormateado;
+
+                        averiaModificar.Precio = Math.Round(double.Parse(precio.Text),2);
+                    }
+                    else
+                    {
+                        averiaModificar.Precio = Math.Round(double.Parse(precio.Text, CultureInfo.InvariantCulture),2);
+                    }                    
+                }
+                else
+                {
+                    averiaModificar.Precio = null;
+                }
+
+                averiaModificar.Observaciones = Observaciones.Text;
+            }
+            catch (FormatException ex)
+            {
+                this.ShowMessageAsync("Error","Ha habido un error de conversion, con el precio de la averia, compruebe, que no contenga espacios");
+                correcto = false;
+            }
+            catch (Exception ex)
+            {
+                this.ShowMessageAsync("Error","Ha habido un error fatal al obtener los datos del formulario");
+                logger.Error("Ha habido un error al obtener los datos del formulario al modificar una averia",ex);
+                correcto = false;
+            }
+            return correcto;
         }
 
         /// <summary>
@@ -124,17 +193,66 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private void ComboCodigo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             seleccionado = true;
-            mvaveria.piezasModificaciones = mvaveria.averiaNueva.pieza.ToList();            
+            averia av = (averia)comboDescripcion.SelectedItem;
+            averiaModificar = av;
+            mvaveria.piezasModificaciones = averiaModificar.pieza.ToList();
+            trasladaDatos();
+            
+            
         }
 
+        /// <summary>
+        /// Se encarga de trasladar los datos del objeto averia al formulario
+        /// </summary>
+        private void trasladaDatos()
+        {
+            Descripcion.Text = averiaModificar.Descripcion;
+            Tipo.Text = averiaModificar.Tipo;
+            if (averiaModificar.Estado != null)
+            {
+                comboEstado.SelectedItem = averiaModificar.Estado;
+            }
+            if (averiaModificar.empleado != null)
+            {
+                ComboEmpleado.SelectedItem = averiaModificar.empleado;
+            }
+
+            if (averiaModificar.FechaRecepcion != null)
+            {
+                datePickerRecepcion.SelectedDate = averiaModificar.FechaRecepcion;
+                datePickerRecepcion.DisplayDate = averiaModificar.FechaRecepcion;
+            }
+
+            if (averiaModificar.cliente1 != null)
+            {
+                Cliente.SelectedItem = averiaModificar.cliente1;
+            }
+            
+            if (averiaModificar.FechaResolucion != null)
+            {
+                DateResolucion.SelectedDate = averiaModificar.FechaResolucion;
+                DateResolucion.DisplayDate = (DateTime)averiaModificar.FechaResolucion;
+            }
+
+            txtResolucion.Text = averiaModificar.Resolucion;
+            precio.Text = averiaModificar.Precio + "";
+
+            if (averiaModificar.pieza != null && averiaModificar.pieza.Count > 0)
+            {
+                piezasAveriaCombo.ItemsSource = averiaModificar.pieza;
+            }
+            Observaciones.Text = averiaModificar.Observaciones;
+        }
+        
         /// <summary>
         /// Gestiona el boton de añadir una pieza, añade la pieza a la averia
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void anyadirPieza_Click(object sender, RoutedEventArgs e)
-        {
-            mvaveria.averiaNueva.pieza.Add(mvaveria.piezaSeleccionada);
+        {          
+            averiaModificar.pieza.Add((pieza)piezaComboBox.SelectedItem);
+            piezasAveriaCombo.ItemsSource = averiaModificar.pieza;
             piezasAveriaCombo.Items.Refresh();
         }
 
@@ -146,8 +264,9 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void removePieza_Click(object sender, RoutedEventArgs e)
-        {
-            mvaveria.averiaNueva.pieza.Remove(mvaveria.piezaSeleccionada);
+        {                      
+            averiaModificar.pieza.Remove((pieza)piezasAveriaCombo.SelectedItem);
+            piezasAveriaCombo.ItemsSource = averiaModificar.pieza;
             piezasAveriaCombo.Items.Refresh();
         }
 
@@ -156,14 +275,13 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         /// dependiendo del estado oculta o muestra elementos de la aplicacion
         /// </summary>
         private void compruebaEstado()
-        {
-            averia av2 = (averia)mvaveria.averiaNueva;
-            if (av2.Estado=="En espera" || av2.Estado == "En proceso" || av2.Estado == "Pendiente")
+        {            
+            if (averiaModificar.Estado=="En espera" || averiaModificar.Estado == "En proceso" || averiaModificar.Estado == "Pendiente")
             {
                 DateResolucion.IsEnabled = false;
                 txtResolucion.IsEnabled = false;
             }
-            if (av2.Estado == "Finalizado" || av2.Estado == "Devuelto")
+            if (averiaModificar.Estado == "Finalizado" || averiaModificar.Estado == "Devuelto")
             {
                 DateResolucion.IsEnabled = true;
                 txtResolucion.IsEnabled = true;
@@ -179,20 +297,23 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         /// <param name="e"></param>
         private void ComboEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            compruebaEstado();
+            averiaModificar.Estado = (string)comboEstado.SelectedItem;
+            compruebaEstado();            
         }
 
         /// <summary>
-        /// Gestiona el tipo de texto introducido en el textbox, hace que solo se introduzcan numeros
+        /// Gestiona el tipo de texto introducido en el textbox, hace que solo se introduzcan numeros decimales
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
-                e.Handled = false;
-            else
-                e.Handled = true;
+        /// <param name="e"></param>     
+        private void FiltroTextoPrecio(object sender, KeyEventArgs e)
+        {   
+            //Solo permite numeros y "."
+            e.Handled = !(((e.Key.GetHashCode() >= 34 && e.Key.GetHashCode() <= 43)||( e.Key.GetHashCode()>=75 && e.Key.GetHashCode()<=83 )));
+
+            // comprueba si el "." esta en el textbox
+            if (e.Key.GetHashCode() == 144 || e.Key.GetHashCode()==88)
+                e.Handled = (sender as TextBox).Text.Contains(".");
         }
     }
 }

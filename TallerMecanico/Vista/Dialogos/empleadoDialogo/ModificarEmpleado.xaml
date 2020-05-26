@@ -43,26 +43,27 @@
 
             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Seleccione un empleado para modificarlo, despues haga clic en guardar" 
                        FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Margin="0,20,0,0" />
+            
             <ComboBox x:Name="comboLogin" Grid.Row="1" Grid.Column="0" Width="300" Margin="70,30,0,0"
                      material:HintAssist.Hint="Login Empleado a modificar" 
                       SelectionChanged="ComboLogin_SelectionChanged"
                       DisplayMemberPath="Login"
-                     ItemsSource="{Binding listaEmpleados}" SelectedItem="{Binding empleadoNuevo,UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox x:Name="txbLogin" Grid.Row="1" Grid.Column="1" Width="300" Margin="70,30,0,0"
-                     material:HintAssist.Hint="Login Nuevo"
-                      Text="{Binding empleadoNuevo.Login,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"/>
+                     ItemsSource="{Binding listaEmpleados}"/>
             
-            <ComboBox Grid.Row="3" Grid.Column="1" Width="300" Margin="80,30,0,0"
+            <TextBox x:Name="txbLogin" Grid.Row="1" Grid.Column="1" Width="300" Margin="70,30,0,0"
+                     material:HintAssist.Hint="Login Nuevo"/>
+            
+            <ComboBox x:Name="comborol" Grid.Row="3" Grid.Column="1" Width="300" Margin="80,30,0,0"
                       material:HintAssist.Hint="Rol"
-                       ItemsSource="{Binding listaRoles}" DisplayMemberPath="NombreRol"
-                      SelectedItem="{Binding empleadoNuevo.rol, ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+                       ItemsSource="{Binding listaRoles}" DisplayMemberPath="NombreRol"                      
                     />
-            <TextBox  x:Name="txtLogin" Grid.Row="2" Grid.Column="0" Width="300" Margin="70,20,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            <TextBox  x:Name="txtNombre" Grid.Row="2" Grid.Column="0" Width="300" Margin="70,20,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      material:TextFieldAssist.HasClearButton="True" material:HintAssist.Hint="Nombre" 
-                      Text="{Binding empleadoNuevo.Nombre, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Width="300" Margin="80,20,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                      />
+            
+            <TextBox x:Name="txtapellido" Grid.Row="2" Grid.Column="1" Width="300" Margin="80,20,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      material:TextFieldAssist.HasClearButton="True" material:HintAssist.Hint="Apellido" 
-                     Text="{Binding empleadoNuevo.Apellido, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                     />
 
             <PasswordBox Panel.ZIndex="2" x:Name="passBox" Grid.Row="3" Grid.Column="0"  Width="300" Margin="70,20,0,0" 
                          PasswordChanged="PassBox_PasswordChanged" Style="{StaticResource MetroButtonRevealedPasswordBox}" 
