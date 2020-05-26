@@ -19,7 +19,9 @@ Diagrama de herencias de Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza\begin{figur
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza_a81bd3c5097018b282fec0198f366315c}{borra}} ()
 \begin{DoxyCompactList}\small\item\em Borra la pieza seleccionada \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza_af73bcc34111265a3ca95394da2db6d3e}{guarda}} ()
-\begin{DoxyCompactList}\small\item\em Guarda la pieza seleccionada, si editar es true en lugar de guardar la pieza la edita \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Guarda la pieza seleccionada, si editar es true en lugar de guardar la pieza la edita \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza_a4f1028fcc917ba8cb474510023be09ca}{modifica\+Pieza}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1pieza}{pieza}} \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1pieza}{pieza}})
+\begin{DoxyCompactList}\small\item\em Gestiona la modificacion de la pieza pasada como parametro \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,7 +57,7 @@ Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+V
 \index{TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}!MVPieza@{MVPieza}}
 \index{MVPieza@{MVPieza}!TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}}
 \doxysubsubsection{\texorpdfstring{MVPieza()}{MVPieza()}}
-{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+M\+V\+Pieza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+M\+V\+Pieza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})}
 
 
 
@@ -73,7 +75,7 @@ Constructor de la clase de \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_
 \index{TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}!borra@{borra}}
 \index{borra@{borra}!TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}}
 \doxysubsubsection{\texorpdfstring{borra()}{borra()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -86,7 +88,7 @@ devuelve true si no ha habido ninguna excepcion, si hay alguna excepcion devuelv
 \index{TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}!guarda@{guarda}}
 \index{guarda@{guarda}!TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}}
 \doxysubsubsection{\texorpdfstring{guarda()}{guarda()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -94,6 +96,24 @@ Guarda la pieza seleccionada, si editar es true en lugar de guardar la pieza la 
 
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no hay ninguna excepcion al guardar la pieza, si hay alguna excepcion devuelve false
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza_a4f1028fcc917ba8cb474510023be09ca}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza_a4f1028fcc917ba8cb474510023be09ca}} 
+\index{TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}!modificaPieza@{modificaPieza}}
+\index{modificaPieza@{modificaPieza}!TallerMecanico.MVVM.MVPieza@{TallerMecanico.MVVM.MVPieza}}
+\doxysubsubsection{\texorpdfstring{modificaPieza()}{modificaPieza()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Pieza.\+modifica\+Pieza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1pieza}{pieza}}}]{pieza }\end{DoxyParamCaption})}
+
+
+
+Gestiona la modificacion de la pieza pasada como parametro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pieza} & pieza pasada como parametro\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si todo es correcto, devuelve false si hay algun problema
 \end{DoxyReturn}
 
 

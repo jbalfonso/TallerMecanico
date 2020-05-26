@@ -25,8 +25,8 @@
 var NAVTREE =
 [
   [ "Taller Mecanico", "index.html", [
-    [ "Namespaces", "namespaces.html", [
-      [ "Lista de 'namespaces'", "namespaces.html", "namespaces_dup" ]
+    [ "Paquetes", "namespaces.html", [
+      [ "Paquetes", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Clases", "annotated.html", [
       [ "Lista de clases", "annotated.html", "annotated_dup" ],
@@ -55,10 +55,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_add_averia_8xaml_8cs.html",
-"class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_base.html",
-"class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_u_c_inicio.html",
-"class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a6856ba060bad2e034511922887b826de",
-"namespace_taller_mecanico_1_1_m_v_v_m.html"
+"class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_averia.html#ae6cedbc283b1df1087c7cf9d23e515ff",
+"class_taller_mecanico_1_1_vista_1_1_dialogos_1_1_login.html#adc039f2b8ecb6665e1e39364370126c2",
+"class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a08499878f4bb01bae83497731d9cf520",
+"interface_taller_mecanico_1_1_servicios_1_1_i_servicio_generico.html#a5aac7e045ee6f833fd03351d7b51eb75"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

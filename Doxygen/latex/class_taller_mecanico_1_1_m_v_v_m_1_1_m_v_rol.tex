@@ -22,6 +22,8 @@ Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a043f3941
 \begin{DoxyCompactList}\small\item\em Borra el rol seleccionado \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_acec5ad7d3eb3164cd4c627c5eb201472}{guarda}} ()
 \begin{DoxyCompactList}\small\item\em Guarda el rol en la base de datos, cuando editar esta en true en lugar de guardar, edita el rol \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8c6b6b255bede80becae2f2445b91b16}{modifica\+Rol}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}} \mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}})
+\begin{DoxyCompactList}\small\item\em Gestiona la modificacion del rol pasado como parametro \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a5cf646d7c99871dae2c90bfc4f380cae}{comprueba\+Rol\+Empleado}} ()
 \begin{DoxyCompactList}\small\item\em Se encarga de gestionar la eliminacion del rol, si algun empleado contiene este rol devuelve false, si no lo contiene ningun empleado devuelve true \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos públicos}
@@ -57,7 +59,7 @@ Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+V
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!MVRol@{MVRol}}
 \index{MVRol@{MVRol}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
 \doxysubsubsection{\texorpdfstring{MVRol()}{MVRol()}}
-{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+M\+V\+Rol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{t\+Ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+M\+V\+Rol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{t\+Ent }\end{DoxyParamCaption})}
 
 
 
@@ -75,7 +77,7 @@ Constructor de la clase de \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!borra@{borra}}
 \index{borra@{borra}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
 \doxysubsubsection{\texorpdfstring{borra()}{borra()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -88,7 +90,7 @@ Devuelve true si no hay ninguna excepcion, si hay alguna excepcion devuelve fals
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!compruebaRolEmpleado@{compruebaRolEmpleado}}
 \index{compruebaRolEmpleado@{compruebaRolEmpleado}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
 \doxysubsubsection{\texorpdfstring{compruebaRolEmpleado()}{compruebaRolEmpleado()}}
-{\footnotesize\ttfamily bool Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+comprueba\+Rol\+Empleado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily bool Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+comprueba\+Rol\+Empleado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -101,7 +103,7 @@ Devuelve true si el rol no lo tiene ningun empleado, devuelve false si algun emp
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!guarda@{guarda}}
 \index{guarda@{guarda}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
 \doxysubsubsection{\texorpdfstring{guarda()}{guarda()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -110,11 +112,29 @@ Guarda el rol en la base de datos, cuando editar esta en true en lugar de guarda
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no hay ninguna excepcion al guardar el rol, si hay alguna excepcion devuelve false
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8c6b6b255bede80becae2f2445b91b16}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a8c6b6b255bede80becae2f2445b91b16}} 
+\index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!modificaRol@{modificaRol}}
+\index{modificaRol@{modificaRol}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
+\doxysubsubsection{\texorpdfstring{modificaRol()}{modificaRol()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+modifica\+Rol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1rol}{rol}}}]{rol }\end{DoxyParamCaption})}
+
+
+
+Gestiona la modificacion del rol pasado como parametro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em rol} & el rol a modificar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve true si es todo correcto, devuelve false si hay algun problema
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479a9d87a927ef560975b69a}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_rol_a6aa06646479a9d87a927ef560975b69a}} 
 \index{TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}!permisosrolDrop@{permisosrolDrop}}
 \index{permisosrolDrop@{permisosrolDrop}!TallerMecanico.MVVM.MVRol@{TallerMecanico.MVVM.MVRol}}
 \doxysubsubsection{\texorpdfstring{permisosrolDrop()}{permisosrolDrop()}}
-{\footnotesize\ttfamily void Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+permisosrol\+Drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Rol.\+permisosrol\+Drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

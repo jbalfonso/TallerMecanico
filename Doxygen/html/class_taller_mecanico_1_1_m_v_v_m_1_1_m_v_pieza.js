@@ -3,6 +3,7 @@ var class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza =
     [ "MVPieza", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#ab0f002968f5e5b5d82a807aed048e08b", null ],
     [ "borra", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#a81bd3c5097018b282fec0198f366315c", null ],
     [ "guarda", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#af73bcc34111265a3ca95394da2db6d3e", null ],
+    [ "modificaPieza", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#a4f1028fcc917ba8cb474510023be09ca", null ],
     [ "criteriosPieza", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#a52f2331de69053dbce3b6afbc3cdfc8c", null ],
     [ "predicadoFiltro", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#aae5924f26c4bfbc65fb8fae2069d690c", null ],
     [ "editar", "class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_pieza.html#ab0ba11a109d7faeea4635d0ecae7db30", null ],

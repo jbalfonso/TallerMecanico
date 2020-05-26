@@ -19,7 +19,9 @@ Diagrama de herencias de Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente\begin{fig
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente_a7c50c48276c1c2b15590d0ec81837a31}{borra}} ()
 \begin{DoxyCompactList}\small\item\em Gestiona el borrado del cliente \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente_add75e2a9eec48d7026e118564e08b82c}{guarda}} ()
-\begin{DoxyCompactList}\small\item\em Guarda el cliente en la base de datos, si editar es true, edita el cliente \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Guarda el cliente en la base de datos, si editar es true, edita el cliente \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente_a735e7dcc99eebc0a0446a1d2d2ba18a3}{modifica\+Cliente}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1cliente}{cliente}} cliente\+Modificar)
+\begin{DoxyCompactList}\small\item\em Gestiona la modificacion del cliente pasado como parametro \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,7 +44,7 @@ Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+V
 \index{TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}!MVCliente@{MVCliente}}
 \index{MVCliente@{MVCliente}!TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}}
 \doxysubsubsection{\texorpdfstring{MVCliente()}{MVCliente()}}
-{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+M\+V\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+M\+V\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})}
 
 
 
@@ -60,7 +62,7 @@ Constructor de la clase Mv\+Cliente
 \index{TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}!borra@{borra}}
 \index{borra@{borra}!TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}}
 \doxysubsubsection{\texorpdfstring{borra()}{borra()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+borra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -73,7 +75,7 @@ Devuelve true si no ha habido ninguna excepcion, devuelve false si ha habido alg
 \index{TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}!guarda@{guarda}}
 \index{guarda@{guarda}!TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}}
 \doxysubsubsection{\texorpdfstring{guarda()}{guarda()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -81,6 +83,24 @@ Guarda el cliente en la base de datos, si editar es true, edita el cliente
 
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no ha habido ningun problema, si ha habido algun problema devuelve false
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente_a735e7dcc99eebc0a0446a1d2d2ba18a3}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_cliente_a735e7dcc99eebc0a0446a1d2d2ba18a3}} 
+\index{TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}!modificaCliente@{modificaCliente}}
+\index{modificaCliente@{modificaCliente}!TallerMecanico.MVVM.MVCliente@{TallerMecanico.MVVM.MVCliente}}
+\doxysubsubsection{\texorpdfstring{modificaCliente()}{modificaCliente()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Cliente.\+modifica\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1cliente}{cliente}}}]{cliente\+Modificar }\end{DoxyParamCaption})}
+
+
+
+Gestiona la modificacion del cliente pasado como parametro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em cliente\+Modificar} & Cliente a modificar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si todo es correcto, devuelve false si hay algun problema
 \end{DoxyReturn}
 
 

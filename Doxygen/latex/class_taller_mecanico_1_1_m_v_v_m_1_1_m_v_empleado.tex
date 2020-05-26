@@ -20,8 +20,12 @@ Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_ad3d
 \begin{DoxyCompactList}\small\item\em Borra el empleado que este seleccionado \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a1894bf47102e8209091a9396d9f1cb02}{guarda}} ()
 \begin{DoxyCompactList}\small\item\em Guarda un empleado en la base de datos, si editar esta en true, edita el empleado \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a57eb1f9bcb46d2b739bdfa6df99d6357}{modifica\+Empleado}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}} empleado\+Modificar)
+\begin{DoxyCompactList}\small\item\em Gestiona la modificacion del empleado pasado como parametro \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a205b682ee46b2eb5d947a9767f6a1867}{comprobar\+Login\+Unico}} ()
-\begin{DoxyCompactList}\small\item\em Comprueba si el login seleccionado del empleado es unico y no existe en la base de datos, lo hace llamando al metodo de la clase servicio empleado\+Unico \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Comprueba si el login seleccionado del empleado es unico y no existe en la base de datos, lo hace llamando al metodo de la clase servicio empleado\+Unico \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_ac1ff5f2a51afa825732f5b63a72ab687}{comprobar\+Login\+Empleado}} (\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}} empleado\+Verificar)
+\begin{DoxyCompactList}\small\item\em Comprueba si el login del empleado pasado como parametro es unico \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,7 +50,7 @@ Clase de Gestion \mbox{\hyperlink{namespace_taller_mecanico_1_1_m_v_v_m}{M\+V\+V
 \index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!MVEmpleado@{MVEmpleado}}
 \index{MVEmpleado@{MVEmpleado}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
 \doxysubsubsection{\texorpdfstring{MVEmpleado()}{MVEmpleado()}}
-{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+M\+V\+Empleado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+M\+V\+Empleado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1tallermecanico_entities}{tallermecanico\+Entities}}}]{ent }\end{DoxyParamCaption})}
 
 
 
@@ -64,7 +68,7 @@ Constructor de la clase \mbox{\hyperlink{class_taller_mecanico_1_1_m_v_v_m_1_1_m
 \index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!borrar@{borrar}}
 \index{borrar@{borrar}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
 \doxysubsubsection{\texorpdfstring{borrar()}{borrar()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+borrar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+borrar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -73,11 +77,29 @@ Borra el empleado que este seleccionado
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no ha habido ninguna excepcion, devuelve false si hay alguna excepcion
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_ac1ff5f2a51afa825732f5b63a72ab687}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_ac1ff5f2a51afa825732f5b63a72ab687}} 
+\index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!comprobarLoginEmpleado@{comprobarLoginEmpleado}}
+\index{comprobarLoginEmpleado@{comprobarLoginEmpleado}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
+\doxysubsubsection{\texorpdfstring{comprobarLoginEmpleado()}{comprobarLoginEmpleado()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+comprobar\+Login\+Empleado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}}}]{empleado\+Verificar }\end{DoxyParamCaption})}
+
+
+
+Comprueba si el login del empleado pasado como parametro es unico 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em empleado\+Verificar} & empleado a comprobar el login\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve true si todo es correcto, devuelve false si hay algun problema
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a205b682ee46b2eb5d947a9767f6a1867}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a205b682ee46b2eb5d947a9767f6a1867}} 
 \index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!comprobarLoginUnico@{comprobarLoginUnico}}
 \index{comprobarLoginUnico@{comprobarLoginUnico}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
 \doxysubsubsection{\texorpdfstring{comprobarLoginUnico()}{comprobarLoginUnico()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+comprobar\+Login\+Unico (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+comprobar\+Login\+Unico (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -90,7 +112,7 @@ Devuelve true si el empleado es unico, devuelve false si el login del empleado y
 \index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!guarda@{guarda}}
 \index{guarda@{guarda}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
 \doxysubsubsection{\texorpdfstring{guarda()}{guarda()}}
-{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+guarda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -98,6 +120,24 @@ Guarda un empleado en la base de datos, si editar esta en true, edita el emplead
 
 \begin{DoxyReturn}{Devuelve}
 Devuelve true si no ha habido ninguna excepcion, si hay alguna excepcion devuelve false
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a57eb1f9bcb46d2b739bdfa6df99d6357}\label{class_taller_mecanico_1_1_m_v_v_m_1_1_m_v_empleado_a57eb1f9bcb46d2b739bdfa6df99d6357}} 
+\index{TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}!modificaEmpleado@{modificaEmpleado}}
+\index{modificaEmpleado@{modificaEmpleado}!TallerMecanico.MVVM.MVEmpleado@{TallerMecanico.MVVM.MVEmpleado}}
+\doxysubsubsection{\texorpdfstring{modificaEmpleado()}{modificaEmpleado()}}
+{\footnotesize\ttfamily Boolean Taller\+Mecanico.\+M\+V\+V\+M.\+M\+V\+Empleado.\+modifica\+Empleado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_taller_mecanico_1_1_modelo_1_1empleado}{empleado}}}]{empleado\+Modificar }\end{DoxyParamCaption})}
+
+
+
+Gestiona la modificacion del empleado pasado como parametro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em empleado\+Modificar} & empleado a modificar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve true si todo es correcto, si hay algun problema devuelve false
 \end{DoxyReturn}
 
 
