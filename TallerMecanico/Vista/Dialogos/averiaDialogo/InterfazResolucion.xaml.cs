@@ -63,10 +63,10 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             if (averiaSeleccionada)
             {
                 if (recogeDatos())
-                {                    
+                {
                     if (mvaveria.modificaAveria(averiaModificar))
                     {
-                        logger.Info("Resolucion añadida a la averia con codigo: "+averiaModificar.CodigoAveria);
+                        logger.Info("Resolucion añadida a la averia con codigo: " + averiaModificar.CodigoAveria);
                         this.DialogResult = true;
                     }
                     else
@@ -92,51 +92,49 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             bool correcto = true;
             try
             {
-
-            
-            if (DateResolucion.SelectedDate != null)
-            {
-                averiaModificar.FechaResolucion = (DateTime)DateResolucion.SelectedDate;
-            }
-            else
-            {
-                averiaModificar.FechaResolucion = null;
-            }
-
-            averiaModificar.Resolucion = txtResolucion.Text;
-
-            if (!string.IsNullOrEmpty(precioAveria.Text))
-            {
-                   
-                if (precioAveria.Text.Contains(","))
+                if (DateResolucion.SelectedDate != null)
                 {
-                        string precioFormateado = precioAveria.Text;
-                        precioFormateado.Replace(",",".");                        
-                        precioAveria.Text = precioFormateado;
-                        
-                    averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text),2);                        
+                    averiaModificar.FechaResolucion = (DateTime)DateResolucion.SelectedDate;
                 }
                 else
-                {                       
-                    averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text, CultureInfo.InvariantCulture),2);
+                {
+                    averiaModificar.FechaResolucion = null;
                 }
-            }
-            else
-            {
-                averiaModificar.Precio = null;
-            }
-            averiaModificar.Estado = "Finalizado";
+
+                averiaModificar.Resolucion = txtResolucion.Text;
+
+                if (!string.IsNullOrEmpty(precioAveria.Text))
+                {
+
+                    if (precioAveria.Text.Contains(","))
+                    {
+                        string precioFormateado = precioAveria.Text;
+                        precioFormateado.Replace(",", ".");
+                        precioAveria.Text = precioFormateado;
+
+                        averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text), 2);
+                    }
+                    else
+                    {
+                        averiaModificar.Precio = Math.Round(double.Parse(precioAveria.Text, CultureInfo.InvariantCulture), 2);
+                    }
+                }
+                else
+                {
+                    averiaModificar.Precio = null;
+                }
+                averiaModificar.Estado = "Finalizado";
 
             }
             catch (FormatException)
             {
-                this.ShowMessageAsync("Error","Ha habido un problema al formatear el precio, comprueba que el precio no contenga caracteres en blanco ni espacios");
+                this.ShowMessageAsync("Error", "Ha habido un problema al formatear el precio, comprueba que el precio no contenga caracteres en blanco ni espacios");
                 correcto = false;
             }
             catch (Exception ex)
             {
-                this.ShowMessageAsync("Error","Se ha producido un error al obtener los datos del formulario para modificar la averia");
-                logger.Error("Se ha producido un error desconocido al obtener los datos del formulario para modificar la averia",ex);
+                this.ShowMessageAsync("Error", "Se ha producido un error al obtener los datos del formulario para modificar la averia");
+                logger.Error("Se ha producido un error desconocido al obtener los datos del formulario para modificar la averia", ex);
                 correcto = false;
             }
             return correcto;
@@ -161,7 +159,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private async void ComboAveria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (mvaveria.averiaNueva.Estado != "Devuelto")
-            {               
+            {
                 averiaSeleccionada = true;
                 averiaModificar = (averia)comboAveria.SelectedItem;
                 Descripcion.Text = averiaModificar.Descripcion;
@@ -169,13 +167,13 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                 datePickerRecepcion.DisplayDate = averiaModificar.FechaRecepcion;
                 datePickerRecepcion.SelectedDate = averiaModificar.FechaRecepcion;
 
-                if (averiaModificar.FechaResolucion!=null)
+                if (averiaModificar.FechaResolucion != null)
                 {
                     DateResolucion.SelectedDate = averiaModificar.FechaResolucion;
                 }
                 DateResolucion.DisplayDate = DateTime.Now;
                 txtResolucion.Text = averiaModificar.Resolucion;
-                precioAveria.Text = averiaModificar.Precio+"";
+                precioAveria.Text = averiaModificar.Precio + "";
                 gestorValidacion();
             }
             else
@@ -257,7 +255,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         /// <param name="sender"></param>
         /// <param name="e"></param> 
         private void FiltroTextoPrecio(object sender, KeyEventArgs e)
-        {            
+        {
             // solo permite 0-9 y "."
             e.Handled = !(((e.Key.GetHashCode() >= 34 && e.Key.GetHashCode() <= 43) || (e.Key.GetHashCode() >= 75 && e.Key.GetHashCode() <= 83)));
 
