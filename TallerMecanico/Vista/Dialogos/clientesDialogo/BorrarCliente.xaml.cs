@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TallerMecanico.Modelo;
 using TallerMecanico.MVVM;
+using TallerMecanico.Vista.Dialogos.averiaDialogo;
 
 namespace TallerMecanico.Vista.Dialogos.clientesDialogo
 {
@@ -27,20 +28,28 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private MVCliente mvcliente;
         private Logger logger;
         private bool selecciona = false;
+        private MVAveria mvaveria;
+        private List<int> permisosUsuarioLogeado;
+
+        private const int perm_anularAveria = 3;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvcliente">Clase que gestiona los clientes</param>
-        public BorrarCliente(MVCliente mvcliente)
+        /// <param name="mvaveria">Clase que gestiona las averias</param>
+        /// <param name="permisosUsuarioLogeado">Permisos que tiene el usuario logeado en la aplicacion</param>
+        public BorrarCliente(MVCliente mvcliente,MVAveria mvaveria, List<int> permisosUsuarioLogeado)
         {
             InitializeComponent();            
             this.mvcliente = mvcliente;
-
+            this.mvaveria = mvaveria;
+            this.permisosUsuarioLogeado = permisosUsuarioLogeado;
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvcliente.OnErrorEvent));
             DataContext = mvcliente;
             mvcliente.btnGuardar = borrar;
             inicializa();
+
         }
         /// <summary>
         /// Inicializa componentes de la aplicacion
@@ -50,6 +59,13 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             logger = LogManager.GetCurrentClassLogger();
         }
 
+        private void gestionaPermisos()
+        {
+            if (!permisosUsuarioLogeado.Contains(perm_anularAveria))
+            {
+                clickDerecho.Visibility = Visibility.Collapsed;
+            }
+        }
         /// <summary>
         /// Gestiona el boton de borrar, 
         /// comprueba si se ha seleccionado un cliente, valida el dialogo,
@@ -72,17 +88,29 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
                 {
                     if (mvcliente.IsValid(this))
                     {
-                        if (mvcliente.borra())
+                        if (mvcliente.compruebaClienteAveria())
                         {
-                            logger.Info("Cliente borrado con codigo: " + mvcliente.clienteNuevo.CodigoCliente);
-                            this.DialogResult = true;
+                           
+                            if (mvcliente.borra())
+                            {
+                                logger.Info("Cliente borrado con codigo: " + mvcliente.clienteNuevo.CodigoCliente);
+                                this.DialogResult = true;
+                            }
+                            else
+                            {
+                                logger.Error("Ha habido un error en la base de datos al borrar un Cliente");
+                                await this.ShowMessageAsync("Error", "Ha habido un error al borrar el cliente de la base de datos");
+                                this.DialogResult = false;
+                            }
                         }
                         else
                         {
-                            logger.Error("Ha habido un error en la base de datos al borrar un Cliente");
-                            await this.ShowMessageAsync("Error","Ha habido un error al borrar el cliente de la base de datos");
-                            this.DialogResult = false;
+                            await this.ShowMessageAsync("Error", "No se puede borrar el cliente, porque hay averias que dependen de el, " + System.Environment.NewLine + " elimine las siguientes averias, y despues borre el cliente");
+                            dgaverias.Visibility = Visibility.Visible;
+                            dgaverias.ItemsSource = mvcliente.clienteConAveria;
+                            dgaverias.Items.Refresh();
                         }
+                        
                     }
                     else
                     {
@@ -125,6 +153,29 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         private void ComboClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selecciona = true;
+        }
+
+        /// <summary>
+        /// Gestiona la muestra y borrado de la averia seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void BorrarDialogo_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgaverias.SelectedItem != null)
+            {
+                mvaveria.averiaNueva = (averia)dgaverias.SelectedItem;
+                 AnularAveria dialogo = new AnularAveria(mvaveria);
+                dialogo.ShowDialog();
+                if (dialogo.DialogResult == true)
+                {
+                    
+                        mvcliente.clienteConAveria.Remove((averia)dgaverias.SelectedItem);
+                        dgaverias.Items.Refresh();
+                        await this.ShowMessageAsync("Informacion", "Borrado correctamente");
+                    
+                }
+            }
         }
     }
 }

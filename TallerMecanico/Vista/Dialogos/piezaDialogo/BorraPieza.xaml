@@ -10,7 +10,7 @@
         ShowIconOnTitleBar="True"
         ResizeMode="NoResize"
         Icon="/Recursos/Iconos/remove_stock.png"
-        Title="Borrar Pieza" Height="300" Width="700">
+        Title="Borrar Pieza" MaxHeight="950" MaxWidth="700" SizeToContent="WidthAndHeight">
     <DockPanel>
 
         <!--Parte Superior de la aplicacion-->
@@ -36,7 +36,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -45,6 +45,11 @@
                       ItemsSource="{Binding listaPiezas}"
                       SelectedItem="{Binding piezaNueva, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboPieza_SelectionChanged" 
                       DisplayMemberPath="Descripcion"/>
+
+            <TextBox x:Name="tipo" Grid.Row="0" Grid.Column="1" Width="300" Margin="30,0,0,0" material:HintAssist.Hint="Tipo" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Text="{Binding piezaNueva.Tipo, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                     IsReadOnly="True"/>
 
             <TextBox x:Name="descripcion" Grid.Row="1" Grid.Column="0" Width="300" Margin="0,10,0,0" material:HintAssist.Hint="Descripcion"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -56,15 +61,29 @@
                      Text="{Binding piezaNueva.Cantidad, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                      IsReadOnly="True"/>
 
-            <TextBox x:Name="tipo" Grid.Row="0" Grid.Column="1" Width="300" Margin="30,0,0,0" material:HintAssist.Hint="Tipo" 
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     Text="{Binding piezaNueva.Tipo, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
-                     IsReadOnly="True"/>
+            <DataGrid Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" x:Name="dgAverias" MaxHeight="400" Visibility="Collapsed" 
+                      AlternatingRowBackground="AliceBlue" GridLinesVisibility="Horizontal" Margin="0,20" ColumnWidth="180"
+                      CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding cliente1.Nombre}"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding Estado}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu x:Name="clickDerecho">
+                        <MenuItem Header="Editar" x:Name="editar" Click="Editar_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Recursos/Iconos/editar_listas.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
 
 
-            <Button x:Name="borrar" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
+            <Button x:Name="borrar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
                     Content="Borrar" Background="#eda21f" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Guardar_Click" />
-            <Button x:Name="cancelar" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
+            <Button x:Name="cancelar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
                     Content="Cancelar" Background="#d13636" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Cancelar_Click" />
         </Grid>
     </DockPanel>

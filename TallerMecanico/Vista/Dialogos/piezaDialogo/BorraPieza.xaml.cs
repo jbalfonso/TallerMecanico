@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TallerMecanico.Modelo;
 using TallerMecanico.MVVM;
+using TallerMecanico.Vista.Dialogos.averiaDialogo;
 
 namespace TallerMecanico.Vista.Dialogos.piezaDialogo
 {
@@ -27,16 +28,22 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         private bool seleccionado = false;
         
         private MVPieza mvpieza;
+        private MVAveria mvaveria;
         private Logger logger;
+        private Action<averia> gestionaAveriaModificada;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
-        /// <param name="mvpieza"></param>
-        public BorraPieza(MVPieza mvpieza)
+        /// <param name="mvpieza">Clase de gestion de las piezas</param>
+        /// <param name="mvaveria">Clase de gestion de las averias</param>
+        /// <param name="gestionaAveriaModificada">Metodo de la clase Mainwindow, gestiona las notificaciones de las piezas</param>
+        public BorraPieza(MVPieza mvpieza,MVAveria mvaveria,Action<averia> gestionaAveriaModificada)
         {
             InitializeComponent();            
             this.mvpieza = mvpieza;
+            this.mvaveria = mvaveria;
+            this.gestionaAveriaModificada = gestionaAveriaModificada;
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvpieza.OnErrorEvent));
             DataContext = mvpieza;
             mvpieza.btnGuardar = borrar;
@@ -72,17 +79,29 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
                 {
                     if (mvpieza.IsValid(this))
                     {
-                        if (mvpieza.borra())
+                        if (mvpieza.compruebaPiezaAveria())
                         {
-                            logger.Info("Pieza borrada con codigo: " + mvpieza.piezaNueva.CodigoPieza);
-                            this.DialogResult = true;
+                            if (mvpieza.borra())
+                            {
+                                logger.Info("Pieza borrada con codigo: " + mvpieza.piezaNueva.CodigoPieza);
+                                this.DialogResult = true;
+                            }
+                            else
+                            {
+                                logger.Error("Ha habido un error en la base de datos al borrar una pieza");
+                                await this.ShowMessageAsync("Error", "Ha habido un error al borrar la pieza de la base de datos");
+                                this.DialogResult = false;
+                            }
                         }
                         else
                         {
-                            logger.Error("Ha habido un error en la base de datos al borrar una pieza");
-                            await this.ShowMessageAsync("Error","Ha habido un error al borrar la pieza de la base de datos");
-                            this.DialogResult = false;
+                            await this.ShowMessageAsync("AVISO", "La pieza seleccionada a eliminar, no puede ser eliminado," + Environment.NewLine + "hay 1 o mas averias que tienen esta pieza asignado," + Environment.NewLine + "modifique la pieza de cada averia, para poder eliminar esta pieza");
+                            dgAverias.Visibility = Visibility.Visible;
+                            dgAverias.ItemsSource = mvpieza.piezaConAveria;
+                            dgAverias.Items.Refresh();
                         }
+
+                        
                     }
                     else
                     {
@@ -124,6 +143,25 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         private void ComboPieza_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             seleccionado = true;
+        }
+
+        private async void Editar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAverias.SelectedItem != null)
+            {
+                mvaveria.averiaNueva = (averia)dgAverias.SelectedItem;
+                ModificarAveria dialogo = new ModificarAveria(mvaveria,gestionaAveriaModificada);
+                dialogo.ShowDialog();
+                if (dialogo.DialogResult == true)
+                {
+                    if (!mvaveria.averiaNueva.pieza.Contains(mvpieza.piezaNueva))
+                    {
+                        mvpieza.piezaConAveria.Remove((averia)dgAverias.SelectedItem);
+                        dgAverias.Items.Refresh();
+                        await this.ShowMessageAsync("Informacion", "Editado correctamente");
+                    }
+                }
+            }
         }
     }
 }

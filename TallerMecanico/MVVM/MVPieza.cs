@@ -23,6 +23,12 @@ namespace TallerMecanico.MVVM
         private pieza pzaNueva;
 
         /// <summary>
+        /// Lista de averias que tienen la pieza seleccionada,
+        /// se añaden las averias en el metodo compruebaPiezaAveria
+        /// </summary>
+        public List<averia> piezaConAveria = new List<averia>();
+
+        /// <summary>
         /// booleano el cual cuando esta en true,
         /// en vez de guardar, edita la pieza
         /// </summary>
@@ -114,6 +120,38 @@ namespace TallerMecanico.MVVM
         {
             get { return pzaNueva; }
             set { pzaNueva = value; OnPropertyChanged("piezaNueva"); }
+        }
+
+        /// <summary>
+        /// Gestiona que la pieza seleccionada a borrar no tenga averias en la base de datos,
+        /// si la pieza seleccionada tiene averias, se añaden a la lista piezaConAveria y devuelve false
+        /// si la pieza seleccionada no tiene averias, devuelve true
+        /// </summary>
+        /// <returns>Devuelve true si no hay averias en la base de datos, devuelve false si hay alguna averia en la base de datos</returns>
+        public bool compruebaPiezaAveria()
+        {
+            bool correcto = true;
+            try
+            {
+                piezaConAveria.Clear();
+                foreach (averia av in avServ.getAll().ToList())
+                {
+                    foreach (pieza pz in av.pieza)
+                    {
+                        if (piezaNueva == pz)
+                        {
+                            correcto = false;
+                            piezaConAveria.Add(av);
+                        }
+                    }                   
+                }
+            }
+            catch (Exception ex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al comprobar el rol seleccionado con los roles de los empleados", ex);
+            }
+            return correcto;
         }
 
         /// <summary>

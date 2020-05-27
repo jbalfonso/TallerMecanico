@@ -10,7 +10,7 @@
       ShowIconOnTitleBar="True"
         ResizeMode="NoResize"
         Icon="/Recursos/Iconos/borrar-cliente.png"
-        Title="Borrar Clientes" Height="350" Width="710">
+        Title="Borrar Clientes" MaxWidth="710" MaxHeight="900"  SizeToContent="WidthAndHeight">
     <DockPanel>
 
         <!--Parte Superior de la aplicacion-->
@@ -35,6 +35,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -64,12 +65,29 @@
                      Text="{Binding clienteNuevo.Direccion, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                      IsReadOnly="True"/>
 
+            <DataGrid Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="3" x:Name="dgaverias" MaxHeight="400" Visibility="Collapsed" 
+                      AlternatingRowBackground="AliceBlue" GridLinesVisibility="Horizontal" Margin="0,20" ColumnWidth="180"
+                      CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding cliente1.Nombre}"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding Estado}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu x:Name="clickDerecho">
+                        <MenuItem Header="Borrar" x:Name="borrarDialogo" Click="BorrarDialogo_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Recursos/Iconos/eliminar_listas.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
 
 
-
-            <Button x:Name="borrar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
+            <Button x:Name="borrar" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,20,0" IsDefault="True"
                     Content="Borrar" Background="#eda21f" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Borrar_Click" />
-            <Button x:Name="cancelar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
+            <Button x:Name="cancelar" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0,20,0,0" HorizontalAlignment="Right"
                     Content="Cancelar" Background="#d13636" BorderBrush="Transparent" material:ButtonAssist.CornerRadius="5" Click="Cancelar_Click" />
         </Grid>
     </DockPanel>

@@ -35,6 +35,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvaveria">Clase gestor de las averias</param>
+        /// <param name="empleadoLogeado">Empleado que ha iniciado sesion en la aplicacion</param>
         public InterfazResolucion(MVAveria mvaveria,empleado empleadoLogeado)
         {
             InitializeComponent();
@@ -167,6 +168,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                 averiaModificar = (averia)comboAveria.SelectedItem;
                 Descripcion.Text = averiaModificar.Descripcion;
                 comboEstado.SelectedItem = averiaModificar.Estado;
+                comboEstado.Items.Refresh();
                 datePickerRecepcion.DisplayDate = averiaModificar.FechaRecepcion;
                 datePickerRecepcion.SelectedDate = averiaModificar.FechaRecepcion;
 

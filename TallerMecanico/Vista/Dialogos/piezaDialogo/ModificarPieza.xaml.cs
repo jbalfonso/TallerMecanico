@@ -34,6 +34,7 @@ namespace TallerMecanico.Vista.Dialogos.piezaDialogo
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvpieza">Clase que gestiona las piezas</param>
+        /// <param name="gestionaNotificacionPieza">Metodo de la clase Mainwindow, gestiona las notificaciones de las piezas</param>
         public ModificarPieza(MVPieza mvpieza,Action<pieza>gestionaNotificacionPieza)
         {
             InitializeComponent();

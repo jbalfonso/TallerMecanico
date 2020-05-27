@@ -19,7 +19,14 @@ namespace TallerMecanico.MVVM
         private Logger logger = LogManager.GetCurrentClassLogger();
         private tallermecanicoEntities tEnt;
         private ClienteServicio clientServ;
+        private AveriaServicio avServ;
         private cliente clntNuevo;
+
+        /// <summary>
+        /// Lista de averias que tienen el cliente seleccionado,
+        /// se añaden las averias en el metodo compruebaClienteAveria
+        /// </summary>
+        public List<averia> clienteConAveria = new List<averia>();
 
         /// <summary>
         /// booleano el cual cuando esta en true,
@@ -43,6 +50,7 @@ namespace TallerMecanico.MVVM
         private void inicializar()
         {
             clientServ = new ClienteServicio(tEnt);
+            avServ = new AveriaServicio(tEnt);
             clntNuevo = new cliente();
         }
 
@@ -56,6 +64,34 @@ namespace TallerMecanico.MVVM
         }
 
         /// <summary>
+        /// Este metodo comprueba que el cliente a borrar no tenga averias en la base de datos
+        /// si tiene averias, estas se añaden a clienteConRol
+        /// </summary>
+        /// <returns>Devuelve true si no tiene averias en la base de datos, devuelve false, si hay averias en la base de datos</returns>
+        public bool compruebaClienteAveria()
+        {
+            bool correcto = true;
+            try
+            {
+                clienteConAveria.Clear();
+                foreach (averia av in avServ.getAll().ToList())
+                {
+                    if (clienteNuevo == av.cliente1)
+                    {
+                        correcto = false;
+                        clienteConAveria.Add(av);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                correcto = false;
+                logger.Error("Ha habido un problema al comprobar el rol seleccionado con los roles de los empleados", ex);
+            }
+            return correcto;
+        }
+
+        /// <summary>
         /// Gestiona el borrado del cliente
         /// </summary>
         /// <returns>Devuelve true si no ha habido ninguna excepcion, devuelve false si ha habido alguna excepcion</returns>
@@ -63,7 +99,7 @@ namespace TallerMecanico.MVVM
         {
             bool correcto = true;
             try
-            {
+            {               
                 clientServ.delete(clienteNuevo);
                 clientServ.save();
             }
@@ -80,6 +116,7 @@ namespace TallerMecanico.MVVM
             }
             return correcto;
         }
+       
 
         /// <summary>
         /// Guarda el cliente en la base de datos, si editar es true, edita el cliente

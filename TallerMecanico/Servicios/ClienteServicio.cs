@@ -36,5 +36,6 @@ namespace TallerMecanico.Servicios
             cliente cliente = contexto.Set<cliente>().OrderByDescending(a => a.CodigoCliente).FirstOrDefault();
             return cliente.CodigoCliente;
         }
+
     }
 }

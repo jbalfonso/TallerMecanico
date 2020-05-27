@@ -212,6 +212,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
             txtapellido.Text = empGuardar.Apellido;
             txbLogin.Text = empGuardar.Login;
             comborol.SelectedItem = empGuardar.rol;
+            comborol.Items.Refresh();
            
 
         }       

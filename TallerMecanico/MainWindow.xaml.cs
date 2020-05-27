@@ -865,7 +865,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void EliminarPiezaBtn_Click(object sender, RoutedEventArgs e)
         {
-            BorraPieza dialogo = new BorraPieza(mvpieza);
+            BorraPieza dialogo = new BorraPieza(mvpieza,mvaveria,this.gestionaStockAveriaModificada);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
@@ -1004,7 +1004,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void BorrarCliente_Click(object sender, RoutedEventArgs e)
         {
-            BorrarCliente dialogo = new BorrarCliente(mvcliente);
+            BorrarCliente dialogo = new BorrarCliente(mvcliente,mvaveria,permisosUsuarioLogeado);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
