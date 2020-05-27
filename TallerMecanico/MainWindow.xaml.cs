@@ -703,7 +703,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void anyadirAveria_Click(object sender, RoutedEventArgs e)
         {
-            AddAveria dialogo = new AddAveria(mvaveria);
+            AddAveria dialogo = new AddAveria(mvaveria,empleadoLogin);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {                
@@ -770,7 +770,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private async void AnyadirResolucionBtn_Click(object sender, RoutedEventArgs e)
         {
-            InterfazResolucion dialogo = new InterfazResolucion(mvaveria);
+            InterfazResolucion dialogo = new InterfazResolucion(mvaveria,empleadoLogin);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
@@ -791,7 +791,9 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void BusquedaAveria_Click(object sender,RoutedEventArgs e)
         {
-            UCBusquedaAverias control = new UCBusquedaAverias(tEnt,mvaveria,permisosUsuarioLogeado,this.gestionaStockAveriaModificada);
+            UCBusquedaAverias control = new UCBusquedaAverias(tEnt,mvaveria,
+                permisosUsuarioLogeado,this.gestionaStockAveriaModificada,empleadoLogin);
+
             if (Contenido.Children != null) Contenido.Children.Clear();
             Contenido.Children.Add(control);
         }

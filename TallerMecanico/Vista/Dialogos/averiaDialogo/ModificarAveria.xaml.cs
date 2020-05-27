@@ -32,18 +32,19 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private Logger logger;
         private bool seleccionado = false;
         private averia averiaModificar;
-        private Action<averia> gestionaStockAveriaModificada;
+        private Action<averia> gestionaStockAveriaModificada;        
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>        
         /// <param name="mvaveria">Clase de gestion de las averias</param>
-        /// <param name="gestionaStockAveriaModificada">Metodo de la clase principal MainWindow, gestiona las notificaciones de las piezas</param>
+        /// <param name="gestionaStockAveriaModificada">Metodo de la clase principal MainWindow, gestiona las notificaciones de las piezas</param>       
         public ModificarAveria(MVAveria mvaveria,Action<averia> gestionaStockAveriaModificada)
         {
             InitializeComponent();            
             this.mvaveria = mvaveria;
             this.gestionaStockAveriaModificada = gestionaStockAveriaModificada;
+            
             inicializar();
             
         }
@@ -241,7 +242,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             {
                 piezasAveriaCombo.ItemsSource = averiaModificar.pieza;
             }
-            Observaciones.Text = averiaModificar.Observaciones;
+            Observaciones.Text = averiaModificar.Observaciones;           
         }
         
         /// <summary>

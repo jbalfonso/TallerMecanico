@@ -25,19 +25,22 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
     /// </summary>
     public partial class AddAveria : MetroWindow
     {
-        Logger logger;
+        private Logger logger;
        
-        private MVAveria mvaveria;        
-        
+        private MVAveria mvaveria;
+        private empleado empleadoLogeado;
+
+
         /// <summary>
         /// Constructor del dialogo
         /// </summary>        
         /// <param name="mvaveria">Clase de gestion de las averias</param>
-        public AddAveria(MVAveria mvaveria)
+        /// <param name="empleadoLogeado">Empleado que ha iniciado sesion en la aplicacion</param>
+        public AddAveria(MVAveria mvaveria,empleado empleadoLogeado)
         {
             InitializeComponent();           
             this.mvaveria = mvaveria;
-            
+            this.empleadoLogeado = empleadoLogeado;
             logger = LogManager.GetCurrentClassLogger();           
             this.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(mvaveria.OnErrorEvent));
             DataContext = mvaveria;
@@ -53,6 +56,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
             mvaveria.averiaNueva.FechaRecepcion =System.DateTime.Now;
             txtResolucion.IsEnabled = false;
             DateResolucion.IsEnabled = false;
+            mvaveria.averiaNueva.empleado = empleadoLogeado;
         }
 
         /// <summary>

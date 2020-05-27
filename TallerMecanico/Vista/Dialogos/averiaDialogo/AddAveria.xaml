@@ -58,7 +58,7 @@
                       ItemsSource="{Binding listaEstadosNoDevuelto}"
                      SelectedItem="{Binding averiaNueva.Estado, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <ComboBox Grid.Row="1" Grid.Column="1" Width="300" Margin="80,20,20,0" material:HintAssist.Hint="Empleado Asignado" 
+            <ComboBox x:Name="empleadoAsignado" Grid.Row="1" Grid.Column="1" Width="300" Margin="80,20,20,0" material:HintAssist.Hint="Empleado Asignado" 
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}" DisplayMemberPath="Login"
                       ItemsSource="{Binding listaEmpleados }" 
                       SelectedItem="{Binding averiaNueva.empleado, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>

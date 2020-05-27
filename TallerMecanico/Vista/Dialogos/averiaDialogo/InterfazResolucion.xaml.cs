@@ -29,15 +29,17 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
         private Logger logger = LogManager.GetCurrentClassLogger();
         private bool averiaSeleccionada = false;
         private averia averiaModificar;
+        private empleado empleadoLogeado;
 
         /// <summary>
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvaveria">Clase gestor de las averias</param>
-        public InterfazResolucion(MVAveria mvaveria)
+        public InterfazResolucion(MVAveria mvaveria,empleado empleadoLogeado)
         {
             InitializeComponent();
             this.mvaveria = mvaveria;
+            this.empleadoLogeado = empleadoLogeado;
             inicializar();
         }
         /// <summary>
@@ -124,6 +126,7 @@ namespace TallerMecanico.Vista.Dialogos.averiaDialogo
                     averiaModificar.Precio = null;
                 }
                 averiaModificar.Estado = "Finalizado";
+                averiaModificar.empleado = empleadoLogeado;
 
             }
             catch (FormatException)

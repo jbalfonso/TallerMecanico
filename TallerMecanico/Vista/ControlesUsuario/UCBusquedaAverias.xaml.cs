@@ -35,6 +35,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         private const int perm_resolverAveria = 2;
         private const int perm_anularAveria = 3;
         private Action<averia> gestionaStockAveriaModificar;
+        private empleado empleadoLogeado;
 
         /// <summary>
         /// Constructor del control de usuario
@@ -43,13 +44,15 @@ namespace TallerMecanico.Vista.ControlesUsuario
         /// <param name="mvaveria">Clase de gestion MVAveria</param>
         /// <param name="permisosUsuario">Lista de codigos de permisos del usuario logeado</param>
         /// <param name="gestionaStockAveriaModificar">Metodo de la clase MainWindow que gestiona el stock de las piezas</param>
-        public UCBusquedaAverias(tallermecanicoEntities tEnt,MVAveria mvaveria, List<int> permisosUsuario,Action<averia> gestionaStockAveriaModificar)
+        /// <param name="empleadoLogeado">Empleado que ha iniciado sesion</param>
+        public UCBusquedaAverias(tallermecanicoEntities tEnt,MVAveria mvaveria, List<int> permisosUsuario,Action<averia> gestionaStockAveriaModificar,empleado empleadoLogeado)
         {
             InitializeComponent();
             this.tEnt = tEnt;
             this.mvaveria = mvaveria;
             this.gestionaStockAveriaModificar = gestionaStockAveriaModificar;
             this.permisosUsuarioLogeado = permisosUsuario;
+            this.empleadoLogeado = empleadoLogeado;
 
             DataContext = mvaveria;
 
@@ -177,7 +180,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         /// <param name="e"></param>
         private void AnadirMenu_Click(object sender, RoutedEventArgs e)
         {
-            AddAveria diag = new AddAveria(mvaveria);
+            AddAveria diag = new AddAveria(mvaveria,empleadoLogeado);
             mvaveria.averiaNueva = new averia();
             diag.ShowDialog();
             if (diag.DialogResult == true)
@@ -229,7 +232,7 @@ namespace TallerMecanico.Vista.ControlesUsuario
         {
             if (dgListaAverias.SelectedItem != null)
             {
-                InterfazResolucion diag = new InterfazResolucion(mvaveria);
+                InterfazResolucion diag = new InterfazResolucion(mvaveria,empleadoLogeado);
                 diag.ShowDialog();
 
                 if (diag.DialogResult == true)
