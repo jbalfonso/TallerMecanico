@@ -1026,7 +1026,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void CobrarCliente_Click(object sender, RoutedEventArgs e)
         {
-            InterfazCobro dialogo = new InterfazCobro(mvfactura);
+            InterfazCobro dialogo = new InterfazCobro(mvfactura,empleadoLogin);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {
@@ -1051,7 +1051,7 @@ namespace TallerMecanico
         /// <param name="e"></param>
         private void DevolverCliente_Click(object sender, RoutedEventArgs e)
         {
-            InterfazDevolucion dialogo = new InterfazDevolucion(mvfactura);
+            InterfazDevolucion dialogo = new InterfazDevolucion(mvfactura,empleadoLogin);
             dialogo.ShowDialog();
             if (dialogo.DialogResult == true)
             {

@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['datatable1_1081',['DataTable1',['../class_taller_mecanico_1_1informes_1_1_dataset_averia.html#aa12dbd5bbc1f189f6d4ed50fc1bd3b99',1,'TallerMecanico::informes::DatasetAveria']]],
-  ['descripcion_1082',['Descripcion',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a9fad1132c2ba89a77e47404128eebd1b',1,'TallerMecanico.informes.DatasetAveria.DataTable1Row.Descripcion()'],['../class_taller_mecanico_1_1_modelo_1_1averia.html#a6c840f416a92e618eddb1eb885bf8412',1,'TallerMecanico.Modelo.averia.Descripcion()'],['../class_taller_mecanico_1_1_modelo_1_1permiso.html#ac97435476f3e778085b5b62a57dc1e61',1,'TallerMecanico.Modelo.permiso.Descripcion()'],['../class_taller_mecanico_1_1_modelo_1_1pieza.html#afb803deee3340b8621a1c2502bfe4d4d',1,'TallerMecanico.Modelo.pieza.Descripcion()'],['../class_taller_mecanico_1_1_modelo_1_1rol.html#af027c1e18874948c9b8eb2c528580b05',1,'TallerMecanico.Modelo.rol.Descripcion()']]],
-  ['descripcion1_1083',['Descripcion1',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_row.html#a54a31089b9a45b09ac9a64944a349999',1,'TallerMecanico::informes::DatasetAveria::DataTable1Row']]],
-  ['descripcion1column_1084',['Descripcion1Column',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_data_table.html#a357caa02c18892000210454dc1047f50',1,'TallerMecanico::informes::DatasetAveria::DataTable1DataTable']]],
-  ['descripcioncolumn_1085',['DescripcionColumn',['../class_taller_mecanico_1_1informes_1_1_dataset_averia_1_1_data_table1_data_table.html#a72f41fc838f7688fcdf7014f0c778c53',1,'TallerMecanico::informes::DatasetAveria::DataTable1DataTable']]],
-  ['direccion_1086',['Direccion',['../class_taller_mecanico_1_1_modelo_1_1cliente.html#a7785042a2b6d7c22646b9839eca3b63e',1,'TallerMecanico::Modelo::cliente']]]
-];

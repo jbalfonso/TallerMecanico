@@ -31,6 +31,7 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
      
         private MVFacturacion mvfactura;
         private Logger logger = LogManager.GetCurrentClassLogger();
+        private empleado empleadoLogeado;
 
         private bool clienteSeleccionado = false;
         private bool controladorCliente = false;
@@ -45,10 +46,12 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
         /// Constructor del dialogo
         /// </summary>
         /// <param name="mvfactura">Clase que gestiona la factura del cliente</param>
-        public InterfazCobro(MVFacturacion mvfactura)
+        /// <param name="empleadoLogeado">Empleado que ha iniciado sesion en la aplicacion</param>
+        public InterfazCobro(MVFacturacion mvfactura,empleado empleadoLogeado)
         {
             InitializeComponent();            
             this.mvfactura = mvfactura;
+            this.empleadoLogeado = empleadoLogeado;
             DataContext = mvfactura;
             inicializar();
         }
@@ -61,6 +64,7 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             radioEfectivo.IsEnabled = false;
             radioPaypal.IsEnabled = false;
             radioTarjeta.IsEnabled = false;
+            mvfactura.empleadoSeleccionado = empleadoLogeado;
         }
 
         /// <summary>
