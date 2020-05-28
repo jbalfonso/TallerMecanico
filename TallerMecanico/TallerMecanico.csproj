@@ -650,6 +650,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloTaller.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Diagrama clases.cd" />
     <None Include="informes\DatasetAveria.xsc">
       <DependentUpon>DatasetAveria.xsd</DependentUpon>
     </None>

@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TallerMecanico.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>aIEAKOCAETRoCAACFkEmiBghkGAEGIEQEVBKUGJA2ds=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.averiaDialogo.AddAveria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAAAAAAAABAACAAAAAAAIAAAAAAAAAIEAAAIBQCA=</HashCode>
+      <FileName>Vista\Dialogos\averiaDialogo\AddAveria.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.averiaDialogo.AnularAveria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAACAAAAQAAAAAAAAAAAAAEAAAIBQAA=</HashCode>
+      <FileName>Vista\Dialogos\averiaDialogo\AnularAveria.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.averiaDialogo.InterfazResolucion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgQAAAAACAAACEAAIAAAAAABAAAEACAIASAA=</HashCode>
+      <FileName>Vista\Dialogos\averiaDialogo\InterfazResolucion.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.averiaDialogo.ModificarAveria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAAAAACAAAAACAAAAUEAIAAAAAABQAIEAAAIBQCA=</HashCode>
+      <FileName>Vista\Dialogos\averiaDialogo\ModificarAveria.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVAveria" Collapsed="true">
+    <Position X="17" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAHAARRAaEAAACCAAYgIAABAjgjQgAADEBACYAIoA=</HashCode>
+      <FileName>MVVM\MVAveria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVBase" Collapsed="true">
+    <Position X="16.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAAAAAABQAAKAgAAAEAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\MVBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVCliente" Collapsed="true">
+    <Position X="18.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAQAAABCAAAQAAAAEQACAAAAABABACIAMAA=</HashCode>
+      <FileName>MVVM\MVCliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVEmpleado" Collapsed="true">
+    <Position X="20.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAACYAAwAAAAAAgAAAIACBAAICIAFAA=</HashCode>
+      <FileName>MVVM\MVEmpleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVFacturacion" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgCECAZAAQIQACCEgABAAAARMgAAAIAAQABCCIQAgA=</HashCode>
+      <FileName>MVVM\MVFacturacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVPieza" Collapsed="true">
+    <Position X="13.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAUBAAAAYAAAACCCEUAAQABgAAAAAAABAQACIAECA=</HashCode>
+      <FileName>MVVM\MVPieza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.MVRol" Collapsed="true">
+    <Position X="15.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAEYAAACCQAAQAAAiAAQAAAAAgFAAICoAEAA=</HashCode>
+      <FileName>MVVM\MVRol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.Paypal" Collapsed="true">
+    <Position X="32" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\Paypal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.MVVM.Tarjeta" Collapsed="true">
+    <Position X="32" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>MVVM\Tarjeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.DatasetAveria" Collapsed="true">
+    <Position X="28.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAALABAAAQAAAAAgCQBgAAAAAAgEABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.InformeAveria" Collapsed="true">
+    <Position X="32" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAJAAAQAAAAAAAIAAAAAAAAAAAACAABAAAABAA=</HashCode>
+      <FileName>informes\InformeAveria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.CachedInformeAveria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>informes\InformeAveria.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.informes.InformeDevolucion" Collapsed="true">
+    <Position X="33.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEAAApAAAQgAEAAQAIAgIAABAAAEACCAABAAAEDAI=</HashCode>
+      <FileName>informes\InformeDevolucion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.CachedInformeDevolucion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>informes\InformeDevolucion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.informes.InformeFactura" Collapsed="true">
+    <Position X="35.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAkEAAArAAAQAAAAAQAIAwIAAAAAAEACCAABAAAEDAI=</HashCode>
+      <FileName>informes\InformeFactura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.CachedInformeFactura" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>informes\InformeFactura.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.informes.InformePieza" Collapsed="true">
+    <Position X="37.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAJAAAQAAAAAAAIAAAAAAAAAAAACAABAAAABAA=</HashCode>
+      <FileName>informes\InformePieza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.CachedInformePieza" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>informes\InformePieza.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.informes.DatasetAveriaTableAdapters.DataTable1TableAdapter" Collapsed="true">
+    <Position X="30.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.informes.DatasetAveriaTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="28.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAABABAEBAAAAMAAgAAACgAAAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.tallermecanicoEntities" Collapsed="true">
+    <Position X="30.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAACkAAAAAABAAABEAAAAAA=</HashCode>
+      <FileName>Modelo\ModeloTaller.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.averia" Collapsed="true">
+    <Position X="21" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABQAAAAAAAAQAAAACCEAAAVABAAAAAAABABAAAAAAw=</HashCode>
+      <FileName>Modelo\averia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.cliente" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEACIAgAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.empleado" Collapsed="true">
+    <Position X="15.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAIEAAIAgAACAAAAAAABAAAQAAAAAAA=</HashCode>
+      <FileName>Modelo\empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.permiso" Collapsed="true">
+    <Position X="33.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\permiso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.pieza" Collapsed="true">
+    <Position X="17.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAABAAAAAAABAAAAAAQAAAQ=</HashCode>
+      <FileName>Modelo\pieza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Modelo.rol" Collapsed="true">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAACAAAAAAABAAAAAAAAAAAEEAAAAAA=</HashCode>
+      <FileName>Modelo\rol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Properties.Resources" Collapsed="true">
+    <Position X="35.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Properties.Settings" Collapsed="true">
+    <Position X="39" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.AveriaServicio" Collapsed="true">
+    <Position X="20.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAFAAAAAAAAAACAAAAAAAAAEAACAAAAAAAQAAAAIA=</HashCode>
+      <FileName>Servicios\AveriaServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.ClienteServicio" Collapsed="true">
+    <Position X="22.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Servicios\ClienteServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.EmpleadoServicio" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAABABABAAIAACCAAAAAAAAAAAAAQAAAEACQAAAEAA=</HashCode>
+      <FileName>Servicios\EmpleadoServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.PermisoServicio" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAA=</HashCode>
+      <FileName>Servicios\PermisoServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.PiezaServicio" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAEAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Servicios\PiezaServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.RolServicio" Collapsed="true">
+    <Position X="18.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Servicios\RolServicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Servicios.ServicioGenerico&lt;T&gt;" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEACACIAAAgAAAAAQAAAAAAAAAAAAAAAgICAAA=</HashCode>
+      <FileName>Servicios\ServicioGenerico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerMecanico.Servicios.ServicioSQL" Collapsed="true">
+    <Position X="37.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAABAAAAAAAAAACAAABAAAAAAAIAAAAAAAQAAAAAAE=</HashCode>
+      <FileName>Servicios\ServicioSQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerMecanico.Vista.Charts.UCChart" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAFAACAAAAAAAAAAgAAAAAAAAAAAJCQAA=</HashCode>
+      <FileName>Vista\Charts\UCChart.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCBusquedaAverias" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAEAAACAACEAACAAAJEBAIAAAAABBAACAAQAA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCBusquedaAverias.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCBusquedaPiezas" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAIAAAAAAACAAAEAAEAAABABAAAAAAABBAACAAAAE=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCBusquedaPiezas.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCDevolucion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAEAAAAAAAAAiAgAAAAAAAEAAAAAAAAAIAAAAAhA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCDevolucion.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCFactura" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAEAAAAAAAAAiAgAAAAAAAEAAAAAAAAAIAAAAAhA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCFactura.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCInformeAverias" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCInformeAverias.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.ControlesUsuario.UCInformePieza" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCInformePieza.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.UCInicio" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vista\ControlesUsuario\UCInicio.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.clientesDialogo.AddClientes" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAACAAACAAAAAAAAAAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Vista\Dialogos\clientesDialogo\AddClientes.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.clientesDialogo.BorrarCliente" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAACAAAAABABEAAAAIAAEAEABAAAQAA=</HashCode>
+      <FileName>Vista\Dialogos\clientesDialogo\BorrarCliente.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.clientesDialogo.InterfazCobro" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAmCAAAEAACACAkQAAAIMAMAAAAACAAEICEIAAAA=</HashCode>
+      <FileName>Vista\Dialogos\clientesDialogo\InterfazCobro.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.clientesDialogo.InterfazDevolucion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAmCBAAEAACACAmAAAAAMAMAAAAAAAAEICAIAAAA=</HashCode>
+      <FileName>Vista\Dialogos\clientesDialogo\InterfazDevolucion.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.clientesDialogo.ModificarCliente" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAACAAACAgAAAAAAAIAAEAEAAAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\clientesDialogo\ModificarCliente.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.empleadoDialogo.AddEmpleado" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAgIAAAAAAAAACAAAAAAAAABAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\empleadoDialogo\AddEmpleado.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.empleadoDialogo.BorrarEmpleado" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAgIAAACAAAAACAAAQAAAIABAAAAAAAAEgBABAEAA=</HashCode>
+      <FileName>Vista\Dialogos\empleadoDialogo\BorrarEmpleado.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.empleadoDialogo.ModificarEmpleado" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIgAgIAAACAAgAECAAAAAAAAABAAAAAAAAEAAABAEAA=</HashCode>
+      <FileName>Vista\Dialogos\empleadoDialogo\ModificarEmpleado.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.loginDialogo.Login" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAQIAAACAAAAAIAAAAAAIAABAAAAACAAAgA=</HashCode>
+      <FileName>Vista\Dialogos\loginDialogo\Login.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.piezaDialogo.AddPieza" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAGAAAAAAACAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\piezaDialogo\AddPieza.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.piezaDialogo.BorraPieza" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAACAAAAACAAAGAAAAAAAAACAAAAEAAAAAQAA=</HashCode>
+      <FileName>Vista\Dialogos\piezaDialogo\BorraPieza.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.piezaDialogo.ModificarPieza" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAACCAAAGAAAAAAACACAAAAEAAAAAAAE=</HashCode>
+      <FileName>Vista\Dialogos\piezaDialogo\ModificarPieza.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.rolDialogo.AddRol" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAACAAAAAAAAAAAAAAEAQAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\rolDialogo\AddRol.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.rolDialogo.BorraRol" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIAAAAAAAAACAAACAAABABAACIAAAAEAQAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\rolDialogo\BorraRol.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerMecanico.Vista.Dialogos.rolDialogo.ModificarRol" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAACAAACAAAAABAAAIAAAAEAQAAAAAA=</HashCode>
+      <FileName>Vista\Dialogos\rolDialogo\ModificarRol.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="TallerMecanico.Servicios.IServicioGenerico&lt;T&gt;" Collapsed="true">
+    <Position X="28.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEACACAAAAAAAAAAQAAAAAAAAAAAAAAAgICAAA=</HashCode>
+      <FileName>Servicios\IServicioGenerico.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="8.83" />
+</ClassDiagram>
