@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,18 +71,27 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
                 clienteModificar.Nombre = nombre.Text;
                 clienteModificar.Apellidos = apellido.Text;
                 clienteModificar.Direccion = direccion.Text;
-                clienteModificar.Email = email.Text;
-                    if (mvcliente.modificaCliente(clienteModificar))
+
+                if (string.IsNullOrWhiteSpace(email.Text))
+                {
+                    clienteModificar.Email = null;
+                    modificarCliente();
+                }
+                else
+                {
+                    if (validarEmail(email.Text))
                     {
-                        logger.Info("Cliente modificado con codigo: " + mvcliente.clienteNuevo.CodigoCliente);
-                        this.DialogResult = true;
+                        clienteModificar.Email = email.Text;
+                        modificarCliente();
                     }
                     else
                     {
-                        await this.ShowMessageAsync("Error","Ha habido un error al modificar el cliente en la base de datos");
-                        logger.Error("Ha habido un error en la base de datos al modificar un Cliente");
-                        this.DialogResult = false;
-                    }               
+                        this.ShowMessageAsync("Informacion","Introduzca una direccion de correo valida");
+                    }
+                    
+                }
+                
+                       
             }
             else
             {
@@ -93,6 +103,22 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             }
             
         }
+
+        private async void modificarCliente()
+        {
+            if (mvcliente.modificaCliente(clienteModificar))
+            {
+                logger.Info("Cliente modificado con codigo: " + clienteModificar.CodigoCliente);
+                this.DialogResult = true;
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "Ha habido un error al modificar el cliente en la base de datos");
+                logger.Error("Ha habido un error en la base de datos al modificar un Cliente");
+                this.DialogResult = false;
+            }
+        }
+
 
         /// <summary>
         /// Gestiona el boton de cancelar, cierra la aplicacion
@@ -118,6 +144,18 @@ namespace TallerMecanico.Vista.Dialogos.clientesDialogo
             apellido.Text = clienteModificar.Apellidos;
             direccion.Text = clienteModificar.Direccion;
             email.Text = clienteModificar.Email;
+        }
+
+        /// <summary>
+        /// Valida si el correo proporcionado, es valido, segun unos criterios
+        /// </summary>
+        /// <param name="emailAddress">Direccion de correo en formato string</param>
+        /// <returns>Devuelve true si el correo es valido, devuelve false si el correo no es valido</returns>
+        private bool validarEmail(string emailAddress)
+        {
+            var regex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[com,es,net,org,info,biz,edu,gob,cat](?:[com,es,net,org,info,biz,edu,gob,cat]*[com,es,net,org,info,biz,edu,gob,cat])?)\Z";
+            bool isValid = Regex.IsMatch(emailAddress, regex, RegexOptions.IgnoreCase);
+            return isValid;
         }
     }
 }

@@ -56,8 +56,7 @@ namespace TallerMecanico.Vista.Dialogos.empleadoDialogo
         private void muestraRequisitoContrasena()
         {
             passBoxRequired.Visibility = Visibility.Visible;
-            passBox.BorderBrush = Brushes.Red;
-            passBox.Password = mvempleado.empleadoNuevo.Contraseña;
+            passBox.BorderBrush = Brushes.Red;            
         }
 
         /// <summary>
