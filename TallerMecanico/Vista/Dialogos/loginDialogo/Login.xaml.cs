@@ -35,8 +35,7 @@ namespace TallerMecanico.Vista.Dialogos.loginDialogo
             InitializeComponent();
             tEnt = new tallermecanicoEntities();
             empServ = new EmpleadoServicio(tEnt);
-            logger = LogManager.GetCurrentClassLogger();
-            
+            logger = LogManager.GetCurrentClassLogger();            
         }
      
 
@@ -85,6 +84,7 @@ namespace TallerMecanico.Vista.Dialogos.loginDialogo
                 requeUsu.Visibility = Visibility.Collapsed;
                 requeContra.Visibility = Visibility.Collapsed;
                 existeInforme.Visibility = Visibility.Collapsed;
+
                 if (empServ.login(txbUsuario.Text, txbPassword.Password))
                 {
                     MainWindow ventanaPrincipal = new MainWindow(tEnt, empServ.empleLogin);

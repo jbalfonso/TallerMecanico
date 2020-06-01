@@ -33,9 +33,9 @@ namespace TallerMecanico.Servicios
         /// </summary>
         /// <param name="context"></param>
          public EmpleadoServicio(DbContext context) : base(context)
-            {
+         {
             contexto = context;
-            }
+         }
 
        
         /// <summary>
@@ -69,7 +69,7 @@ namespace TallerMecanico.Servicios
        
         /// <summary>
         /// Comprueba si en la base de datos existe un empleado con ese login
-        /// El login de un empleado edbe ser unico
+        /// El login de un empleado debe ser unico
         /// </summary>
         /// <param name="emp">login del empleado</param>
         /// <returns>devuelve true si es unico y no existe ese login en la base de datos, 

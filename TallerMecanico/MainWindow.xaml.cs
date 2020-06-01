@@ -87,7 +87,7 @@ namespace TallerMecanico
 
 
         #region constantesCobro
-        //Constantes de los tipos de metodos que hay
+        //Constantes de los tipos de metodos de pago que hay
         private const int tarjeta = 1;
         private const int efectivo = 2;
         private const int paypal = 3;
@@ -123,12 +123,11 @@ namespace TallerMecanico
         {
             InitializeComponent();
             this.empleadoLogin = empleLogin;
-            this.tEnt = tEnt;
-            
+            this.tEnt = tEnt;       
 
             inicializar();
             paginaInicio();
-            gestionUsuario();           
+            gestionUsuario();
             gestionaNotificaciones();     
         }  
 
@@ -290,7 +289,8 @@ namespace TallerMecanico
             {
                 editarAveriaBtn.Visibility = Visibility.Collapsed;
             }
-            if (!permisosUsuarioLogeado.Contains(perm_editarRoles) && !permisosUsuarioLogeado.Contains(perm_cambioContrasenya) && !permisosUsuarioLogeado.Contains(perm_gestionarUsuario))
+            if (!permisosUsuarioLogeado.Contains(perm_editarRoles) && !permisosUsuarioLogeado.Contains(perm_cambioContrasenya)
+                && !permisosUsuarioLogeado.Contains(perm_gestionarUsuario))
             {
                 tabEmpleados.Visibility = Visibility.Collapsed;
             }
@@ -298,7 +298,8 @@ namespace TallerMecanico
             {
                 tabEmpleados.Visibility = Visibility.Visible;
             }
-            if (!permisosUsuarioLogeado.Contains(perm_anyadirAveria) && !permisosUsuarioLogeado.Contains(perm_resolverAveria) && !permisosUsuarioLogeado.Contains(perm_anularAveria))
+            if (!permisosUsuarioLogeado.Contains(perm_anyadirAveria) && !permisosUsuarioLogeado.Contains(perm_resolverAveria) 
+                && !permisosUsuarioLogeado.Contains(perm_anularAveria))
             {
                 tabAverias.Visibility = Visibility.Collapsed;
             }
@@ -380,15 +381,15 @@ namespace TallerMecanico
             }
             else if (mesActual >= 7 && mesActual <= 9)
             {
-                notifier.ShowInformation("Recordatorio, temporada de primavera, realizar pedido de Ruedas");
+                notifier.ShowInformation("Recordatorio, temporada de verano, realizar pedido de Ruedas");
             }
             else if (mesActual >= 10 && mesActual <= 12)
             {
-                notifier.ShowInformation("Recordatorio, temporada de primavera, realizar pedido de Correas de distribucion");
+                notifier.ShowInformation("Recordatorio, temporada de otoño, realizar pedido de Correas de distribucion");
             }
             else if (mesActual >= 1 && mesActual <= 3)
             {
-                notifier.ShowInformation("Recordatorio, temporada de primavera, realizar pedido de Limpiaparabrisas");
+                notifier.ShowInformation("Recordatorio, temporada de invierno, realizar pedido de Limpiaparabrisas");
             }
 
             foreach (pieza pza in mvpieza.listaPiezas)
@@ -560,6 +561,7 @@ namespace TallerMecanico
             contrasenaNueva.BorderBrush = Brushes.White;
             contrasenaActual.Password = "";
             contrasenaNueva.Password = "";
+            mvempleado.empleadoNuevo = new empleado();
         }
         /// <summary>
         /// Gestor del boton de guardar contraseña propia,
