@@ -561,7 +561,7 @@ namespace TallerMecanico
             contrasenaNueva.BorderBrush = Brushes.White;
             contrasenaActual.Password = "";
             contrasenaNueva.Password = "";
-            mvempleado.empleadoNuevo = new empleado();
+            mvempleado = new MVEmpleado(tEnt);
         }
         /// <summary>
         /// Gestor del boton de guardar contraseña propia,
