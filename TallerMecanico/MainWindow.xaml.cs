@@ -637,7 +637,6 @@ namespace TallerMecanico
             {
                 await this.ShowMessageAsync("Informacion", "Empleado añadido correctamente");
                 mvempleado = new MVEmpleado(tEnt);
-
             }
             else
             {
@@ -684,7 +683,6 @@ namespace TallerMecanico
             if (dialogo.DialogResult == true)
             {
                 await this.ShowMessageAsync("Informacion", "Empleado borrado correctamente");
-
                 mvempleado = new MVEmpleado(tEnt);
             }
             else
@@ -873,10 +871,12 @@ namespace TallerMecanico
             {
                 await this.ShowMessageAsync("Informacion", "Pieza borrada del stock corectamente");
                 mvpieza = new MVPieza(tEnt);
+                mvaveria = new MVAveria(tEnt);
             }
             else
             {
                 mvpieza = new MVPieza(tEnt);
+                mvaveria = new MVAveria(tEnt);
             }
         }
 
@@ -1012,10 +1012,12 @@ namespace TallerMecanico
             {
                 await this.ShowMessageAsync("Informacion", "Cliente borrado corectamente");
                 mvcliente = new MVCliente(tEnt);
+                mvaveria = new MVAveria(tEnt);
             }
             else
             {
                 mvcliente = new MVCliente(tEnt);
+                mvaveria = new MVAveria(tEnt);
             }
         }
 
